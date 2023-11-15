@@ -35,3 +35,10 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+ Manual package installed:
+ 1. Material UI default instalation
+ 2. Material UI Icons
+ 3. Material Tailwind
+ 4. Prettier Plugin Tailwind CSS
+ 5. ES-Lint Next.js
