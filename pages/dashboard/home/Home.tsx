@@ -3,33 +3,80 @@
 import React from 'react'
 import { Card, Typography } from "@material-tailwind/react";
 
-const TABLE_HEAD = ["Name", "Job", "Employed", ""];
+const TABLE_HEAD = [
+    "Ranking", "Estate", "RKH Janjang", "RKH Kg", "Realisasi Janjang", "Realisasi Kg", "Varian Janjang", "Varian Kg",
+    ];
 
 const TABLE_ROWS = [
     {
-        name: "John Michael",
-        job: "Manager",
-        date: "23/04/18",
+        ranking: "1",
+        estate: "2",
+        rkh_janjang: "64",
+        rkh_kg: "64",
+        realisasi_janjang: "64",
+        realisasi_kg: "64",
+        varian_janjang: "64",
+        varian_kg: "64",
     },
     {
-        name: "Alexa Liras",
-        job: "Developer",
-        date: "23/04/18",
+        ranking: "1",
+        estate: "2",
+        rkh_janjang: "64",
+        rkh_kg: "64",
+        realisasi_janjang: "64",
+        realisasi_kg: "64",
+        varian_janjang: "64",
+        varian_kg: "64",
     },
     {
-        name: "Laurent Perrier",
-        job: "Executive",
-        date: "19/09/17",
+        ranking: "1",
+        estate: "2",
+        rkh_janjang: "64",
+        rkh_kg: "64",
+        realisasi_janjang: "64",
+        realisasi_kg: "64",
+        varian_janjang: "64",
+        varian_kg: "64",
     },
     {
-        name: "Michael Levi",
-        job: "Developer",
-        date: "24/12/08",
+        ranking: "1",
+        estate: "2",
+        rkh_janjang: "64",
+        rkh_kg: "64",
+        realisasi_janjang: "64",
+        realisasi_kg: "64",
+        varian_janjang: "64",
+        varian_kg: "64",
     },
     {
-        name: "Richard Gran",
-        job: "Manager",
-        date: "04/10/21",
+        ranking: "1",
+        estate: "2",
+        rkh_janjang: "64",
+        rkh_kg: "64",
+        realisasi_janjang: "64",
+        realisasi_kg: "64",
+        varian_janjang: "64",
+        varian_kg: "64",
+    },
+    {
+        ranking: "1",
+        estate: "2",
+        rkh_janjang: "64",
+        rkh_kg: "64",
+        realisasi_janjang: "64",
+        realisasi_kg: "64",
+        varian_janjang: "64",
+        varian_kg: "64",
+    },
+    {
+        ranking: "1",
+        estate: "2",
+        rkh_janjang: "64",
+        rkh_kg: "64",
+        realisasi_janjang: "64",
+        realisasi_kg: "64",
+        varian_janjang: "64",
+        varian_kg: "64",
     },
 ];
 
@@ -92,26 +139,46 @@ const Home = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {TABLE_ROWS.map(({ name, job, date }, index) => (
-                            <tr key={name} className="even:bg-blue-gray-50/50">
+                        {TABLE_ROWS.map(({ ranking,estate,rkh_janjang,rkh_kg,realisasi_janjang,realisasi_kg,varian_janjang,varian_kg,}, index) => (
+                            <tr key={ranking} className="even:bg-blue-gray-50/50">
                                 <td className="p-4">
                                     <Typography variant="small" color="blue-gray" className="font-normal">
-                                        {name}
+                                        {ranking}
                                     </Typography>
                                 </td>
                                 <td className="p-4">
                                     <Typography variant="small" color="blue-gray" className="font-normal">
-                                        {job}
+                                        {estate}
                                     </Typography>
                                 </td>
                                 <td className="p-4">
                                     <Typography variant="small" color="blue-gray" className="font-normal">
-                                        {date}
+                                        {rkh_janjang}
                                     </Typography>
                                 </td>
                                 <td className="p-4">
                                     <Typography as="a" href="#" variant="small" color="blue-gray" className="font-medium">
-                                        Edit
+                                        {rkh_kg}
+                                    </Typography>
+                                </td>
+                                <td className="p-4">
+                                    <Typography as="a" href="#" variant="small" color="blue-gray" className="font-medium">
+                                        {realisasi_janjang}
+                                    </Typography>
+                                </td>
+                                <td className="p-4">
+                                    <Typography as="a" href="#" variant="small" color="blue-gray" className="font-medium">
+                                        {realisasi_kg}
+                                    </Typography>
+                                </td>
+                                <td className="p-4">
+                                    <Typography as="a" href="#" variant="small" color="blue-gray" className="font-medium">
+                                        {varian_janjang}
+                                    </Typography>
+                                </td>
+                                <td className="p-4">
+                                    <Typography as="a" href="#" variant="small" color="blue-gray" className="font-medium">
+                                        {varian_kg}
                                     </Typography>
                                 </td>
                             </tr>
