@@ -11,7 +11,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                 <Sidebar />
                 <div
                     className="relative flex flex-1 flex-col 
-                overflow-y-auto overflow-x-hidden border border-red-600 pt-2"
+                overflow-y-auto overflow-x-hidden border border-red-600"
                 >
                     <Topbar />
                     <main>

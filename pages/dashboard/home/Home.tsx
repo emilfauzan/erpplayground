@@ -1,11 +1,17 @@
 "use client";
 
-import React from 'react'
-import { Card, Typography } from "@material-tailwind/react";
+import * as React from 'react';
+import {
+    Card,
+    Typography,
+    CardHeader,
+    CardBody,
+    CardFooter,
+} from "@material-tailwind/react";
 
 const TABLE_HEAD = [
     "Ranking", "Estate", "RKH Janjang", "RKH Kg", "Realisasi Janjang", "Realisasi Kg", "Varian Janjang", "Varian Kg",
-    ];
+];
 
 const TABLE_ROWS = [
     {
@@ -119,8 +125,77 @@ const Home = () => {
           4 - Total Estimated Weight -> at the buttom of the table // UOM in Tonnes
         */}
             {/* <div className="col-span-12"> */}
-            <h1>Home</h1>
-            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed unde autem dolore. Distinctio architecto magnam odio quasi, placeat amet? Dolore omnis, nemo sequi quo accusantium asperiores! Saepe vero reiciendis exercitationem porro beatae eveniet, veniam unde quas harum cum ratione molestiae hic rerum quam repellendus sunt nam ea omnis modi possimus. Voluptas voluptatem consequatur, et necessitatibus officiis illum dolor distinctio praesentium rem libero cum qui iusto, reprehenderit, maxime dolore ducimus assumenda numquam maiores dolorem. Quia adipisci veritatis voluptatum delectus debitis nostrum beatae aperiam labore asperiores perspiciatis nesciunt excepturi, vel inventore quibusdam! Quibusdam enim quae aperiam aliquam perferendis sunt vero pariatur quidem?</h3>
+            <h1 className='pb-4'>Home</h1>
+            <div className="grid grid-cols-2 gap-3">
+                {/* Card starts here */}
+                <Card className="flex flex-wrap py-6 border border-red-500">
+                    <CardHeader color='blue-gray' className='relative border border-teal-400 px-6 py-2'>
+                        <h2>Alo</h2>
+                    </CardHeader>
+                    <CardBody className='border border-green-400'>
+                        <Typography variant='h5' color='blue-gray' className='mb-2'>
+                            Testing is indeed such a test.
+                        </Typography>
+                        <Typography>
+                            Such test cannot be executed easily.
+                        </Typography>
+                    </CardBody>
+                    <CardFooter className="border border-purple-400">
+                        Footer is right here.
+                    </CardFooter>
+                </Card>
+                <Card className="flex flex-wrap py-6 border border-red-500">
+                    <CardHeader color='blue-gray' className='relative border border-teal-400 px-6 py-2'>
+                        <h2>Alo</h2>
+                    </CardHeader>
+                    <CardBody className='border border-green-400'>
+                        <Typography variant='h5' color='blue-gray' className='mb-2'>
+                            Testing is indeed such a test.
+                        </Typography>
+                        <Typography>
+                            Such test cannot be executed easily.
+                        </Typography>
+                    </CardBody>
+                    <CardFooter className="border border-purple-400">
+                        Footer is right here.
+                    </CardFooter>
+                </Card>
+                <Card className="flex flex-wrap py-6 border border-red-500">
+                    <CardHeader color='blue-gray' className='relative border border-teal-400 px-6 py-2'>
+                        <h2>Alo</h2>
+                    </CardHeader>
+                    <CardBody className='border border-green-400'>
+                        <Typography variant='h5' color='blue-gray' className='mb-2'>
+                            Testing is indeed such a test.
+                        </Typography>
+                        <Typography>
+                            Such test cannot be executed easily.
+                        </Typography>
+                    </CardBody>
+                    <CardFooter className="border border-purple-400">
+                        Footer is right here.
+                    </CardFooter>
+                </Card>
+                <Card className="flex flex-wrap py-6 border border-red-500">
+                    <CardHeader color='blue-gray' className='relative border border-teal-400 px-6 py-2'>
+                        <h2>Alo</h2>
+                    </CardHeader>
+                    <CardBody className='border border-green-400'>
+                        <Typography variant='h5' color='blue-gray' className='mb-2'>
+                            Testing is indeed such a test.
+                        </Typography>
+                        <Typography>
+                            Such test cannot be executed easily.
+                        </Typography>
+                    </CardBody>
+                    <CardFooter className="border border-purple-400">
+                        Footer is right here.
+                    </CardFooter>
+                </Card>
+                {/* Card ends here */}
+            </div>
+
+            <h3 className='py-6'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed unde autem dolore. Distinctio architecto magnam odio quasi, placeat amet? Dolore omnis, nemo sequi quo accusantium asperiores! Saepe vero reiciendis exercitationem porro beatae eveniet, veniam unde quas harum cum ratione molestiae hic rerum quam repellendus sunt nam ea omnis modi possimus. Voluptas voluptatem consequatur, et necessitatibus officiis illum dolor distinctio praesentium rem libero cum qui iusto, reprehenderit, maxime dolore ducimus assumenda numquam maiores dolorem. Quia adipisci veritatis voluptatum delectus debitis nostrum beatae aperiam labore asperiores perspiciatis nesciunt excepturi, vel inventore quibusdam! Quibusdam enim quae aperiam aliquam perferendis sunt vero pariatur quidem?</h3>
             <Card className="h-full w-full overflow-scroll">
                 <table className="w-full min-w-max table-auto text-left">
                     <thead>
@@ -139,7 +214,7 @@ const Home = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {TABLE_ROWS.map(({ ranking,estate,rkh_janjang,rkh_kg,realisasi_janjang,realisasi_kg,varian_janjang,varian_kg,}, index) => (
+                        {TABLE_ROWS.map(({ ranking, estate, rkh_janjang, rkh_kg, realisasi_janjang, realisasi_kg, varian_janjang, varian_kg, }, index) => (
                             <tr key={ranking} className="even:bg-blue-gray-50/50">
                                 <td className="p-4">
                                     <Typography variant="small" color="blue-gray" className="font-normal">

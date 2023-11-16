@@ -9,9 +9,21 @@ const Sidebar = () => {
 
 
     return (
-        <div className='pt-2 px-4'>
-            <h2 className='pb-2 text-center'>ERP Playground</h2>
-            <ul>
+        <div className='p-4 bg-blue-900'>
+            {/* Title start */}
+            <h1 className='pb-2 text-center font-bold'>
+                <Link
+                    href={"home"}
+                    className={` 
+                   ${pathname === "/dashboard/home" &&
+                        "bg-yellow-900 dark:bg-black"
+                        }`}
+                >
+                    ERP Playground
+                </Link>
+            </h1>
+            {/* Title end */}
+            <ul className='mt-8'>
                 <li>
                     <Link
                         href={"home"}
