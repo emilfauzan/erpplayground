@@ -23,7 +23,7 @@ const Sidebar = () => {
                 </Link>
             </h1>
             {/* Title end */}
-            <ul className='mt-8'>
+            <ul className='mt-'>
                 <li>
                     <Link
                         href={"home"}
