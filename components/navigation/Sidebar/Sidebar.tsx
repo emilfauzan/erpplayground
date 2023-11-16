@@ -7,9 +7,8 @@ import { usePathname } from "next/navigation";
 const Sidebar = () => {
     const pathname = usePathname();
 
-
     return (
-        <div className='p-4 bg-blue-900'>
+        <div className='p-4 bg-[#37474f]'>
             {/* Title start */}
             <h1 className='pb-2 text-center font-bold'>
                 <Link
@@ -23,7 +22,8 @@ const Sidebar = () => {
                 </Link>
             </h1>
             {/* Title end */}
-            <ul className='mt-'>
+
+            <ul className='mt-6'>
                 <li>
                     <Link
                         href={"home"}
