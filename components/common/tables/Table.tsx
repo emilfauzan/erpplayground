@@ -1,3 +1,4 @@
+"use client"
 
 import * as React from 'react';
 import {
@@ -82,7 +83,7 @@ const TABLE_ROWS = [
     },
 ];
 
-export const TableTankingEstate = () => {
+export const TableRankingEstate = () => {
     return (
         <Card className="h-full w-full overflow-scroll px-5 pt-6 pb-2.5 bg-[#24303F] rounded-md">
             <table className="w-full min-w-max table-auto text-left">
