@@ -1,6 +1,5 @@
 import Link from "next/link";
 // import { useEffect, useRef, useState } from "react";
-import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const DropdownUser = () => {
