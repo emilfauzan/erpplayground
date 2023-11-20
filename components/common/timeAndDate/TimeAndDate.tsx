@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function padTo2Digits(num: number) {
     return num.toString().padStart(2, "0");
