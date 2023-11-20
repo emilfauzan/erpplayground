@@ -1,9 +1,8 @@
 import Home from '@/pages/dashboard/home/Home';
 
-const page = () => {
-  return (
-    <Home />
-  ) 
+function page () {
+  return 
+    <Home />;
 }
 
-export default page
+export default page;

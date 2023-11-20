@@ -9,7 +9,7 @@ import DropdownUser from './DropdownUser';
 
 const Topbar = ({ sidebarOpen, setSidebarOpen }: TopbarProp) => {
     return (
-        <header className='sticky top-0 z-999 flex bg-[#37474f] w-full drop-shadow-none'>
+        <header className='sticky top-0 z-99 flex bg-[#37474f] w-full drop-shadow-none'>
             <div className='flex flex-grow items-center justify-between px-4 py-4 md:px-6 2xl:px-11'>
                 <div className='flex items-center gap-2 text-white sm:gap-4 lg:hidden'>
                     <Button
@@ -18,7 +18,7 @@ const Topbar = ({ sidebarOpen, setSidebarOpen }: TopbarProp) => {
                             event.stopPropagation();
                             setSidebarOpen(!sidebarOpen);
                         }}
-                        className="z-99999 block rounded-sm border-stroke bg-yellow-900 p-1.5 shadow-sm lg:hidden"
+                        className="z-99 block rounded-sm border-stroke bg-yellow-900 p-1.5 shadow-sm lg:hidden"
                     >
                         <svg
                             fill="none"

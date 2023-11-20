@@ -37,7 +37,7 @@ const rows = [
     createData(2, 356, 16.0, 49, 3.9),
 ];
 
-const Home = () => {
+function Home ()  {
     return (
         <>
             <h1 className='pb-4'>Home</h1>
