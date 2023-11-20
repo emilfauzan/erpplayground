@@ -5,7 +5,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/mt_export_file/ExportComponent";
 import { SidebarProp } from "@/interface/typings";
+import SidebarLinkGroup from "./SidebarLinkGroup";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import HomeIcon from "@mui/icons-material/Home";
+import GroupIcon from "@mui/icons-material/Group";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
     const pathname = usePathname();
@@ -13,7 +17,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
     const trigger = useRef<any>(null);
     const sidebar = useRef<any>(null);
 
-    let storedSidebarExpanded = "true";
+    const storedSidebarExpanded = "true";
     const [sidebarExpanded, setSidebarExpanded] = useState(
         storedSidebarExpanded === null ? false : storedSidebarExpanded === "true",
     );
@@ -92,41 +96,108 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
             </div>
             {/* Title end */}
 
-            <ul className='mt-6'>
-                <li>
-                    <Link
-                        href={"home"}
-                        className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black 
-                   ${pathname === "/dashboard/home" &&
-                            "bg-yellow-900 dark:bg-black"
-                            }`}
-                    >
-                        Home
-                    </Link>
-                </li>
-                <li>
-                    <Link
-                        href={"human_resources"}
-                        className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black 
-                   ${pathname === "/dashboard/home" &&
-                            "bg-yellow-900 dark:bg-black"
-                            }`}
-                    >
-                        Human Resources
-                    </Link>
-                </li>
-                <li>
-                    <Link
-                        href={"production"}
-                        className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black 
-                   ${pathname === "/dashboard/home" &&
-                            "bg-yellow-900 dark:bg-black"
-                            }`}
-                    >
-                        Production
-                    </Link>
-                </li>
-            </ul>
+            {/* Sidebar Content - Start */}
+
+            <div className="no-scrollbar flex flex-col overflow-y-auto bg-blue-gray-800 duration-300 ease-linear">
+                <nav className="mt-5 px-4 py-4 lg:mt-0 lg:px-6">
+                    <div>
+                        <h3 className="mb-4 ml-4 text-sm font-semibold text-white">MENU</h3>
+
+                        <ul className="mb-6 flex flex-col gap-1.5">
+                            <li>
+                                <Link href={"home"}
+                                    className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black 
+${pathname === "/dashboard/home" &&
+                                        "bg-yellow-900 dark:bg-black"
+                                        }`}
+                                >
+                                    <svg
+                                        className="fill-current"
+                                        width="18"
+                                        height="18"
+                                        viewBox="0 0 18 18"
+                                        fill="none"
+                                    >
+                                        <HomeIcon />
+                                    </svg>
+                                    Home Dashboard
+                                </Link>
+                            </li>
+                            {/*Human Resources Link*/}
+                            <SidebarLinkGroup
+                                activeCondition={
+                                    pathname === "/dashboard/" ||
+                                    pathname === "/dashboard/human_resources"
+                                }
+                            >
+                                {(handleClick, open) => {
+                                    return (
+                                        <React.Fragment>
+                                            <Link
+                                                href="#"
+                                                className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black
+                        ${(pathname === "/dashboard" ||
+                                                        pathname === "/dashboard/human_resources") &&
+                                                    "bg-yellow-900 dark:bg-black"
+                                                    }`}
+                                                onClick={(event) => {
+                                                    event.preventDefault();
+                                                    sidebarExpanded
+                                                        ? handleClick()
+                                                        : setSidebarExpanded(true);
+                                                }}
+                                            >
+                                                <svg
+                                                    className="fill-current"
+                                                    width="18"
+                                                    height="18"
+                                                    viewBox="0 0 18 18"
+                                                    fill="none"
+                                                >
+                                                    <GroupIcon />
+                                                </svg>
+                                                Human Resources
+                                                <svg
+                                                    className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${open && "rotate-180"
+                                                        }`}
+                                                    width="20"
+                                                    height="20"
+                                                    viewBox="0 0 20 20"
+                                                    fill="none"
+                                                >
+                                                    <KeyboardArrowUpIcon />
+                                                </svg>
+                                            </Link>
+                                            <div
+                                                className={`translate transform overflow-hidden ${!open && "hidden"
+                                                    }`}
+                                            >
+                                                <ul className="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
+                                                    <li>
+                                                        <Link
+                                                            href="/dashboard/human_resources"
+                                                            className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-white duration-300 
+                                ease-in-out hover:bg-white hover:text-black ${pathname === "/dashboard/human_resources" &&
+                                                                "bg-yellow-900 dark:bg-black"
+                                                                } `}
+                                                        >
+                                                            HR Dashboard
+                                                        </Link>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </React.Fragment>
+                                    );
+                                }}
+                            </SidebarLinkGroup>
+                        </ul>
+
+                    </div>
+                </nav>
+            </div>
+
+            {/* Sidebar Content - End */}
+
         </aside>
     )
 }
