@@ -1,8 +1,7 @@
 import Home from '@/pages/dashboard/home/Home';
 
 function page () {
-  return 
-    <Home />;
+  return <Home />;
 }
 
 export default page;

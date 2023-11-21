@@ -12,7 +12,7 @@ function CardDataStats({
     children
 }: CardDataStatProp) {
     return (
-        <div className="rounded-md border border-stroke bg-blue-gray-900 px-7 py-6 text-white shadow-default">
+        <div className="rounded-md border border-stroke bg-[#24303F] px-7 py-6 text-white shadow-default">
             <div className=" justify-left flex items-center">
                 <div className="justify-center rounded-full bg-meta-4">
                     <div className="flex h-11.5 w-11.5 items-center justify-center">
