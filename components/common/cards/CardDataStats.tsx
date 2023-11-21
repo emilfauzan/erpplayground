@@ -12,21 +12,22 @@ function CardDataStats({
     children
 }: CardDataStatProp) {
     return (
-        <div className="rounded-md border border-stroke bg-[#24303F] px-7 py-6 text-white shadow-default">
-            <div className=" justify-left flex items-center">
-                <div className="justify-center rounded-full bg-meta-4">
+        <div className="rounded-md border border-stroke px-7 py-6 shadow-default">
+            <div className="justify-left flex items-center">
+                <div className="justify-center rounded-full bg-meta-2">
                     <div className="flex h-11.5 w-11.5 items-center justify-center">
                         {children}
                     </div>
                 </div>
                 <div className="ml-4">
-                    <h4 className="text-title-md font-bold text-white">{title}</h4>
+                    <h4 className="text-title-md font-bold">{title}</h4>
                 </div>
             </div>
+            <hr className="my-2 border-blue-gray-50" />
 
             <div className="ml-15 mt-4 flex items-end justify-between">
                 <div>
-                    <h4 className="text-md whitespace-pre-line text-white">{subtitle}</h4>
+                    <h4 className="text-md whitespace-pre-line">{subtitle}</h4>
                 </div>
             </div>
 

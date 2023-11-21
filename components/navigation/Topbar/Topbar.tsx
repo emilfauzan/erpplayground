@@ -6,6 +6,8 @@ import { Button } from "@material-tailwind/react";
 import Link from "next/link";
 import { GetLiveTime } from "../../common/timeAndDate/TimeAndDate";
 import DropdownUser from './DropdownUser';
+import Image from "next/image";
+import CompanyLogo from "@/public/images/companyLogo/companyLogo.png";
 
 const Topbar = ({ sidebarOpen, setSidebarOpen }: TopbarProp) => {
     return (
@@ -35,9 +37,14 @@ const Topbar = ({ sidebarOpen, setSidebarOpen }: TopbarProp) => {
                         ></span>
                     </Button>
                     <Link className="block flex-shrink-0 lg-hidden" href="views/dashboard/home">
-                        <AccountCircleIcon />
+                        <Image
+                            src={CompanyLogo}
+                            width={32}
+                            height={32}
+                            alt="Company Logo"
+                        />
                     </Link>
-                    Topbar
+          PT. Bangkitgiat Usaha Mandiri
                 </div>
                 <div className="hidden text-white lg:block">
                     <h2 className="whitespace-pre-line text-center">

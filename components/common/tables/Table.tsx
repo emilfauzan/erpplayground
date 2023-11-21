@@ -155,7 +155,7 @@ const TABLE_ROWS = [
 
 export const TableRankingEstate = () => {
     return (
-        <Card className="h-full w-full overflow-scroll px-5 pt-6 pb-2.5 rounded-md text-white">
+        <Card className="h-full w-full overflow-scroll border border-stroke px-5 pt-6 pb-2.5 rounded-md text-white">
             <table className="w-full min-w-max table-auto text-center">
                 <thead>
                     <tr>

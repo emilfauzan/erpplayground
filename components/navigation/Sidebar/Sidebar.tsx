@@ -10,6 +10,8 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import HomeIcon from "@mui/icons-material/Home";
 import GroupIcon from "@mui/icons-material/Group";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import CompanyLogo from "@/public/images/companyLogo/companyLogo.png";
+import Image from "next/image";
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
     const pathname = usePathname();
@@ -71,8 +73,16 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
                         className="content flex w-full place-items-center 
               justify-center py-2 align-middle"
                     >
-                        <h2 className="flex place-items-center justify-center mx-2 my-4 text-white"
-                        >ERP Playground</h2>
+                        <Image
+                            width={50}
+                            height={50}
+                            src={CompanyLogo}
+                            alt="Company Logo"
+                            className="flex place-items-center justify-center"
+                        />
+                        <div className="ml-2">
+                            <h1 className="text-left text-white">NT Corp Analytics</h1>
+                        </div>
                     </div>
                 </Link>
                 <Button
