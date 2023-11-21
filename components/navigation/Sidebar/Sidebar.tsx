@@ -10,6 +10,7 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import HomeIcon from "@mui/icons-material/Home";
 import GroupRoundedIcon from '@mui/icons-material/GroupRounded';
 import AssessmentRoundedIcon from '@mui/icons-material/AssessmentRounded';
+import CalendarMonthRoundedIcon from '@mui/icons-material/CalendarMonthRounded';
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import CompanyLogo from "@/public/images/companyLogo/companyLogo.png";
 import Image from "next/image";
@@ -69,7 +70,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
                 className="flex items-center justify-between gap-2 px-6 
         py-5.5 lg:block lg:py-6.5"
             >
-                <Link href={"home"}
+                <Link href={"/dashboard/home"}
                     className={`group relative flex items-center gap-2.5 rounded-md px-4 py-2 font-medium text-white duration-300 ease-in-out
                 ${pathname === "/dashboard/home"
                         }`}
@@ -116,12 +117,14 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
 
             <div className="no-scrollbar flex flex-col overflow-y-auto bg-blue-gray-800 duration-300 ease-linear">
                 <nav className="mt-5 px-4 py-4 lg:mt-0 lg:px-6">
+
+                    {/* Main Navigations - Start */}
                     <div>
-                        <h3 className="mb-4 ml-4 text-sm font-semibold text-white">MENU</h3>
+                        <h3 className="mb-4 ml-4 text-sm font-semibold text-white">MAIN NAVIGATION</h3>
 
                         <ul className="mb-6 flex flex-col gap-1.5">
                             <li>
-                                <Link href={"home"}
+                                <Link href={"/dashboard/home"}
                                     className={`group relative flex items-center gap-2.5 rounded-md px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black 
 ${pathname === "/dashboard/home" &&
                                         "bg-orange-500 dark:bg-black"
@@ -142,7 +145,7 @@ ${pathname === "/dashboard/home" &&
                             {/*Human Resources Link*/}
                             <SidebarLinkGroup
                                 activeCondition={
-                                    pathname === "/dashboard/" ||
+                                    pathname === "/dashboard/human_resources" ||
                                     pathname === "/dashboard/human_resources"
                                 }
                             >
@@ -152,8 +155,8 @@ ${pathname === "/dashboard/home" &&
                                             <Link
                                                 href="#"
                                                 className={`group relative flex items-center gap-2.5 rounded-md px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black
-                        ${(pathname === "/dashboard" ||
-                                                        pathname === "/dashboard/human_resources") &&
+                        ${(pathname === "" ||
+                                                        pathname === "") &&
                                                     "bg-orange-500 dark:bg-black"
                                                     }`}
                                                 onClick={(event) => {
@@ -216,7 +219,7 @@ ${pathname === "/dashboard/home" &&
                                 }}
                             </SidebarLinkGroup>
                             <li>
-                                <Link href={"production"}
+                                <Link href={"/dashboard/production"}
                                     className={`group relative flex items-center gap-2.5 rounded-md px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black 
 ${pathname === "/dashboard/production" &&
                                         "bg-orange-500 dark:bg-black"
@@ -238,6 +241,38 @@ ${pathname === "/dashboard/production" &&
                         </ul>
 
                     </div>
+                    {/* Main Navigations - End */}
+
+                    {/* App Navigations - Start */}
+                    <div>
+                        <h3 className="mb-4 ml-4 text-sm font-semibold text-white">APPS</h3>
+
+                        <ul className="mb-6 flex flex-col gap-1.5">
+                            <li>
+                                <Link href={"/apps/calendar"}
+                                    className={`group relative flex items-center gap-2.5 rounded-md px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black
+                                    ${pathname === "/apps/calendar" &&
+                                        "bg-orange-500 dark:bg-black"
+                                        }`}
+                                >
+                                    <svg
+                                        className="fill-current"
+                                        width="18"
+                                        height="18"
+                                        viewBox="0 0 18 18"
+                                        fill="none"
+                                    >
+                                        <CalendarMonthRoundedIcon />
+                                    </svg>
+                                    Calendar
+                                </Link>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                    {/* App Navigations - End */}
+
                 </nav>
             </div>
 

@@ -58,7 +58,7 @@ const DropdownUser = () => {
                 ref={dropdown}
                 onFocus={() => setDropdownOpen(true)}
                 onBlur={() => setDropdownOpen(false)}
-                className={`absolute right-2 mt-4 w-62.5 flex-col rounded-md border border-stroke bg-blue-gray-800 text-white shadow-default dark:border-strokedark ${dropdownOpen === true ? "block" : "hidden"
+                className={`max-w-max	absolute right-2 mt-5 w-62.5 flex-col rounded-md border border-stroke bg-blue-gray-800 text-white shadow-default dark:border-strokedark ${dropdownOpen === true ? "block" : "hidden"
                     }`}
             >
                 <ul className="flex flex-col gap-5 border-b border-stroke px-6 py-5 dark:border-stroke">
@@ -67,8 +67,8 @@ const DropdownUser = () => {
                         Position
                     </h1>
                 </ul>
-                <div className="text-center py-2">
-                    <Button className="gap-3.5 px-6 py-1.5 text-sm font-bolder duration-300 ease-in-out hover:bg-red-500 hover:border-red-500 lg:text-base border border-stroke">
+                <div className="text-center">
+                    <Button className="gap-3.5 px-6 py-1.5 text-sm font-bolder duration-300 ease-in-out hover:bg-red-500 hover:border-red-500 lg:text-base  rounded-sm">
                         <Link
                             href={"/"}
                             className="flex items-center gap-3.5 text-sm font-bolder duration-300 ease-in-out "

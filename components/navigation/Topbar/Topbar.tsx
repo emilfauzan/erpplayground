@@ -36,7 +36,7 @@ const Topbar = ({ sidebarOpen, setSidebarOpen }: TopbarProp) => {
               cursor-pointer"
                         ></span>
                     </Button>
-                    <Link className="block flex-shrink-0 lg-hidden" href="views/dashboard/home">
+                    <Link className="block flex-shrink-0 lg-hidden" href="home">
                         <Image
                             src={CompanyLogo}
                             width={32}
@@ -53,10 +53,7 @@ const Topbar = ({ sidebarOpen, setSidebarOpen }: TopbarProp) => {
                 </div>
             </div>
             <div className="flex items-center gap-3 2xsm:gap-7 text-xs">
-                <span className='text-right'>
                 <GetLiveTime />
-
-                </span>
                 <DropdownUser />
             </div>
         </header>
