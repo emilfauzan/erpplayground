@@ -7,13 +7,13 @@ import { orange } from '@mui/material/colors';
 function Home() {
     return (
         <>
-            <h1 className='pb-4'>Home Dashboard</h1>
+            <h1 className='pb-4 text-title-md2 font-bold'>Home Dashboard</h1>
 
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-2 2xl:gap-7.5">
                 <CardDataStats
                     title="Informasi Karyawan"
                     subtitle={
-                        `Heissenberg [NIK: JKO/202X/000X]` + `\n` + `Back Door Chef`
+                        `Walter Hartwell White [NIK: JKO/202X/000X]` + `\n` + `Back Door Chef`
                     }
                     description={`Information Technology Department`}
                 >

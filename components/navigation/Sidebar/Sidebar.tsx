@@ -8,7 +8,8 @@ import { SidebarProp } from "@/interface/typings";
 import SidebarLinkGroup from "./SidebarLinkGroup";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import HomeIcon from "@mui/icons-material/Home";
-import GroupIcon from "@mui/icons-material/Group";
+import GroupRoundedIcon from '@mui/icons-material/GroupRounded';
+import AssessmentRoundedIcon from '@mui/icons-material/AssessmentRounded';
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import CompanyLogo from "@/public/images/companyLogo/companyLogo.png";
 import Image from "next/image";
@@ -68,7 +69,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
                 className="flex items-center justify-between gap-2 px-6 
         py-5.5 lg:block lg:py-6.5"
             >
-                <Link href={"home"}>
+                <Link href={"home"}
+                    className={`group relative flex items-center gap-2.5 rounded-md px-4 py-2 font-medium text-white duration-300 ease-in-out
+                ${pathname === "/dashboard/home"
+                        }`}
+                >
                     <div
                         className="content flex w-full place-items-center 
               justify-center py-2 align-middle"
@@ -90,7 +95,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
                     onClick={() => setSidebarOpen(!sidebarOpen)}
                     aria-controls="sidebar"
                     aria-expanded={sidebarOpen}
-                    className="ml-0 block border border-whiten lg:hidden hover:bg-black"
+                    className="ml-0 block border border-whiten lg:hidden hover:bg-black duration-300 ease-in-out"
                     variant="outlined"
                 >
                     <svg
@@ -165,7 +170,7 @@ ${pathname === "/dashboard/home" &&
                                                     viewBox="0 0 18 18"
                                                     fill="none"
                                                 >
-                                                    <GroupIcon />
+                                                    <GroupRoundedIcon />
                                                 </svg>
                                                 Human Resources
                                                 <svg
@@ -199,27 +204,7 @@ ${pathname === "/dashboard/home" &&
                                                                 viewBox="0 0 18 18"
                                                                 fill="none"
                                                             >
-                                                                <GroupIcon />
-                                                            </svg>
-                                                            HR Dashboard
-                                                        </Link>
-                                                    </li>
-                                                    <li>
-                                                        <Link
-                                                            href="/dashboard/human_resources"
-                                                            className={`group relative flex items-center gap-2.5 rounded-md py-2 px-4 font-medium text-white duration-300 
-                                ease-in-out hover:bg-white hover:text-black ${pathname === "/dashboard/human_resources" &&
-                                                                "bg-orange-500 dark:bg-black"
-                                                                } `}
-                                                        >
-                                                            <svg
-                                                                className="fill-current"
-                                                                width="18"
-                                                                height="18"
-                                                                viewBox="0 0 18 18"
-                                                                fill="none"
-                                                            >
-                                                                <GroupIcon />
+                                                                <GroupRoundedIcon />
                                                             </svg>
                                                             HR Dashboard
                                                         </Link>
@@ -244,7 +229,7 @@ ${pathname === "/dashboard/production" &&
                                         viewBox="0 0 18 18"
                                         fill="none"
                                     >
-                                        <HomeIcon />
+                                        <AssessmentRoundedIcon />
                                     </svg>
                                     Production
                                 </Link>

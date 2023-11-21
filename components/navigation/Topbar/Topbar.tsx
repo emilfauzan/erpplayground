@@ -20,7 +20,7 @@ const Topbar = ({ sidebarOpen, setSidebarOpen }: TopbarProp) => {
                             event.stopPropagation();
                             setSidebarOpen(!sidebarOpen);
                         }}
-                        className="z-99 block rounded-sm border-stroke bg-orange-500 p-1.5 shadow-sm lg:hidden"
+                        className="z-99 block rounded-sm border-stroke bg-orange-500 hover:bg-white hover:text-black p-1.5 shadow-sm lg:hidden duration-300 ease-in-out"
                     >
                         <svg
                             fill="none"
@@ -52,8 +52,11 @@ const Topbar = ({ sidebarOpen, setSidebarOpen }: TopbarProp) => {
                     </h2>
                 </div>
             </div>
-            <div className="flex items-center gap-3 2xsm:gap-7">
+            <div className="flex items-center gap-3 2xsm:gap-7 text-xs">
+                <span className='text-right'>
                 <GetLiveTime />
+
+                </span>
                 <DropdownUser />
             </div>
         </header>
