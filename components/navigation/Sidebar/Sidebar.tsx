@@ -60,6 +60,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
     return (
         <aside ref={sidebar} className={`absolute left-0 top-0 z-9999 flex h-screen w-72 flex-col overflow-y-hidden bg-[#37474f] duration-300 ease-in-out dark:bg-boxdark lg:static lg:translate-x-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
             }`}>
+
             {/* Title start */}
             <div
                 className="flex items-center justify-between gap-2 px-6 
@@ -70,7 +71,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
                         className="content flex w-full place-items-center 
               justify-center py-2 align-middle"
                     >
-                        <h2 className="flex place-items-center justify-center mx-2 my-4"
+                        <h2 className="flex place-items-center justify-center mx-2 my-4 text-white"
                         >ERP Playground</h2>
                     </div>
                 </Link>
@@ -79,7 +80,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
                     onClick={() => setSidebarOpen(!sidebarOpen)}
                     aria-controls="sidebar"
                     aria-expanded={sidebarOpen}
-                    className="ml-0 block border border-whiten bg-none lg:hidden"
+                    className="ml-0 block border border-whiten lg:hidden hover:bg-black"
                     variant="outlined"
                 >
                     <svg
@@ -106,9 +107,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
                         <ul className="mb-6 flex flex-col gap-1.5">
                             <li>
                                 <Link href={"home"}
-                                    className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black 
+                                    className={`group relative flex items-center gap-2.5 rounded-md px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black 
 ${pathname === "/dashboard/home" &&
-                                        "bg-yellow-900 dark:bg-black"
+                                        "bg-orange-500 dark:bg-black"
                                         }`}
                                 >
                                     <svg
@@ -123,44 +124,6 @@ ${pathname === "/dashboard/home" &&
                                     Home Dashboard
                                 </Link>
                             </li>
-                            <li>
-                                <Link href={"human_resources"}
-                                    className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black 
-${pathname === "/dashboard/human_resources" &&
-                                        "bg-yellow-900 dark:bg-black"
-                                        }`}
-                                >
-                                    <svg
-                                        className="fill-current"
-                                        width="18"
-                                        height="18"
-                                        viewBox="0 0 18 18"
-                                        fill="none"
-                                    >
-                                        <HomeIcon />
-                                    </svg>
-                                    Human Resources
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href={"production"}
-                                    className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black 
-${pathname === "/dashboard/production" &&
-                                        "bg-yellow-900 dark:bg-black"
-                                        }`}
-                                >
-                                    <svg
-                                        className="fill-current"
-                                        width="18"
-                                        height="18"
-                                        viewBox="0 0 18 18"
-                                        fill="none"
-                                    >
-                                        <HomeIcon />
-                                    </svg>
-                                    Production
-                                </Link>
-                            </li>
                             {/*Human Resources Link*/}
                             <SidebarLinkGroup
                                 activeCondition={
@@ -173,10 +136,10 @@ ${pathname === "/dashboard/production" &&
                                         <React.Fragment>
                                             <Link
                                                 href="#"
-                                                className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black
+                                                className={`group relative flex items-center gap-2.5 rounded-md px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black
                         ${(pathname === "/dashboard" ||
                                                         pathname === "/dashboard/human_resources") &&
-                                                    "bg-yellow-900 dark:bg-black"
+                                                    "bg-orange-500 dark:bg-black"
                                                     }`}
                                                 onClick={(event) => {
                                                     event.preventDefault();
@@ -210,15 +173,44 @@ ${pathname === "/dashboard/production" &&
                                                 className={`translate transform overflow-hidden ${!open && "hidden"
                                                     }`}
                                             >
-                                                <ul className="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
+                                                <ul className="mb-4 mt-1 flex flex-col gap-2 pl-6">
                                                     <li>
                                                         <Link
                                                             href="/dashboard/human_resources"
-                                                            className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-white duration-300 
+                                                            className={`group relative flex items-center gap-2.5 rounded-md py-2 px-4 font-medium text-white duration-300 
                                 ease-in-out hover:bg-white hover:text-black ${pathname === "/dashboard/human_resources" &&
-                                                                "bg-yellow-900 dark:bg-black"
+                                                                "bg-orange-500 dark:bg-black"
                                                                 } `}
                                                         >
+                                                            <svg
+                                                                className="fill-current"
+                                                                width="18"
+                                                                height="18"
+                                                                viewBox="0 0 18 18"
+                                                                fill="none"
+                                                            >
+                                                                <GroupIcon />
+                                                            </svg>
+                                                            HR Dashboard
+                                                        </Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link
+                                                            href="/dashboard/human_resources"
+                                                            className={`group relative flex items-center gap-2.5 rounded-md py-2 px-4 font-medium text-white duration-300 
+                                ease-in-out hover:bg-white hover:text-black ${pathname === "/dashboard/human_resources" &&
+                                                                "bg-orange-500 dark:bg-black"
+                                                                } `}
+                                                        >
+                                                            <svg
+                                                                className="fill-current"
+                                                                width="18"
+                                                                height="18"
+                                                                viewBox="0 0 18 18"
+                                                                fill="none"
+                                                            >
+                                                                <GroupIcon />
+                                                            </svg>
                                                             HR Dashboard
                                                         </Link>
                                                     </li>
@@ -228,6 +220,26 @@ ${pathname === "/dashboard/production" &&
                                     );
                                 }}
                             </SidebarLinkGroup>
+                            <li>
+                                <Link href={"production"}
+                                    className={`group relative flex items-center gap-2.5 rounded-md px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black 
+${pathname === "/dashboard/production" &&
+                                        "bg-orange-500 dark:bg-black"
+                                        }`}
+                                >
+                                    <svg
+                                        className="fill-current"
+                                        width="18"
+                                        height="18"
+                                        viewBox="0 0 18 18"
+                                        fill="none"
+                                    >
+                                        <HomeIcon />
+                                    </svg>
+                                    Production
+                                </Link>
+                            </li>
+
                         </ul>
 
                     </div>

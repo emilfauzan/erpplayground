@@ -12,80 +12,150 @@ const TABLE_HEAD = [
 
 const TABLE_ROWS = [
     {
-        ranking: "10",
-        estate: "Clifford",
-        rkh_janjang: "83",
+        ranking: "47",
+        estate: "Leon",
+        rkh_janjang: "13",
+        rkh_kg: "21",
+        realisasi_janjang: "89",
+        realisasi_kg: "53",
+        varian_janjang: "50",
+        varian_kg: "15",
+    },
+    {
+        ranking: "11",
+        estate: "Francisco",
+        rkh_janjang: "86",
         rkh_kg: "4",
-        realisasi_janjang: "35",
-        realisasi_kg: "39",
-        varian_janjang: "44",
-        varian_kg: "34",
+        realisasi_janjang: "76",
+        realisasi_kg: "69",
+        varian_janjang: "14",
+        varian_kg: "30",
     },
     {
-        ranking: "3",
-        estate: "Lucinda",
-        rkh_janjang: "37",
-        rkh_kg: "94",
-        realisasi_janjang: "62",
-        realisasi_kg: "76",
-        varian_janjang: "96",
-        varian_kg: "13",
+        ranking: "55",
+        estate: "Winnie",
+        rkh_janjang: "76",
+        rkh_kg: "100",
+        realisasi_janjang: "1",
+        realisasi_kg: "37",
+        varian_janjang: "8",
+        varian_kg: "31",
     },
     {
-        ranking: "6",
-        estate: "Rosalie",
-        rkh_janjang: "15",
-        rkh_kg: "56",
-        realisasi_janjang: "15",
-        realisasi_kg: "10",
-        varian_janjang: "13",
-        varian_kg: "4",
-    },
-    {
-        ranking: "9",
-        estate: "Lee",
-        rkh_janjang: "97",
-        rkh_kg: "55",
-        realisasi_janjang: "37",
-        realisasi_kg: "28",
-        varian_janjang: "91",
+        ranking: "80",
+        estate: "Beatrice",
+        rkh_janjang: "26",
+        rkh_kg: "63",
+        realisasi_janjang: "33",
+        realisasi_kg: "89",
+        varian_janjang: "17",
         varian_kg: "44",
     },
     {
-        ranking: "4",
-        estate: "Abbie",
-        rkh_janjang: "12",
-        rkh_kg: "2",
-        realisasi_janjang: "30",
-        realisasi_kg: "68",
-        varian_janjang: "85",
-        varian_kg: "87",
-    },
-    {
-        ranking: "2",
-        estate: "Owen",
-        rkh_janjang: "73",
-        rkh_kg: "24",
-        realisasi_janjang: "8",
-        realisasi_kg: "39",
-        varian_janjang: "10",
-        varian_kg: "9",
-    },
-    {
-        ranking: "7",
-        estate: "Betty",
+        ranking: "6",
+        estate: "Dora",
         rkh_janjang: "62",
-        rkh_kg: "36",
-        realisasi_janjang: "30",
-        realisasi_kg: "34",
-        varian_janjang: "24",
-        varian_kg: "56",
+        rkh_kg: "86",
+        realisasi_janjang: "59",
+        realisasi_kg: "10",
+        varian_janjang: "47",
+        varian_kg: "57",
+    },
+    {
+        ranking: "27",
+        estate: "Esther",
+        rkh_janjang: "90",
+        rkh_kg: "52",
+        realisasi_janjang: "26",
+        realisasi_kg: "75",
+        varian_janjang: "3",
+        varian_kg: "35",
+    },
+    {
+        ranking: "88",
+        estate: "Dorothy",
+        rkh_janjang: "11",
+        rkh_kg: "87",
+        realisasi_janjang: "11",
+        realisasi_kg: "39",
+        varian_janjang: "56",
+        varian_kg: "99",
+    },
+    {
+        ranking: "85",
+        estate: "Effie",
+        rkh_janjang: "86",
+        rkh_kg: "69",
+        realisasi_janjang: "78",
+        realisasi_kg: "9",
+        varian_janjang: "66",
+        varian_kg: "47",
+    },
+    {
+        ranking: "97",
+        estate: "Eula",
+        rkh_janjang: "27",
+        rkh_kg: "74",
+        realisasi_janjang: "92",
+        realisasi_kg: "99",
+        varian_janjang: "91",
+        varian_kg: "17",
+    },
+    {
+        ranking: "24",
+        estate: "Manuel",
+        rkh_janjang: "16",
+        rkh_kg: "99",
+        realisasi_janjang: "99",
+        realisasi_kg: "9",
+        varian_janjang: "52",
+        varian_kg: "41",
+    },
+    {
+        ranking: "85",
+        estate: "Leila",
+        rkh_janjang: "52",
+        rkh_kg: "14",
+        realisasi_janjang: "44",
+        realisasi_kg: "68",
+        varian_janjang: "45",
+        varian_kg: "66",
+    },
+    {
+        ranking: "94",
+        estate: "Willie",
+        rkh_janjang: "66",
+        rkh_kg: "74",
+        realisasi_janjang: "5",
+        realisasi_kg: "75",
+        varian_janjang: "14",
+        varian_kg: "43",
+    },
+    {
+        ranking: "84",
+        estate: "Sam",
+        rkh_janjang: "38",
+        rkh_kg: "18",
+        realisasi_janjang: "48",
+        realisasi_kg: "84",
+        varian_janjang: "59",
+        varian_kg: "43",
+    },
+    {
+        ranking: "38",
+        estate: "Franklin",
+        rkh_janjang: "82",
+        rkh_kg: "53",
+        realisasi_janjang: "75",
+        realisasi_kg: "85",
+        varian_janjang: "61",
+        varian_kg: "96",
     },
 ];
 
 export const TableRankingEstate = () => {
     return (
-        <Card className="h-full w-full overflow-scroll px-5 pt-6 pb-2.5 bg-[#24303F] rounded-md">
+        <Card className="h-full w-full overflow-scroll px-5 pt-6 pb-2.5 rounded-md text-white">
             <table className="w-full min-w-max table-auto text-center">
                 <thead>
                     <tr>
@@ -121,27 +191,27 @@ export const TableRankingEstate = () => {
                                 </Typography>
                             </td>
                             <td className="p-4">
-                                <Typography as="a" href="#" variant="small" color="blue-gray" className="font-medium">
+                                <Typography variant="small" color="blue-gray" className="font-normal">
                                     {rkh_kg}
                                 </Typography>
                             </td>
                             <td className="p-4">
-                                <Typography as="a" href="#" variant="small" color="blue-gray" className="font-medium">
+                                <Typography variant="small" color="blue-gray" className="font-normal">
                                     {realisasi_janjang}
                                 </Typography>
                             </td>
                             <td className="p-4">
-                                <Typography as="a" href="#" variant="small" color="blue-gray" className="font-medium">
+                                <Typography variant="small" color="blue-gray" className="font-normal">
                                     {realisasi_kg}
                                 </Typography>
                             </td>
                             <td className="p-4">
-                                <Typography as="a" href="#" variant="small" color="blue-gray" className="font-medium">
+                                <Typography variant="small" color="blue-gray" className="font-normal">
                                     {varian_janjang}
                                 </Typography>
                             </td>
                             <td className="p-4">
-                                <Typography as="a" href="#" variant="small" color="blue-gray" className="font-medium">
+                                <Typography variant="small" color="blue-gray" className="font-normal">
                                     {varian_kg}
                                 </Typography>
                             </td>

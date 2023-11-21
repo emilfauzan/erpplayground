@@ -18,12 +18,12 @@ const Topbar = ({ sidebarOpen, setSidebarOpen }: TopbarProp) => {
                             event.stopPropagation();
                             setSidebarOpen(!sidebarOpen);
                         }}
-                        className="z-99 block rounded-sm border-stroke bg-yellow-900 p-1.5 shadow-sm lg:hidden"
+                        className="z-99 block rounded-sm border-stroke bg-orange-500 p-1.5 shadow-sm lg:hidden"
                     >
                         <svg
                             fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={2}
+                            viewBox="0 0 12 12"
+                            strokeWidth={1}
                             stroke="currentColor"
                             className="h-5 w-5"
                         >
