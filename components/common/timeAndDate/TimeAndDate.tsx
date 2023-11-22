@@ -71,7 +71,7 @@ export const GetDayAndDate = () => {
         return () => clearInterval(timer);
     }, []);
     return (
-        <h1 className="text-md text-center ">
+        <h1 className="text-md text-right ">
             {getDay(time)} | {getDate("DD-MM-YYYY", time)}
         </h1>
     );
