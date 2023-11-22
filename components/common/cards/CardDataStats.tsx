@@ -24,7 +24,7 @@ function CardDataStats({
     return (
         <Card>
             <CardBody>
-                <div className="flex border-2 border-transparent border-b-black pb-2 rounded-sm">
+                <div className="flex border-2 border-transparent border-b-black pb-4 rounded-sm">
                     <div className="rounded-full bg-meta-2 flex h-11 w-11 items-center justify-center">
                         {children}
                     </div>
