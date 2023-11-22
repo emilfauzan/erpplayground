@@ -10,28 +10,31 @@ function Home() {
             <h1 className='pb-4 text-title-md2 font-bold'>Home Dashboard</h1>
 
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-2 2xl:gap-7.5">
+
                 <CardDataStats
                     title="Informasi Karyawan"
-                    subtitle={
-                        `Walter Hartwell White [NIK: JKO/202X/000X]` + `\n` + `Back Door Chef`
-                    }
+                    subtitle1={`Walter Hartwell White`}
+                    subtitle2={`[NIK: JKO/202X/000X]`}
+                    subtitle3={`Scientist`}
                     description={`Information Technology Department`}
                 >
                     <svg width="30" height="30" fill="none">
                         <BadgeTwoToneIcon sx={{ color: orange[500] }} />
                     </svg>
                 </CardDataStats>
+
                 <CardDataStats
                     title="Informasi Karyawan"
-                    subtitle={
-                        `Heissenberg [NIK: JKO/202X/000X]` + `\n` + `Back Door Chef`
-                    }
+                    subtitle1={`Heissenberg`}
+                    subtitle2={`[NIK: JKO/202X/000X]`}
+                    subtitle3={`Back Door Chef`}
                     description={`Information Technology Department`}
                 >
                     <svg width="30" height="30" fill="none">
                         <BadgeTwoToneIcon color='primary' />
                     </svg>
                 </CardDataStats>
+
             </div>
 
             <h3 className='py-6 text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed unde autem dolore. Distinctio architecto magnam odio quasi, placeat amet? Dolore omnis, nemo sequi quo accusantium asperiores! Saepe vero reiciendis exercitationem porro beatae eveniet, veniam unde quas harum cum ratione molestiae hic rerum quam repellendus sunt nam ea omnis modi possimus. Voluptas voluptatem consequatur, et necessitatibus officiis illum dolor distinctio praesentium rem libero cum qui iusto, reprehenderit, maxime dolore ducimus assumenda numquam maiores dolorem. Quia adipisci veritatis voluptatum delectus debitis nostrum beatae aperiam labore asperiores perspiciatis nesciunt excepturi, vel inventore quibusdam! Quibusdam enim quae aperiam aliquam perferendis sunt vero pariatur quidem?</h3>

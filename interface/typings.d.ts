@@ -47,7 +47,9 @@ export interface SidebarLinkGroup {
 
 interface CardDataStatProp {
     title: string;
-    subtitle: string;
+    subtitle1: string;
+    subtitle2: string;
+    subtitle3: string;
     description: string;
     levelUp?: boolean;
     levelDown?: boolean;

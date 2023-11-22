@@ -72,11 +72,11 @@ const DropdownUser = () => {
                             <div className="border-b-2 pb-2"><AssignmentIndRoundedIcon className="mr-2" fontSize="small" /> Staff&apos;s Position</div>
                         </h1>
                     </ul>
-                    <div className="text-center w-auto py-4">
-                        <Button className="gap-3.5 px-6 py-2 text-sm font-bolder duration-300 ease-in-out hover:bg-red-500 hover:border-red-500 lg:text-base rounded-lg">
+                    <div className="text-center">
+                        <Button className="w-full gap-3.5 px-6 py-3 text-sm font-bolder duration-300 ease-in-out hover:bg-red-500 hover:border-red-500 lg:text-base rounded-sm">
                             <Link
                                 href={"/"}
-                                className="flex items-center gap-3.5 text-sm font-bolder duration-300 ease-in-out "
+                                className="flex items-center justify-center gap-3.5 text-sm font-bolder duration-300 ease-in-out "
                             >
                                 <svg
                                     className="fill-current"

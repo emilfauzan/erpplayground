@@ -1,9 +1,12 @@
+import { Spinner } from "@material-tailwind/react";
+
 const Loader = () => {
     return (
         <div className="flex h-screen items-center justify-center bg-black">
-            <div className="border-primary h-16 w-16 animate-spin rounded-full border-4 border-solid border-t-transparent"></div>
+            <Spinner color="red" className="h-16 w-16 text-gray-900/50" />
         </div>
     );
 };
 
 export default Loader;
+
