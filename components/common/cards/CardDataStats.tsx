@@ -22,7 +22,7 @@ function CardDataStats({
     children
 }: CardDataStatProp) {
     return (
-        <Card>
+        <Card className="hover:shadow-xl ease-in-out duration-300">
             <CardBody>
                 <div className="flex border-2 border-transparent border-b-black pb-4 rounded-sm">
                     <div className="rounded-full bg-meta-9 flex h-11 w-11 items-center justify-center">
