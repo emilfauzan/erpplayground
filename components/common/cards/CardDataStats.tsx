@@ -25,10 +25,10 @@ function CardDataStats({
         <Card>
             <CardBody>
                 <div className="flex border-2 border-transparent border-b-black pb-4 rounded-sm">
-                    <div className="rounded-full bg-meta-2 flex h-11 w-11 items-center justify-center">
+                    <div className="rounded-full bg-meta-9 flex h-11 w-11 items-center justify-center">
                         {children}
                     </div>
-                    <h4 className="pl-4 text-title-md font-extrabold flex items-center justify-center">{title}</h4>
+                    <h4 className="pl-4 text-title-md font-bold flex items-center justify-center">{title}</h4>
                 </div>
                 <div className="pl-15 mt-4 flex items-end justify-between">
                     <div>

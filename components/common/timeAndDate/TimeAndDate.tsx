@@ -56,7 +56,7 @@ export const GetLiveTime = () => {
         return () => clearInterval(timer);
     }, []);
     return (
-        <h1 className="text-md text-center text-white">
+        <h1 className="text-md text-right text-white">
             {getDay(time)} <br /> {getDate("DD-MM-YYYY", time)}, {getTime(time)}
         </h1>
     );

@@ -1,6 +1,6 @@
 "use client";
 import { TableRankingEstate } from '@/components/common/tables/Table';
-import BadgeTwoToneIcon from '@mui/icons-material/BadgeTwoTone';
+import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
 import CardDataStats from "@/components/common/cards/CardDataStats";
 import { orange } from '@mui/material/colors';
 
@@ -19,7 +19,8 @@ function Home() {
                     description={`Information Technology Department`}
                 >
                     <svg width="30" height="30" fill="none">
-                        <BadgeTwoToneIcon sx={{ color: orange[500] }} />
+                        
+                        <PersonOutlineRoundedIcon sx={{ color: orange[500] }} />
                     </svg>
                 </CardDataStats>
 
@@ -31,7 +32,7 @@ function Home() {
                     description={`Information Technology Department`}
                 >
                     <svg width="30" height="30" fill="none">
-                        <BadgeTwoToneIcon color='primary' />
+                        <PersonOutlineRoundedIcon color='primary' />
                     </svg>
                 </CardDataStats>
 

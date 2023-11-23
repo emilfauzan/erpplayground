@@ -55,3 +55,15 @@ interface CardDataStatProp {
     levelDown?: boolean;
     children: ReactNode;
 }
+
+interface EstateRankingDataProp {
+    id: number,
+    ranking: number,
+    estate: number,
+    rkhjanjang: number,
+    rkhkg: number,
+    realisasijanjang: number,
+    realisasikg: number,
+    varianjanjang: number,
+    variankg: number,
+}

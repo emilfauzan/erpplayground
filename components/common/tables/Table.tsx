@@ -174,7 +174,7 @@ export const TableRankingEstate = () => {
                 </thead>
                 <tbody>
                     {TABLE_ROWS.map(({ ranking, estate, rkh_janjang, rkh_kg, realisasi_janjang, realisasi_kg, varian_janjang, varian_kg, }, index) => (
-                        <tr key={ranking} className="even:bg-blue-gray-50/50">
+                        <tr key={ranking} className="even:bg-blue-gray-50/50 hover:bg-blue-gray-100/50">
                             <td className="p-4">
                                 <Typography variant="small" color="blue-gray" className="font-normal">
                                     {ranking}

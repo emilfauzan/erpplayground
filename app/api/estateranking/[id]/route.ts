@@ -1,7 +1,6 @@
-export const GET = async (req: Request, res: Response) => {
-    console.log("GET REQUEST from [id]");
-};
+import { estate } from "@/data/estate";
+import { NextResponse } from "next/server";
 
-export const POST = async (req: Request, res: Response) => {
-    console.log("POST REQUEST from [id]");
+export const GET = async (req: Request, res: Response) => {
+    NextResponse.json({estate}, { status: 201 })
 };
