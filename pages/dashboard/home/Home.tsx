@@ -2,7 +2,8 @@
 import { TableRankingEstate } from '@/components/common/tables/Table';
 import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
 import CardDataStats from "@/components/common/cards/CardDataStats";
-import { orange } from '@mui/material/colors';
+import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
+import { TableRankingHarvester } from '@/components/common/tables/HarvesterTable';
 
 function Home() {
     return (
@@ -15,24 +16,24 @@ function Home() {
                     title="Informasi Karyawan"
                     subtitle1={`Walter Hartwell White`}
                     subtitle2={`[NIK: JKO/202X/000X]`}
-                    subtitle3={`Scientist`}
+                    subtitle3={`Science School Teacher / Scientist`}
                     description={`Information Technology Department`}
                 >
                     <svg width="30" height="30" fill="none">
-                        
-                        <PersonOutlineRoundedIcon sx={{ color: orange[500] }} />
+
+                        <PersonOutlineRoundedIcon color='primary' />
                     </svg>
                 </CardDataStats>
 
                 <CardDataStats
-                    title="Informasi Karyawan"
-                    subtitle1={`Heissenberg`}
-                    subtitle2={`[NIK: JKO/202X/000X]`}
-                    subtitle3={`Back Door Chef`}
-                    description={`Information Technology Department`}
+                    title="Status Presensi"
+                    subtitle1={`Kehadiran s.d. 7 November 2023`}
+                    subtitle2={`Hadir: 3 Hari `}
+                    subtitle3={`Tidak Hadir: 2 Hari`}
+                    description={`Absen Terakhir: 7-11-2023 (18:35)`}
                 >
                     <svg width="30" height="30" fill="none">
-                        <PersonOutlineRoundedIcon color='primary' />
+                        <WorkHistoryOutlinedIcon color='primary' />
                     </svg>
                 </CardDataStats>
 
@@ -40,10 +41,12 @@ function Home() {
 
             <h3 className='py-6 text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed unde autem dolore. Distinctio architecto magnam odio quasi, placeat amet? Dolore omnis, nemo sequi quo accusantium asperiores! Saepe vero reiciendis exercitationem porro beatae eveniet, veniam unde quas harum cum ratione molestiae hic rerum quam repellendus sunt nam ea omnis modi possimus. Voluptas voluptatem consequatur, et necessitatibus officiis illum dolor distinctio praesentium rem libero cum qui iusto, reprehenderit, maxime dolore ducimus assumenda numquam maiores dolorem. Quia adipisci veritatis voluptatum delectus debitis nostrum beatae aperiam labore asperiores perspiciatis nesciunt excepturi, vel inventore quibusdam! Quibusdam enim quae aperiam aliquam perferendis sunt vero pariatur quidem?</h3>
 
-            <div className='grid grid-cols-1'>
+            <TableRankingHarvester />
 
-                <TableRankingEstate />
-            </div>
+            <h3 className='py-6 text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed unde autem dolore. Distinctio architecto magnam odio quasi, placeat amet? Dolore omnis, nemo sequi quo accusantium asperiores! Saepe vero reiciendis exercitationem porro beatae eveniet, veniam unde quas harum cum ratione molestiae hic rerum quam repellendus sunt nam ea omnis modi possimus. Voluptas voluptatem consequatur, et necessitatibus officiis illum dolor distinctio praesentium rem libero cum qui iusto, reprehenderit, maxime dolore ducimus assumenda numquam maiores dolorem. Quia adipisci veritatis voluptatum delectus debitis nostrum beatae aperiam labore asperiores perspiciatis nesciunt excepturi, vel inventore quibusdam! Quibusdam enim quae aperiam aliquam perferendis sunt vero pariatur quidem?</h3>
+
+            <TableRankingEstate />
+
 
 
             {/* <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-2 2xl:gap-7.5">
