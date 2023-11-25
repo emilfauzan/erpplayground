@@ -1,9 +1,9 @@
 "use client";
-import { TableRankingEstate } from '@/components/common/tables/Table';
+import { TableRankingEstate } from '@/components/common/tables/EstateTable';
+import { TableRankingHarvester } from '@/components/common/tables/HarvesterTable';
 import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
 import CardDataStats from "@/components/common/cards/CardDataStats";
 import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
-import { TableRankingHarvester } from '@/components/common/tables/HarvesterTable';
 
 function Home() {
     return (
@@ -41,11 +41,13 @@ function Home() {
 
             <h3 className='my-3 py-3 text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed unde autem dolore. Distinctio architecto magnam odio quasi, placeat amet? Dolore omnis, nemo sequi quo accusantium asperiores! Saepe vero reiciendis exercitationem porro beatae eveniet, veniam unde quas harum cum ratione molestiae hic rerum quam repellendus sunt nam ea omnis modi possimus. Voluptas voluptatem consequatur, et necessitatibus officiis illum dolor distinctio praesentium rem libero cum qui iusto, reprehenderit, maxime dolore ducimus assumenda numquam maiores dolorem. Quia adipisci veritatis voluptatum delectus debitis nostrum beatae aperiam labore asperiores perspiciatis nesciunt excepturi, vel inventore quibusdam! Quibusdam enim quae aperiam aliquam perferendis sunt vero pariatur quidem?</h3>
 
-            <TableRankingHarvester />
+            <h2 className="my-3 py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque tenetur, cumque accusantium reprehenderit blanditiis distinctio rerum consequuntur quasi commodi id nesciunt cum excepturi sunt corrupti? Impedit, laboriosam! Enim corrupti mollitia blanditiis iure dicta consequuntur animi totam dolorum veniam ullam nesciunt illo ratione repellendus voluptatibus quasi minus, asperiores neque qui sequi nobis nisi nam quisquam eius necessitatibus. Libero numquam magni animi molestiae? Quae ratione quam dolore molestiae odio a ducimus ipsa explicabo earum! Nam, accusamus dolores ipsam recusandae officia mollitia, quis aspernatur adipisci delectus quia obcaecati saepe, quidem magnam! Cupiditate possimus, similique inventore maiores eum dolorum sint pariatur est excepturi libero.</h2>
+
+            <TableRankingEstate />
 
             <h3 className='my-3 py-3 text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed unde autem dolore. Distinctio architecto magnam odio quasi, placeat amet? Dolore omnis, nemo sequi quo accusantium asperiores! Saepe vero reiciendis exercitationem porro beatae eveniet, veniam unde quas harum cum ratione molestiae hic rerum quam repellendus sunt nam ea omnis modi possimus. Voluptas voluptatem consequatur, et necessitatibus officiis illum dolor distinctio praesentium rem libero cum qui iusto, reprehenderit, maxime dolore ducimus assumenda numquam maiores dolorem. Quia adipisci veritatis voluptatum delectus debitis nostrum beatae aperiam labore asperiores perspiciatis nesciunt excepturi, vel inventore quibusdam! Quibusdam enim quae aperiam aliquam perferendis sunt vero pariatur quidem?</h3>
 
-            <TableRankingEstate />
+            <TableRankingHarvester />
 
 
 
