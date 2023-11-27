@@ -1,8 +1,6 @@
 "use client"
 
 import * as React from 'react';
-import UnfoldMoreRoundedIcon from '@mui/icons-material/UnfoldMoreRounded';
-import { EstateRankingDataProp } from '@/interface/typings';
 import { alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
@@ -185,9 +183,9 @@ function EnhancedTableHead(props: EnhancedTableProps) {
                     />
                 </TableCell>
                 {headCells.map((headCell) => (
-                    <TableCell
+                    <TableCell className='font-semibold'
                         key={headCell.id}
-                        align={headCell.numeric ? 'right' : 'left'}
+                        align={headCell.numeric ? 'center' : 'center'}
                         padding={headCell.disablePadding ? 'none' : 'normal'}
                         sortDirection={orderBy === headCell.id ? order : false}
                     >
@@ -240,11 +238,11 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             ) : (
                 <Typography
                     sx={{ flex: '1 1 100%' }}
-                    variant="h6"
+                    variant="h5"
                     id="tableTitle"
-                    component="div"
+                    component="div" color="blue-gray"
                 >
-                    Nutrition
+                    Estate Ranking (Peringkat Estate)
                 </Typography>
             )}
             {numSelected > 0 ? (
@@ -379,7 +377,7 @@ export default function EnhancedTable() {
                                                 }}
                                             />
                                         </TableCell>
-                                        <TableCell
+                                        <TableCell align="center"
                                             component="th"
                                             id={labelId}
                                             scope="row"
@@ -387,11 +385,11 @@ export default function EnhancedTable() {
                                         >
                                             {row.estate}
                                         </TableCell>
-                                        <TableCell align="right">{row.rkh_janjang}</TableCell>
-                                        <TableCell align="right">{row.rkh_kg}</TableCell>
-                                        <TableCell align="right">{row.realisasi_janjang}</TableCell>
-                                        <TableCell align="right">{row.realisasi_kg}</TableCell>
-                                        <TableCell align="right">{row.varian_hi_kg}</TableCell>
+                                        <TableCell align="center">{row.rkh_janjang}</TableCell>
+                                        <TableCell align="center">{row.rkh_kg}</TableCell>
+                                        <TableCell align="center">{row.realisasi_janjang}</TableCell>
+                                        <TableCell align="center">{row.realisasi_kg}</TableCell>
+                                        <TableCell align="center">{row.varian_hi_kg}</TableCell>
                                     </TableRow>
                                 );
                             })}

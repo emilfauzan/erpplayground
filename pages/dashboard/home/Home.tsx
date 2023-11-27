@@ -1,6 +1,6 @@
 "use client";
-import  EstateTable  from '@/components/common/tables/EstateTable';
-import { TableRankingHarvester } from '@/components/common/tables/HarvesterTable';
+import EstateTable from '@/components/common/tables/EstateTable';
+import HarvesterTable from '@/components/common/tables/HarvesterTable';
 import CardDataStats from "@/components/common/cards/CardDataStats";
 import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
 import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
@@ -47,7 +47,7 @@ function Home() {
 
             <h3 className='my-3 py-3 text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed unde autem dolore. Distinctio architecto magnam odio quasi, placeat amet? Dolore omnis, nemo sequi quo accusantium asperiores! Saepe vero reiciendis exercitationem porro beatae eveniet, veniam unde quas harum cum ratione molestiae hic rerum quam repellendus sunt nam ea omnis modi possimus. Voluptas voluptatem consequatur, et necessitatibus officiis illum dolor distinctio praesentium rem libero cum qui iusto, reprehenderit, maxime dolore ducimus assumenda numquam maiores dolorem. Quia adipisci veritatis voluptatum delectus debitis nostrum beatae aperiam labore asperiores perspiciatis nesciunt excepturi, vel inventore quibusdam! Quibusdam enim quae aperiam aliquam perferendis sunt vero pariatur quidem?</h3>
 
-            <TableRankingHarvester />
+            <HarvesterTable />
 
 
 
