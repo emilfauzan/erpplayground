@@ -23,7 +23,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 
-
+// Data props
 interface Data {
     id: number,
     estate: string,
@@ -34,6 +34,7 @@ interface Data {
     varian_hi_kg: number
 }
 
+// returning Data alongside with each parameters
 function createData(
     id: number,
     estate: string,
@@ -54,6 +55,7 @@ function createData(
     };
 }
 
+// creating data for each rows 
 const rows = [
     createData(1, 'BUM1', 37671, 8578, 1060, 8680, 4831),
     createData(2, 'BUM2', 77790, 5425, 6893, 7937, 8619),
@@ -65,6 +67,7 @@ const rows = [
     createData(8, 'BUM8', 48862, 6658, 2793, 5861, 1704),
 ];
 
+// descending sort for each data
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
     if (b[orderBy] < a[orderBy]) {
         return -1;
@@ -75,8 +78,10 @@ function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
     return 0;
 }
 
+// type of order
 type Order = 'asc' | 'desc';
 
+// key for compare each column with number & string type of data
 function getComparator<Key extends keyof any>(
     order: Order,
     orderBy: Key,
@@ -89,10 +94,7 @@ function getComparator<Key extends keyof any>(
         : (a, b) => -descendingComparator(a, b, orderBy);
 }
 
-// Since 2020 all major browsers ensure sort stability with Array.prototype.sort().
-// stableSort() brings sort stability to non-modern browsers (notably IE11). If you
-// only support modern browsers you can replace stableSort(exampleArray, exampleComparator)
-// with exampleArray.slice().sort(exampleComparator)
+// mapping each row from selected column
 function stableSort<T>(array: readonly T[], comparator: (a: T, b: T) => number) {
     const stabilizedThis = array.map((el, index) => [el, index] as [T, number]);
     stabilizedThis.sort((a, b) => {
@@ -105,6 +107,7 @@ function stableSort<T>(array: readonly T[], comparator: (a: T, b: T) => number) 
     return stabilizedThis.map((el) => el[0]);
 }
 
+// HeadCell props
 interface HeadCell {
     disablePadding: boolean;
     id: keyof Data;
@@ -112,6 +115,7 @@ interface HeadCell {
     numeric: boolean;
 }
 
+// HeadCell props value
 const headCells: readonly HeadCell[] = [
     {
         id: 'estate',
@@ -147,10 +151,11 @@ const headCells: readonly HeadCell[] = [
         id: 'varian_hi_kg',
         numeric: true,
         disablePadding: false,
-        label: 'Varian Hi Kg',
+        label: 'Varian HI Kg',
     },
 ];
 
+// table content props
 interface EnhancedTableProps {
     numSelected: number;
     onRequestSort: (event: React.MouseEvent<unknown>, property: keyof Data) => void;
@@ -160,6 +165,7 @@ interface EnhancedTableProps {
     rowCount: number;
 }
 
+// function for table content 
 function EnhancedTableHead(props: EnhancedTableProps) {
     const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } =
         props;
@@ -208,10 +214,12 @@ function EnhancedTableHead(props: EnhancedTableProps) {
     );
 }
 
+// table toolbar props
 interface EnhancedTableToolbarProps {
     numSelected: number;
 }
 
+// table toolbar if row(s) selected
 function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
     const { numSelected } = props;
 
@@ -261,6 +269,8 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
         </Toolbar>
     );
 }
+
+// harvester table function
 export default function EnhancedTable() {
     const [order, setOrder] = React.useState<Order>('asc');
     const [orderBy, setOrderBy] = React.useState<keyof Data>('estate');
@@ -269,6 +279,7 @@ export default function EnhancedTable() {
     const [dense, setDense] = React.useState(false);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
+    // handle request sort by selected column
     const handleRequestSort = (
         event: React.MouseEvent<unknown>,
         property: keyof Data,
@@ -278,6 +289,7 @@ export default function EnhancedTable() {
         setOrderBy(property);
     };
 
+    // handle select all rows when clicked
     const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.checked) {
             const newSelected = rows.map((n) => n.id);
@@ -287,6 +299,7 @@ export default function EnhancedTable() {
         setSelected([]);
     };
 
+    // handle selected & unselected column when clicked
     const handleClick = (event: React.MouseEvent<unknown>, id: number) => {
         const selectedIndex = selected.indexOf(id);
         let newSelected: readonly number[] = [];
@@ -306,25 +319,30 @@ export default function EnhancedTable() {
         setSelected(newSelected);
     };
 
+    // handle page when pagination is clicked
     const handleChangePage = (event: unknown, newPage: number) => {
         setPage(newPage);
     };
 
+    // handles rows changed per page when pagination is clicked 
     const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
         setRowsPerPage(parseInt(event.target.value, 10));
         setPage(0);
     };
 
+    // handle table density when activated
     const handleChangeDense = (event: React.ChangeEvent<HTMLInputElement>) => {
         setDense(event.target.checked);
     };
 
+    // selecting id when each row(s) is selected
     const isSelected = (id: number) => selected.indexOf(id) !== -1;
 
     // Avoid a layout jump when reaching the last page with empty rows.
     const emptyRows =
         page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
+    // cache the result of a calculation between re-renders per visible rows
     const visibleRows = React.useMemo(
         () =>
             stableSort(rows, getComparator(order, orderBy)).slice(

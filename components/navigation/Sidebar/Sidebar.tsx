@@ -62,13 +62,13 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
     }, [sidebarExpanded]);
 
     return (
-        <aside ref={sidebar} className={`absolute left-0 top-0 z-9999 flex h-screen w-72 flex-col overflow-y-hidden bg-[#37474f] duration-300 ease-in-out dark:bg-boxdark lg:static lg:translate-x-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
+        <aside ref={sidebar} className={`absolute left-0 top-0 z-9999 flex h-screen w-72 flex-col overflow-y-hidden bg-[#37474f] duration-300 ease-in-out dark:bg-boxdark 2xl:static 2xl:translate-x-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
             }`}>
 
             {/* Title start */}
             <div
                 className="flex items-center justify-between gap-2 px-6 
-        py-5.5 lg:block lg:py-6.5"
+        py-5.5 2xl:block 2xl:py-6.5"
             >
                 <Link href={"/dashboard/home"}
                     className={`group relative flex items-center gap-2.5 rounded-md px-4 py-2 font-medium text-white duration-300 ease-in-out
@@ -96,7 +96,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
                     onClick={() => setSidebarOpen(!sidebarOpen)}
                     aria-controls="sidebar"
                     aria-expanded={sidebarOpen}
-                    className="ml-0 block border border-whiten lg:hidden hover:bg-black duration-300 ease-in-out"
+                    className="ml-0 block border border-whiten 2xl:hidden hover:bg-black duration-300 ease-in-out"
                     variant="outlined"
                 >
                     <svg
@@ -116,7 +116,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
             {/* Sidebar Content - Start */}
 
             <div className="no-scrollbar flex flex-col overflow-y-auto bg-blue-gray-800 duration-300 ease-linear">
-                <nav className="mt-5 px-4 py-4 lg:mt-0 lg:px-6">
+                <nav className="mt-5 px-4 py-4 2xl:mt-0 2xl:px-6">
 
                     {/* Main Navigations - Start */}
                     <div>

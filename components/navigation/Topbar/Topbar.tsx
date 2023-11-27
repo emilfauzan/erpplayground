@@ -13,14 +13,14 @@ const Topbar = ({ sidebarOpen, setSidebarOpen }: TopbarProp) => {
     return (
         <header className='sticky top-0 z-99 flex bg-[#37474f] w-full drop-shadow-none'>
             <div className='flex flex-grow items-center justify-between px-4 py-4 md:px-6 2xl:px-11'>
-                <div className='flex items-center gap-2 text-white sm:gap-4 lg:hidden'>
+                <div className='flex items-center gap-2 text-white sm:gap-4 2xl:hidden'>
                     <Button
                         aria-controls="sidebar"
                         onClick={(event) => {
                             event.stopPropagation();
                             setSidebarOpen(!sidebarOpen);
                         }}
-                        className="z-99 block rounded-sm border-stroke bg-orange-500 hover:bg-white hover:text-black p-1.5 shadow-sm lg:hidden duration-300 ease-in-out"
+                        className="z-99 block rounded-sm border-stroke bg-orange-500 hover:bg-white hover:text-black p-1.5 shadow-sm 2xl:hidden duration-300 ease-in-out"
                     >
                         <svg
                             fill="none"
@@ -36,7 +36,7 @@ const Topbar = ({ sidebarOpen, setSidebarOpen }: TopbarProp) => {
               cursor-pointer"
                         ></span>
                     </Button>
-                    <Link className="block flex-shrink-0 lg-hidden" href="home">
+                    <Link className="block flex-shrink-0 2xl-hidden" href="home">
                         <Image
                             src={CompanyLogo}
                             width={32}
@@ -46,7 +46,7 @@ const Topbar = ({ sidebarOpen, setSidebarOpen }: TopbarProp) => {
                     </Link>
           PT. Bangkitgiat Usaha Mandiri
                 </div>
-                <div className="hidden text-white lg:block">
+                <div className="hidden text-white 2xl:block">
                     <h2 className="whitespace-pre-line text-center">
                         {`PT. Bangkitgiat Usaha Mandiri \n Palm Oil Plantation and Mill`}
                     </h2>

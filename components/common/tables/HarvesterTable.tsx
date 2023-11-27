@@ -23,6 +23,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 
+// Data props
 interface Data {
     id: number;
     estate: string;
@@ -35,6 +36,7 @@ interface Data {
     varian_hi_kg: number;
 }
 
+// returning Data alongside with each parameters
 function createData(
     id: number,
     estate: string,
@@ -59,35 +61,37 @@ function createData(
     };
 }
 
+// creating data for each rows 
 const rows = [
-    createData(1, 'BUM7', 'Afd - 21', 'JKO/2009/1921 - Melvin Simpson',123,171,119,30,157),
-    createData(2, 'BUM6', 'Afd - 27', 'JKO/2021/4041 - Jean Morgan',20,151,38,21,176),
-    createData(3, 'BUM6', 'Afd - 21', 'JKO/2019/4846 - Terry McBride',195,186,9,267,1),
-    createData(4, 'BUM5', 'Afd - 35', 'JKO/2011/1602 - Georgia Alvarado',187,61,60,233,106),
-    createData(5, 'BUM2', 'Afd - 25', 'JKO/2022/6090 - Alfred Valdez',4,39,179,3,93),
-    createData(6, 'BUM4', 'Afd - 02', 'JKO/2011/7500 - Anne Conner',69,73,47,352,199),
-    createData(7, 'BUM1', 'Afd - 04', 'JKO/2016/5065 - Lillian Harris',172,157,66,472,26),
-    createData(8, 'BUM3', 'Afd - 19', 'JKO/2002/4872 - Mildred Dixon',121,37,155,432,81),
-    createData(9, 'BUM4', 'Afd - 16', 'JKO/2002/8571 - Chad Alvarado',50,142,162,390,96),
-    createData(10, 'BUM7', 'Afd - 23', 'JKO/2013/5042 - Genevieve Wong',63,49,140,328,49),
-    createData(11, 'BUM8', 'Afd - 14', 'JKO/2011/8952 - Pauline Diaz',25,151,161,258,66),
-    createData(12, 'BUM7', 'Afd - 02', 'JKO/2019/3717 - Edna Frank',96,196,50,207,169),
-    createData(13, 'BUM6', 'Afd - 11', 'JKO/2015/8451 - Mae Carson',100,27,38,225,117),
-    createData(14, 'BUM5', 'Afd - 17', 'JKO/2003/8545 - Brett Graham',91,115,159,126,28),
-    createData(15, 'BUM8', 'Afd - 03', 'JKO/2013/6859 - Jared Wong',24,136,76,445,5),
-    createData(16, 'BUM5', 'Afd - 14', 'JKO/2010/4732 - Wesley Romero',26,13,36,369,196),
-    createData(17, 'BUM1', 'Afd - 27', 'JKO/2007/8599 - John Young',155,197,2,278,157),
-    createData(18, 'BUM3', 'Afd - 27', 'JKO/2020/5405 - Christopher Carroll',148,96,116,228,174),
-    createData(19, 'BUM8', 'Afd - 27', 'JKO/2015/7450 - Luella Abbott',56,33,57,8,166),
-    createData(20, 'BUM7', 'Afd - 04', 'JKO/2021/9050 - Cecelia Harris',128,86,43,22,176),
-    createData(21, 'BUM5', 'Afd - 13', 'JKO/2004/6932 - Philip Cortez',154,135,76,338,27),
-    createData(22, 'BUM8', 'Afd - 03', 'JKO/2015/5818 - Kyle Lynch',121,47,77,212,70),
-    createData(23, 'BUM2', 'Afd - 03', 'JKO/2015/7932 - Alice Frank',188,19,90,94,27),
-    createData(24, 'BUM1', 'Afd - 31', 'JKO/2014/8567 - Virginia Turner',67,38,72,360,138),
-    createData(25, 'BUM3', 'Afd - 21', 'JKO/2010/6027 - Rebecca Fowler',93,83,157,491,74),
-    createData(26, 'BUM7', 'Afd - 30', 'JKO/2018/8252 - Chester Stone',87,180,136,428,185),
+    createData(1, 'BUM7', 'Afd - 21', 'JKO/2009/1921 - Melvin Simpson', 123, 171, 119, 30, 157),
+    createData(2, 'BUM6', 'Afd - 27', 'JKO/2021/4041 - Jean Morgan', 20, 151, 38, 21, 176),
+    createData(3, 'BUM6', 'Afd - 21', 'JKO/2019/4846 - Terry McBride', 195, 186, 9, 267, 1),
+    createData(4, 'BUM5', 'Afd - 35', 'JKO/2011/1602 - Georgia Alvarado', 187, 61, 60, 233, 106),
+    createData(5, 'BUM2', 'Afd - 25', 'JKO/2022/6090 - Alfred Valdez', 4, 39, 179, 3, 93),
+    createData(6, 'BUM4', 'Afd - 02', 'JKO/2011/7500 - Anne Conner', 69, 73, 47, 352, 199),
+    createData(7, 'BUM1', 'Afd - 04', 'JKO/2016/5065 - Lillian Harris', 172, 157, 66, 472, 26),
+    createData(8, 'BUM3', 'Afd - 19', 'JKO/2002/4872 - Mildred Dixon', 121, 37, 155, 432, 81),
+    createData(9, 'BUM4', 'Afd - 16', 'JKO/2002/8571 - Chad Alvarado', 50, 142, 162, 390, 96),
+    createData(10, 'BUM7', 'Afd - 23', 'JKO/2013/5042 - Genevieve Wong', 63, 49, 140, 328, 49),
+    createData(11, 'BUM8', 'Afd - 14', 'JKO/2011/8952 - Pauline Diaz', 25, 151, 161, 258, 66),
+    createData(12, 'BUM7', 'Afd - 02', 'JKO/2019/3717 - Edna Frank', 96, 196, 50, 207, 169),
+    createData(13, 'BUM6', 'Afd - 11', 'JKO/2015/8451 - Mae Carson', 100, 27, 38, 225, 117),
+    createData(14, 'BUM5', 'Afd - 17', 'JKO/2003/8545 - Brett Graham', 91, 115, 159, 126, 28),
+    createData(15, 'BUM8', 'Afd - 03', 'JKO/2013/6859 - Jared Wong', 24, 136, 76, 445, 5),
+    createData(16, 'BUM5', 'Afd - 14', 'JKO/2010/4732 - Wesley Romero', 26, 13, 36, 369, 196),
+    createData(17, 'BUM1', 'Afd - 27', 'JKO/2007/8599 - John Young', 155, 197, 2, 278, 157),
+    createData(18, 'BUM3', 'Afd - 27', 'JKO/2020/5405 - Christopher Carroll', 148, 96, 116, 228, 174),
+    createData(19, 'BUM8', 'Afd - 27', 'JKO/2015/7450 - Luella Abbott', 56, 33, 57, 8, 166),
+    createData(20, 'BUM7', 'Afd - 04', 'JKO/2021/9050 - Cecelia Harris', 128, 86, 43, 22, 176),
+    createData(21, 'BUM5', 'Afd - 13', 'JKO/2004/6932 - Philip Cortez', 154, 135, 76, 338, 27),
+    createData(22, 'BUM8', 'Afd - 03', 'JKO/2015/5818 - Kyle Lynch', 121, 47, 77, 212, 70),
+    createData(23, 'BUM2', 'Afd - 03', 'JKO/2015/7932 - Alice Frank', 188, 19, 90, 94, 27),
+    createData(24, 'BUM1', 'Afd - 31', 'JKO/2014/8567 - Virginia Turner', 67, 38, 72, 360, 138),
+    createData(25, 'BUM3', 'Afd - 21', 'JKO/2010/6027 - Rebecca Fowler', 93, 83, 157, 491, 74),
+    createData(26, 'BUM7', 'Afd - 30', 'JKO/2018/8252 - Chester Stone', 87, 180, 136, 428, 185),
 ];
 
+// descending sort for each data
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
     if (b[orderBy] < a[orderBy]) {
         return -1;
@@ -98,8 +102,10 @@ function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
     return 0;
 }
 
+// type of order
 type Order = 'asc' | 'desc';
 
+// key for compare each column with number & string type of data
 function getComparator<Key extends keyof any>(
     order: Order,
     orderBy: Key,
@@ -112,10 +118,7 @@ function getComparator<Key extends keyof any>(
         : (a, b) => -descendingComparator(a, b, orderBy);
 }
 
-// Since 2020 all major browsers ensure sort stability with Array.prototype.sort().
-// stableSort() brings sort stability to non-modern browsers (notably IE11). If you
-// only support modern browsers you can replace stableSort(exampleArray, exampleComparator)
-// with exampleArray.slice().sort(exampleComparator)
+// mapping each row from selected column
 function stableSort<T>(array: readonly T[], comparator: (a: T, b: T) => number) {
     const stabilizedThis = array.map((el, index) => [el, index] as [T, number]);
     stabilizedThis.sort((a, b) => {
@@ -128,6 +131,7 @@ function stableSort<T>(array: readonly T[], comparator: (a: T, b: T) => number) 
     return stabilizedThis.map((el) => el[0]);
 }
 
+// HeadCell props
 interface HeadCell {
     disablePadding: boolean;
     id: keyof Data;
@@ -135,6 +139,7 @@ interface HeadCell {
     numeric: boolean;
 }
 
+// HeadCell props value
 const headCells: readonly HeadCell[] = [
     {
         id: 'estate',
@@ -186,6 +191,7 @@ const headCells: readonly HeadCell[] = [
     },
 ];
 
+// table content props
 interface EnhancedTableProps {
     numSelected: number;
     onRequestSort: (event: React.MouseEvent<unknown>, property: keyof Data) => void;
@@ -195,6 +201,7 @@ interface EnhancedTableProps {
     rowCount: number;
 }
 
+// function for table content 
 function EnhancedTableHead(props: EnhancedTableProps) {
     const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } =
         props;
@@ -243,10 +250,12 @@ function EnhancedTableHead(props: EnhancedTableProps) {
     );
 }
 
+// table toolbar props
 interface EnhancedTableToolbarProps {
     numSelected: number;
 }
 
+// table toolbar if row(s) selected
 function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
     const { numSelected } = props;
 
@@ -296,6 +305,8 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
         </Toolbar>
     );
 }
+
+// harvester table function
 export default function HarvesterTable() {
     const [order, setOrder] = React.useState<Order>('asc');
     const [orderBy, setOrderBy] = React.useState<keyof Data>('estate');
@@ -304,6 +315,7 @@ export default function HarvesterTable() {
     const [dense, setDense] = React.useState(false);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
+    // handle request sort by selected column
     const handleRequestSort = (
         event: React.MouseEvent<unknown>,
         property: keyof Data,
@@ -313,6 +325,7 @@ export default function HarvesterTable() {
         setOrderBy(property);
     };
 
+    // handle select all rows when clicked
     const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.checked) {
             const newSelected = rows.map((n) => n.id);
@@ -322,6 +335,7 @@ export default function HarvesterTable() {
         setSelected([]);
     };
 
+    // handle selected & unselected column when clicked
     const handleClick = (event: React.MouseEvent<unknown>, id: number) => {
         const selectedIndex = selected.indexOf(id);
         let newSelected: readonly number[] = [];
@@ -341,25 +355,30 @@ export default function HarvesterTable() {
         setSelected(newSelected);
     };
 
+    // handle page when pagination is clicked
     const handleChangePage = (event: unknown, newPage: number) => {
         setPage(newPage);
     };
 
+    // handles rows changed per page when pagination is clicked 
     const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
         setRowsPerPage(parseInt(event.target.value, 10));
         setPage(0);
     };
 
+    // handle table density when activated
     const handleChangeDense = (event: React.ChangeEvent<HTMLInputElement>) => {
         setDense(event.target.checked);
     };
 
+    // selecting id when each row(s) is selected
     const isSelected = (id: number) => selected.indexOf(id) !== -1;
 
     // Avoid a layout jump when reaching the last page with empty rows.
     const emptyRows =
         page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
+    // cache the result of a calculation between re-renders per visible rows
     const visibleRows = React.useMemo(
         () =>
             stableSort(rows, getComparator(order, orderBy)).slice(
