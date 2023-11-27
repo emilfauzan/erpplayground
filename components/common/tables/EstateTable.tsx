@@ -10,68 +10,44 @@ import {
     CardFooter
 } from "@material-tailwind/react";
 import UnfoldMoreRoundedIcon from '@mui/icons-material/UnfoldMoreRounded';
+import EstateRankingDataProp from '@/interface/typings';
+
+function createData(
+    id: number,
+    estate: string,
+    rkh_janjang: number,
+    rkh_kg: number,
+    realisasi_janjang: number,
+    realisasi_kg: number,
+    varian_hi_kg: number,
+): Data {
+    return {
+        id,
+        estate,
+        rkh_janjang,
+        rkh_kg,
+        realisasi_janjang,
+        realisasi_kg,
+        varian_hi_kg,
+    };
+}
+
+const rows = [
+    createData(1, 'BUM1', 37671, 8578, 1060, 8680, 4831),
+    createData(2, 'BUM2', 77790, 5425, 6893, 7937, 8619),
+    createData(3, 'BUM3', 46484, 7432, 2122, 4131, 6397),
+    createData(4, 'BUM4', 65991, 2244, 9771, 8597, 7478),
+    createData(5, 'BUM5', 69148, 1606, 5965, 3712, 1932),
+    createData(6, 'BUM6', 88459, 5616, 5691, 5990, 6125),
+    createData(7, 'BUM7', 16045, 4629, 6746, 6543, 5302),
+    createData(8, 'BUM8', 48862, 6658, 2793, 5861, 1704),
+]
 
 const TABLE_HEAD = [
     "Estate", "RKH Janjang", "RKH Kg", "Realisasi Janjang", "Realisasi Kg", "Varian HI Kg",
 ];
 
 const TABLE_ROWS = [
-    {
-        estate: "BUM1",
-        rkh_janjang: "37671",
-        rkh_kg: "8578",
-        realisasi_janjang: "1060",
-        realisasi_kg: "8680",
-        varian_hi_kg: "4831",
-    },
-    {
-        estate: "BUM2",
-        rkh_janjang: "77790",
-        rkh_kg: "5425",
-        realisasi_janjang: "6893",
-        realisasi_kg: "7937",
-        varian_hi_kg: "8619",
-    },
-    {
-        estate: "BUM3",
-        rkh_janjang: "46484",
-        rkh_kg: "7432",
-        realisasi_janjang: "2122",
-        realisasi_kg: "4131",
-        varian_hi_kg: "6397",
-    },
-    {
-        estate: "BUM4",
-        rkh_janjang: "65991",
-        rkh_kg: "2244",
-        realisasi_janjang: "9771",
-        realisasi_kg: "8597",
-        varian_hi_kg: "7478",
-    },
-    {
-        estate: "BUM5",
-        rkh_janjang: "69148",
-        rkh_kg: "1606",
-        realisasi_janjang: "5965",
-        realisasi_kg: "3712",
-        varian_hi_kg: "1932",
-    },
-    {
-        estate: "BUM6",
-        rkh_janjang: "88459",
-        rkh_kg: "5616",
-        realisasi_janjang: "5691",
-        realisasi_kg: "5990",
-        varian_hi_kg: "6125",
-    },
-    {
-        estate: "BUM7",
-        rkh_janjang: "16045",
-        rkh_kg: "4629",
-        realisasi_janjang: "6746",
-        realisasi_kg: "6543",
-        varian_hi_kg: "5302",
-    },
     {
         estate: "BUM8",
         rkh_janjang: "48862",
@@ -108,8 +84,8 @@ export const TableRankingEstate = () => {
                                 >
                                     <Typography
                                         variant="small"
-                                        color="blue-gray"
                                         className="font-semibold leading-none opacity-70"
+                                        color="blue-gray"
                                     >
                                         {head}{" "}
                                         {index !== TABLE_HEAD.length && (

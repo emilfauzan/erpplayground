@@ -1,8 +1,8 @@
 "use client";
 import { TableRankingEstate } from '@/components/common/tables/EstateTable';
 import { TableRankingHarvester } from '@/components/common/tables/HarvesterTable';
-import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
 import CardDataStats from "@/components/common/cards/CardDataStats";
+import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
 import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
 
 function Home() {
