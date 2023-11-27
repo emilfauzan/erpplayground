@@ -59,7 +59,7 @@ interface CardDataStatProp {
 interface EstateRankingDataProp {
     id: number,
     ranking: number,
-    estate: number,
+    estate: string,
     rkhjanjang: number,
     rkhkg: number,
     realisasijanjang: number,
