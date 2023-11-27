@@ -377,7 +377,7 @@ export default function EnhancedTable() {
                                                 }}
                                             />
                                         </TableCell>
-                                        <TableCell align="center"
+                                        <TableCell className='font-semibold' align="center"
                                             component="th"
                                             id={labelId}
                                             scope="row"

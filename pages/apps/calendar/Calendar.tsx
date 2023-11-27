@@ -3,7 +3,7 @@ import React from 'react'
 const Calendar = () => {
     return (
         <>
-            <div>Calendar</div>
+            <h1 className='pb-4 text-title-md2 font-bold'>Calendar</h1>
         </>
     )
 }
