@@ -1,7 +1,6 @@
 import React from 'react'
 import { TopbarProp } from "@/interface/typings";
 import MenuIcon from "@mui/icons-material/Menu";
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Button } from "@material-tailwind/react";
 import Link from "next/link";
 import { GetLiveTime } from "../../common/timeAndDate/TimeAndDate";
@@ -20,17 +19,10 @@ const Topbar = ({ sidebarOpen, setSidebarOpen }: TopbarProp) => {
                             event.stopPropagation();
                             setSidebarOpen(!sidebarOpen);
                         }}
-                        className="z-99 block rounded-sm border-stroke bg-orange-500 hover:bg-white hover:text-black p-1.5 shadow-sm 2xl:hidden duration-300 ease-in-out"
+                        className="z-99 block rounded-sm border-stroke hover:bg-white hover:text-black p-1.5 shadow-sm 2xl:hidden duration-300 ease-in-out"
+                        variant='text'
                     >
-                        <svg
-                            fill="none"
-                            viewBox="0 0 12 12"
-                            strokeWidth={1}
-                            stroke="currentColor"
-                            className="h-5 w-5"
-                        >
                             <MenuIcon />
-                        </svg>
                         <span
                             className="relative block 
               cursor-pointer"

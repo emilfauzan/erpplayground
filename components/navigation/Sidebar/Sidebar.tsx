@@ -14,6 +14,7 @@ import CalendarMonthRoundedIcon from '@mui/icons-material/CalendarMonthRounded';
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import CompanyLogo from "@/public/images/companyLogo/companyLogo.png";
 import Image from "next/image";
+import { Divider } from "@mui/material";
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
     const pathname = usePathname();
@@ -62,21 +63,21 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
     }, [sidebarExpanded]);
 
     return (
-        <aside ref={sidebar} className={`absolute left-0 top-0 z-9999 flex h-screen w-72 flex-col overflow-y-hidden bg-[#37474f] duration-300 ease-in-out dark:bg-boxdark 2xl:static 2xl:translate-x-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
+        <aside ref={sidebar} className={`absolute left-0 top-0 z-9999 flex h-screen w-58 flex-col overflow-y-hidden bg-[#37474f] duration-300 ease-in-out dark:bg-boxdark 2xl:static 2xl:translate-x-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
             }`}>
 
             {/* Title start */}
             <div
                 className="flex items-center justify-between gap-2 px-6 
-        py-5.5 2xl:block 2xl:py-6.5"
+        py-1 2xl:block 2xl:py-1"
             >
                 <Link href={"/dashboard/home"}
-                    className={`group relative flex items-center gap-2.5 rounded-md px-4 py-2 font-medium text-white duration-300 ease-in-out
+                    className={`group relative flex items-center gap-2.5 rounded-lg px-4 py-2 font-medium text-white duration-300 ease-in-out
                 ${pathname === "/dashboard/home"
                         }`}
                 >
                     <div
-                        className="content flex w-full place-items-center 
+                        className="content flex place-items-center 
               justify-center py-2 align-middle"
                     >
                         <Image
@@ -87,7 +88,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
                             className="flex place-items-center justify-center"
                         />
                         <div className="ml-2">
-                            <h1 className="text-left text-white">NT Corp Analytics</h1>
+                            <h1 className="text-left text-white font-bold">NT Corp Analytics</h1>
                         </div>
                     </div>
                 </Link>
@@ -96,13 +97,13 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
                     onClick={() => setSidebarOpen(!sidebarOpen)}
                     aria-controls="sidebar"
                     aria-expanded={sidebarOpen}
-                    className="ml-0 block border border-whiten 2xl:hidden hover:bg-black duration-300 ease-in-out"
-                    variant="outlined"
+                    className="p-2 2xl:hidden hover:bg-black duration-300 ease-in-out flex align-center"
+                    variant="text"
                 >
                     <svg
                         className="fill-current"
                         width="30"
-                        height="auto"
+                        height="30"
                         viewBox="0 0 10 5"
                         fill="none"
                         color="white"
@@ -120,12 +121,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
 
                     {/* Main Navigations - Start */}
                     <div>
-                        <h3 className="mb-4 ml-4 text-sm font-semibold text-white">MAIN NAVIGATION</h3>
-
-                        <ul className="mb-6 flex flex-col gap-1.5">
+                        <ul className="flex flex-col gap-1.5">
                             <li>
                                 <Link href={"/dashboard/home"}
-                                    className={`group relative flex items-center gap-2.5 rounded-md px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black 
+                                    className={`group relative flex items-center gap-2.5 rounded-lg px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black 
 ${pathname === "/dashboard/home" &&
                                         "bg-orange-500 dark:bg-black"
                                         }`}
@@ -139,7 +138,7 @@ ${pathname === "/dashboard/home" &&
                                     >
                                         <HomeIcon />
                                     </svg>
-                                    Home Dashboard
+                                    Home
                                 </Link>
                             </li>
                             {/*Human Resources Link*/}
@@ -154,7 +153,7 @@ ${pathname === "/dashboard/home" &&
                                         <React.Fragment>
                                             <Link
                                                 href="#"
-                                                className={`group relative flex items-center gap-2.5 rounded-md px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black
+                                                className={`group relative flex items-center gap-2.5 rounded-lg px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black
                         ${(pathname === "" ||
                                                         pathname === "") &&
                                                     "bg-orange-500 dark:bg-black"
@@ -195,7 +194,7 @@ ${pathname === "/dashboard/home" &&
                                                     <li>
                                                         <Link
                                                             href="/dashboard/human_resources"
-                                                            className={`group relative flex items-center gap-2.5 rounded-md py-2 px-4 font-medium text-white duration-300 
+                                                            className={`group relative flex items-center gap-2.5 rounded-lg py-2 px-4 font-medium text-white duration-300 
                                 ease-in-out hover:bg-white hover:text-black ${pathname === "/dashboard/human_resources" &&
                                                                 "bg-orange-500 dark:bg-black"
                                                                 } `}
@@ -220,7 +219,7 @@ ${pathname === "/dashboard/home" &&
                             </SidebarLinkGroup>
                             <li>
                                 <Link href={"/dashboard/production"}
-                                    className={`group relative flex items-center gap-2.5 rounded-md px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black 
+                                    className={`group relative flex items-center gap-2.5 rounded-lg px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black 
 ${pathname === "/dashboard/production" &&
                                         "bg-orange-500 dark:bg-black"
                                         }`}
@@ -243,14 +242,18 @@ ${pathname === "/dashboard/production" &&
                     </div>
                     {/* Main Navigations - End */}
 
+                    {/* White divider */}
+                    <hr className="my-3 mx-1 text-stroke" />
+
                     {/* App Navigations - Start */}
                     <div>
-                        <h3 className="mb-4 ml-4 text-sm font-semibold text-white">APPS</h3>
-
                         <ul className="mb-6 flex flex-col gap-1.5">
+                            <h3 className="ml-4 text-sm font-semibold text-white">MAIN NAVIGATION</h3>
+
+
                             <li>
                                 <Link href={"/apps/calendar"}
-                                    className={`group relative flex items-center gap-2.5 rounded-md px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black
+                                    className={`group relative flex items-center gap-2.5 rounded-lg px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black
                                     ${pathname === "/apps/calendar" &&
                                         "bg-orange-500 dark:bg-black"
                                         }`}
