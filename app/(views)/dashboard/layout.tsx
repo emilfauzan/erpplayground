@@ -15,7 +15,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 
     return (
         <body suppressHydrationWarning={true}>
-            <div className="dark:bg-boxdark-2 dark:text-bodydark">
+            <div className="subpixel-antialiased dark:bg-boxdark-2 dark:text-bodydark">
                 {loading ? (
                     <Loader />
                 ) : (

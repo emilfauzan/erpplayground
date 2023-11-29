@@ -30,7 +30,7 @@ function CardDataStats({
                     </div>
                     <h4 className="pl-4 text-title-md font-bold flex items-center justify-center">{title}</h4>
                 </div>
-                <div className="pl-15 mt-4 flex items-end justify-between">
+                <div className="sm:pl-15 mt-4 flex items-end justify-between">
                     <div>
                         <h4 className="text-md whitespace-pre-line font-semibold">{subtitle1}</h4>
                         <h4 className="text-md whitespace-pre-line">{subtitle2}</h4>
@@ -38,7 +38,7 @@ function CardDataStats({
                     </div>
                 </div>
 
-                <Typography color="blue-gray" className="text-md pl-15 flex items-center gap-1 font-semibold whitespace-pre-line" textGradient>
+                <Typography color="blue-gray" className="text-md sm:pl-15 flex items-center gap-1 font-semibold whitespace-pre-line" textGradient>
                     {description}
 
                 </Typography>

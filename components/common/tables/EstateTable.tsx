@@ -239,7 +239,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                     sx={{ flex: '1 1 100%' }}
                     color="inherit"
                     variant="subtitle1"
-                    component="div"
+                    component="div" className='py-2'
                 >
                     {numSelected} selected
                 </Typography>
@@ -248,7 +248,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                     sx={{ flex: '1 1 100%' }}
                     variant="h5"
                     id="tableTitle"
-                    component="div" color="blue-gray"
+                    component="div" color="blue-gray" className='py-2'
                 >
                     Estate Ranking (Peringkat Estate)
                 </Typography>
