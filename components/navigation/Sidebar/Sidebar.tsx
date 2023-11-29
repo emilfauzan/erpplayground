@@ -7,14 +7,13 @@ import { Button } from "@/components/mt_export_file/ExportComponent";
 import { SidebarProp } from "@/interface/typings";
 import SidebarLinkGroup from "./SidebarLinkGroup";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import HomeIcon from "@mui/icons-material/Home";
-import GroupRoundedIcon from '@mui/icons-material/GroupRounded';
-import AssessmentRoundedIcon from '@mui/icons-material/AssessmentRounded';
-import CalendarMonthRoundedIcon from '@mui/icons-material/CalendarMonthRounded';
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import CompanyLogo from "@/public/images/companyLogo/companyLogo.png";
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import PeopleOutlineOutlinedIcon from '@mui/icons-material/PeopleOutlineOutlined';
+import InsertChartOutlinedRoundedIcon from '@mui/icons-material/InsertChartOutlinedRounded';
+import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 import Image from "next/image";
-import { Divider } from "@mui/material";
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
     const pathname = usePathname();
@@ -97,7 +96,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
                     onClick={() => setSidebarOpen(!sidebarOpen)}
                     aria-controls="sidebar"
                     aria-expanded={sidebarOpen}
-                    className="p-2 2xl:hidden hover:bg-black duration-300 ease-in-out flex align-center"
+                    className="pl-3 pr-2 py-2 2xl:hidden hover:bg-black duration-300 ease-in-out flex align-center"
                     variant="text"
                 >
                     <svg
@@ -130,13 +129,13 @@ ${pathname === "/dashboard/home" &&
                                         }`}
                                 >
                                     <svg
-                                        className="fill-current"
+                                        className="fill-current mr-3"
                                         width="18"
                                         height="18"
                                         viewBox="0 0 18 18"
                                         fill="none"
                                     >
-                                        <HomeIcon />
+                                        <HomeOutlinedIcon />
                                     </svg>
                                     Home
                                 </Link>
@@ -166,17 +165,17 @@ ${pathname === "/dashboard/home" &&
                                                 }}
                                             >
                                                 <svg
-                                                    className="fill-current"
+                                                    className="fill-current mr-3"
                                                     width="18"
                                                     height="18"
                                                     viewBox="0 0 18 18"
                                                     fill="none"
                                                 >
-                                                    <GroupRoundedIcon />
+                                                    <PeopleOutlineOutlinedIcon />
                                                 </svg>
                                                 Human Resources
                                                 <svg
-                                                    className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${open && "rotate-180"
+                                                    className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${open && "rotate-180 ease-in-out duration-300"
                                                         }`}
                                                     width="20"
                                                     height="20"
@@ -200,13 +199,13 @@ ${pathname === "/dashboard/home" &&
                                                                 } `}
                                                         >
                                                             <svg
-                                                                className="fill-current"
+                                                                className="fill-current mr-3"
                                                                 width="18"
                                                                 height="18"
                                                                 viewBox="0 0 18 18"
                                                                 fill="none"
                                                             >
-                                                                <GroupRoundedIcon />
+                                                                <PeopleOutlineOutlinedIcon />
                                                             </svg>
                                                             HR Dashboard
                                                         </Link>
@@ -225,13 +224,13 @@ ${pathname === "/dashboard/production" &&
                                         }`}
                                 >
                                     <svg
-                                        className="fill-current"
+                                        className="fill-current mr-3"
                                         width="18"
                                         height="18"
                                         viewBox="0 0 18 18"
                                         fill="none"
                                     >
-                                        <AssessmentRoundedIcon />
+                                        <InsertChartOutlinedRoundedIcon />
                                     </svg>
                                     Production
                                 </Link>
@@ -248,7 +247,7 @@ ${pathname === "/dashboard/production" &&
                     {/* App Navigations - Start */}
                     <div>
                         <ul className="mb-6 flex flex-col gap-1.5">
-                            <h3 className="ml-4 text-sm font-semibold text-white">MAIN NAVIGATION</h3>
+                            <h3 className="ml-4 text-sm font-semibold text-white">Applications</h3>
 
 
                             <li>
@@ -259,13 +258,13 @@ ${pathname === "/dashboard/production" &&
                                         }`}
                                 >
                                     <svg
-                                        className="fill-current"
+                                        className="fill-current mr-3"
                                         width="18"
                                         height="18"
                                         viewBox="0 0 18 18"
                                         fill="none"
                                     >
-                                        <CalendarMonthRoundedIcon />
+                                        <CalendarMonthOutlinedIcon />
                                     </svg>
                                     Calendar
                                 </Link>

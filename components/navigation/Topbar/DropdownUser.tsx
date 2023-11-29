@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import {
     Button,
@@ -6,7 +5,6 @@ import {
     MenuHandler,
     MenuList,
     MenuItem,
-    Avatar,
     Typography,
 } from "@material-tailwind/react";
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
@@ -14,6 +12,7 @@ import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import BadgeRoundedIcon from '@mui/icons-material/BadgeRounded';
 import AssignmentIndRoundedIcon from '@mui/icons-material/AssignmentIndRounded';
 import LogoutIcon from "@mui/icons-material/Logout";
+import { GetDayAndDate } from "@/components/common/timeAndDate/TimeAndDate";
 
 const DropdownUser = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -58,7 +57,7 @@ const DropdownUser = () => {
                         href={"#"}
                     > */}
                     <svg
-                        className="mr-5 hidden hover:text-orange-400 text-white sm:block duration-300 ease-in-out cursor-pointer"
+                        className="mr-5 hover:text-orange-400 text-white sm:block duration-300 ease-in-out cursor-pointer"
                         width={60}
                         height={45}
                         viewBox="0 0 12 8"
@@ -68,29 +67,41 @@ const DropdownUser = () => {
                     </svg>
                     {/* </Link> */}
                 </MenuHandler>
-                <MenuList>
+                <MenuList className="w-block sm:w-70">
+
+                    <MenuItem className="text-center gap-2 cursor-default text-black block sm:hidden">
+                        <GetDayAndDate />
+                    </MenuItem>
+
+                    {/* separator */}
+                    <hr className="my-3 block sm:hidden" />
 
                     <MenuItem className="flex items-center gap-2 cursor-default text-black">
                         <PersonRoundedIcon className="mr-2" fontSize="small" />
                         <Typography variant="small" className="font-medium">
-                            Staff&apos;s Name
+                            Walter Hartwell White
+                            {/* Staff&apos;s Name */}
                         </Typography>
                     </MenuItem>
                     <MenuItem className="flex items-center gap-2 cursor-default text-black">
                         <BadgeRoundedIcon className="mr-2" fontSize="small" />
                         <Typography variant="small" className="font-medium">
-                            Staff&apos;s ID
+                            JKO/202X/000X
+                            {/* Staff&apos;s ID */}
                         </Typography>
                     </MenuItem>
                     <MenuItem className="flex items-center gap-2 cursor-default text-black">
                         <AssignmentIndRoundedIcon className="mr-2" fontSize="small" />
                         <Typography variant="small" className="font-medium">
-                            Staff&apos;s Position
+                            Science School Teacher / Scientist (Information Technology Department)
+                            {/* Staff&apos;s Position */}
                         </Typography>
                     </MenuItem>
 
+                    {/* separator */}
                     <hr className="my-3" />
-                    <Button fullWidth variant="text" className="flex gap-2 py-2 border text-red-500 hover:bg-red-500 hover:text-white">
+
+                    <Button fullWidth variant="text" className="flex justify-center gap-2 py-2 border text-red-500 hover:bg-red-500 hover:text-white">
                         <LogoutIcon className="mr-2" fontSize="small" />
 
                         <Typography variant="small" className="font-medium">

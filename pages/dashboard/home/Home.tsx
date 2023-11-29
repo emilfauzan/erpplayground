@@ -8,7 +8,7 @@ import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
 function Home() {
     return (
         <>
-            <h1 className='pb-4 text-title-md2 font-bold'>Home Dashboard</h1>
+            <h1 className='pb-4 text-title-md2 font-bold'>Home</h1>
 
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-2 2xl:gap-7.5">
 

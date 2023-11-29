@@ -56,9 +56,12 @@ export const GetLiveTime = () => {
         return () => clearInterval(timer);
     }, []);
     return (
-        <h1 className="text-md text-right text-white">
-            {getDay(time)} <br /> {getDate("DD-MM-YYYY", time)}, {getTime(time)}
-        </h1>
+        <div className=" flex-shrink-0 hidden sm:pr-0 sm:block">
+
+            <h1 className="text-md text-right text-white">
+                {getDay(time)} <br /> {getDate("DD-MM-YYYY", time)}, {getTime(time)}
+            </h1>
+        </div>
     );
 };
 
@@ -71,8 +74,8 @@ export const GetDayAndDate = () => {
         return () => clearInterval(timer);
     }, []);
     return (
-        <h1 className="text-md text-right ">
-            {getDay(time)} | {getDate("DD-MM-YYYY", time)}
+        <h1 className="text-md text-center flex-shrink-0 block sm:hidden">
+            {getDay(time)} <br /> {getDate("DD-MM-YYYY", time)} <br /> {getTime(time)}
         </h1>
     );
 };

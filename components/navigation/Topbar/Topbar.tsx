@@ -22,7 +22,7 @@ const Topbar = ({ sidebarOpen, setSidebarOpen }: TopbarProp) => {
                         className="z-99 block rounded-sm border-stroke hover:bg-white hover:text-black p-1.5 shadow-sm 2xl:hidden duration-300 ease-in-out"
                         variant='text'
                     >
-                            <MenuIcon />
+                        <MenuIcon />
                         <span
                             className="relative block 
               cursor-pointer"
@@ -36,7 +36,10 @@ const Topbar = ({ sidebarOpen, setSidebarOpen }: TopbarProp) => {
                             alt="Company Logo"
                         />
                     </Link>
-          PT. Bangkitgiat Usaha Mandiri
+                    <h2 className='hidden sm:block'>
+
+                    PT. Bangkitgiat Usaha Mandiri
+                    </h2>
                 </div>
                 <div className="hidden text-white 2xl:block">
                     <h2 className="whitespace-pre-line text-center">
@@ -44,7 +47,7 @@ const Topbar = ({ sidebarOpen, setSidebarOpen }: TopbarProp) => {
                     </h2>
                 </div>
             </div>
-            <div className="flex items-center gap-3 2xsm:gap-7 text-xs">
+            <div className="flex items-center gap-3 text-xs">
                 <GetLiveTime />
                 <DropdownUser />
             </div>
