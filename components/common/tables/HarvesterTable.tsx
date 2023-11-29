@@ -392,11 +392,12 @@ export default function HarvesterTable() {
         <Box sx={{ width: '100%' }}>
             <Paper sx={{ width: '100%', mb: 2 }}>
                 <EnhancedTableToolbar numSelected={selected.length} />
-                <TableContainer>
+                <TableContainer sx={{ maxHeight: 440 }}>
                     <Table
                         sx={{ minWidth: 750 }}
                         aria-labelledby="tableTitle"
                         size={dense ? 'small' : 'medium'}
+                        stickyHeader aria-label="sticky table"
                     >
                         <EnhancedTableHead
                             numSelected={selected.length}
