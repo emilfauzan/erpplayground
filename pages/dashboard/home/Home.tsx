@@ -4,12 +4,14 @@ import HarvesterTable from '@/components/common/tables/HarvesterTable';
 import CardDataStats from "@/components/common/cards/CardDataStats";
 import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
 import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
+import Typography from '@mui/material/Typography';
 
 function Home() {
     return (
         <>
-            <h1 className='pb-4 text-title-md2 font-bold'>Home</h1>
-
+            <Typography className='pb-6 font-bold' variant='h5'>
+                Home
+            </Typography>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-2 2xl:gap-7.5">
 
                 <CardDataStats
@@ -39,11 +41,15 @@ function Home() {
 
             </div>
 
-            <h3 className='my-3 py-3 text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed unde autem dolore. Distinctio architecto magnam odio quasi, placeat amet? Dolore omnis, nemo sequi quo accusantium asperiores! Saepe vero reiciendis exercitationem porro beatae eveniet, veniam unde quas harum cum ratione molestiae hic rerum quam repellendus sunt nam ea omnis modi possimus. Voluptas voluptatem consequatur, et necessitatibus officiis illum dolor distinctio praesentium rem libero cum qui iusto, reprehenderit, maxime dolore ducimus assumenda numquam maiores dolorem. Quia adipisci veritatis voluptatum delectus debitis nostrum beatae aperiam labore asperiores perspiciatis nesciunt excepturi, vel inventore quibusdam! Quibusdam enim quae aperiam aliquam perferendis sunt vero pariatur quidem?</h3>
+            <Typography className='py-5 indent-8' variant="body2" gutterBottom>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa distinctio assumenda quos unde nostrum illum ullam autem earum error nulla commodi, asperiores provident nobis. Quidem atque, animi mollitia quos ea distinctio consequatur alias minima perferendis quasi quae, ipsa commodi optio vitae nihil? Officia labore atque praesentium voluptates repellat inventore totam. Dicta minus assumenda fuga doloribus, eos voluptatem. Consectetur ducimus et odio assumenda similique animi amet quam, mollitia, incidunt nisi neque, perspiciatis accusantium. Dicta eveniet, ratione nostrum, quasi odit enim beatae quos iure saepe nisi labore reprehenderit. Doloremque quos atque dolore ipsam minima libero assumenda magnam officia eligendi. Inventore, soluta. Recusandae.
+            </Typography>
 
             <EstateTable />
 
-            <h3 className='my-3 py-3 text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed unde autem dolore. Distinctio architecto magnam odio quasi, placeat amet? Dolore omnis, nemo sequi quo accusantium asperiores! Saepe vero reiciendis exercitationem porro beatae eveniet, veniam unde quas harum cum ratione molestiae hic rerum quam repellendus sunt nam ea omnis modi possimus. Voluptas voluptatem consequatur, et necessitatibus officiis illum dolor distinctio praesentium rem libero cum qui iusto, reprehenderit, maxime dolore ducimus assumenda numquam maiores dolorem. Quia adipisci veritatis voluptatum delectus debitis nostrum beatae aperiam labore asperiores perspiciatis nesciunt excepturi, vel inventore quibusdam! Quibusdam enim quae aperiam aliquam perferendis sunt vero pariatur quidem?</h3>
+            <Typography className='py-5 indent-8' variant="body2" gutterBottom>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate illum provident eaque consequatur aut fugit itaque facere veniam, quae aspernatur enim esse quo atque perspiciatis dicta molestias perferendis voluptatum ex dignissimos? Nulla, sequi officiis? Accusamus modi voluptatem quas deserunt autem officia non. Dolor nobis enim quidem rem qui suscipit, tempora aspernatur deleniti velit ipsum ipsam accusantium officiis iure error quos blanditiis veritatis pariatur nihil, veniam necessitatibus sint ipsa excepturi non! Deserunt iusto cupiditate sapiente, minima reiciendis reprehenderit maiores quia in voluptatibus, ratione ea velit dignissimos consequatur inventore dicta veritatis iure commodi tempora, harum aperiam quibusdam ipsam eaque corporis odio! Veniam!
+            </Typography>
 
             <HarvesterTable />
 

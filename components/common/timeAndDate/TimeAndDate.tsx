@@ -58,7 +58,7 @@ export const GetLiveTime = () => {
     return (
         <div className=" flex-shrink-0 hidden sm:pr-0 sm:block">
 
-            <h1 className="text-md text-right text-white">
+            <h1 className="text-md text-right text-black">
                 {getDay(time)} <br /> {getDate("DD-MM-YYYY", time)}, {getTime(time)}
             </h1>
         </div>

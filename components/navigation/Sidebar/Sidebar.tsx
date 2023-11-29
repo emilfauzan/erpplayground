@@ -14,6 +14,7 @@ import PeopleOutlineOutlinedIcon from '@mui/icons-material/PeopleOutlineOutlined
 import InsertChartOutlinedRoundedIcon from '@mui/icons-material/InsertChartOutlinedRounded';
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 import Image from "next/image";
+import { Typography } from "@material-tailwind/react";
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
     const pathname = usePathname();
@@ -86,8 +87,15 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
                             alt="Company Logo"
                             className="flex place-items-center justify-center"
                         />
-                        <div className="ml-2">
-                            <h1 className="text-left text-white font-bold">NT Corp Analytics</h1>
+                        <div className="ml-4">
+                            <Typography className="tracking-wider text-left text-white font-extrabold" variant="h6">
+                                NT CORP ANALYTICS
+                            </Typography>
+                            {/* White divider */}
+                            <hr className="block sm:hidden text-inherit" />
+                            <Typography className="tracking-wider text-left text-white font-bolder block sm:hidden" variant="h6">
+                                PT. BANGKITGIAT USAHA MANDIRI
+                            </Typography>
                         </div>
                     </div>
                 </Link>
@@ -115,7 +123,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
 
             {/* Sidebar Content - Start */}
 
-            <div className="no-scrollbar flex flex-col overflow-y-auto bg-blue-gray-800 duration-300 ease-linear">
+            <div className="no-scrollbar flex flex-col overflow-y-auto  duration-300 ease-linear">
                 <nav className="mt-5 px-4 py-4 2xl:mt-0 2xl:px-6">
 
                     {/* Main Navigations - Start */}

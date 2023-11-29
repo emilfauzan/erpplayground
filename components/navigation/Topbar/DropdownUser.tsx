@@ -57,7 +57,7 @@ const DropdownUser = () => {
                         href={"#"}
                     > */}
                     <svg
-                        className="mr-5 hover:text-orange-400 text-white sm:block duration-300 ease-in-out cursor-pointer"
+                        className="mr-5 hover:text-orange-400 text-black sm:block duration-300 ease-in-out cursor-pointer"
                         width={60}
                         height={45}
                         viewBox="0 0 12 8"
@@ -67,7 +67,7 @@ const DropdownUser = () => {
                     </svg>
                     {/* </Link> */}
                 </MenuHandler>
-                <MenuList className="w-block sm:w-70">
+                <MenuList className="w-block sm:w-90">
 
                     <MenuItem className="text-center gap-2 cursor-default text-black block sm:hidden">
                         <GetDayAndDate />
@@ -93,7 +93,8 @@ const DropdownUser = () => {
                     <MenuItem className="flex items-center gap-2 cursor-default text-black">
                         <AssignmentIndRoundedIcon className="mr-2" fontSize="small" />
                         <Typography variant="small" className="font-medium">
-                            Science School Teacher / Scientist (Information Technology Department)
+                            Science School Teacher / Scientist <br />
+                            (Information Technology Department)
                             {/* Staff&apos;s Position */}
                         </Typography>
                     </MenuItem>
