@@ -128,7 +128,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
 
                     {/* Main Navigations - Start */}
                     <div>
-                        <ul className="flex flex-col gap-1.5">
+                        <ul className="flex flex-col gap-1">
                             <li>
                                 <Link href={"/dashboard/home"}
                                     className={`group relative flex items-center gap-2.5 rounded-lg px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black 
@@ -151,7 +151,7 @@ ${pathname === "/dashboard/home" &&
                             {/*Human Resources Link*/}
                             <SidebarLinkGroup
                                 activeCondition={
-                                    pathname === "/dashboard/human_resources" ||
+                                    pathname === "/dashboard" ||
                                     pathname === "/dashboard/human_resources"
                                 }
                             >
@@ -161,8 +161,8 @@ ${pathname === "/dashboard/home" &&
                                             <Link
                                                 href="#"
                                                 className={`group relative flex items-center gap-2.5 rounded-lg px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black
-                        ${(pathname === "" ||
-                                                        pathname === "") &&
+                        ${(pathname === "/dashboard" ||
+                                                        pathname === "/dashboard/human_resources") &&
                                                     "bg-orange-500 dark:bg-black"
                                                     }`}
                                                 onClick={(event) => {
