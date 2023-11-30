@@ -1,3 +1,4 @@
+import { Typography } from "@material-tailwind/react";
 import React, { useEffect, useState } from "react";
 
 function padTo2Digits(num: number) {
@@ -57,7 +58,6 @@ export const GetLiveTime = () => {
     }, []);
     return (
         <div className=" flex-shrink-0 hidden sm:pr-0 sm:block">
-
             <h1 className="text-md text-right text-black">
                 {getDay(time)} <br /> {getDate("DD-MM-YYYY", time)}, {getTime(time)}
             </h1>
@@ -75,6 +75,36 @@ export const GetDayAndDate = () => {
     }, []);
     return (
         <h1 className="text-md text-center flex-shrink-0 block sm:hidden">
+            {getDay(time)} <br /> {getDate("DD-MM-YYYY", time)} <br /> {getTime(time)}
+        </h1>
+    );
+};
+
+export const GetDayAndDateEstateTable = () => {
+    const [time, setTime] = useState(new Date());
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setTime(new Date());
+        }, 1000);
+        return () => clearInterval(timer);
+    }, []);
+    return (
+        <Typography className="flex-shrink-0 block text-sm text-center py-2 px-4 rounded-md bg-stroke">
+            {getDay(time)} <br /> {getDate("DD-MM-YYYY", time)} <br /> {getTime(time)}
+        </Typography>
+    );
+};
+
+export const GetDayAndDateHarvesterTable = () => {
+    const [time, setTime] = useState(new Date());
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setTime(new Date());
+        }, 1000);
+        return () => clearInterval(timer);
+    }, []);
+    return (
+        <h1 className="text-md text-right">
             {getDay(time)} <br /> {getDate("DD-MM-YYYY", time)} <br /> {getTime(time)}
         </h1>
     );

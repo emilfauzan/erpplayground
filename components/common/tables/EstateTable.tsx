@@ -22,6 +22,8 @@ import Switch from '@mui/material/Switch';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
+import { typography } from '@material-tailwind/react';
+import { GetDayAndDateEstateTable } from '../timeAndDate/TimeAndDate';
 
 // Data props
 interface Data {
@@ -234,6 +236,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                 }),
             }}
         >
+
             {numSelected > 0 ? (
                 <Typography
                     sx={{ flex: '1 1 100%' }}
@@ -244,15 +247,17 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                     {numSelected} selected
                 </Typography>
             ) : (
+
                 <Typography
                     sx={{ flex: '1 1 100%' }}
-                    variant="h5"
+                    variant="body1"
                     id="tableTitle"
-                    component="div" color="blue-gray" className='py-2'
+                    component="div"
                 >
-                    Estate Ranking (Peringkat Estate)
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam, labore.
                 </Typography>
             )}
+
             {numSelected > 0 ? (
                 <Tooltip title="Delete">
                     <IconButton>
@@ -355,8 +360,19 @@ export default function EnhancedTable() {
     return (
         <Box sx={{ width: '100%' }}>
             <Paper sx={{ width: '100%', mb: 2 }}>
-                <EnhancedTableToolbar numSelected={selected.length} />
                 <TableContainer>
+                    <div className='flex justify-between items-center py-2 px-4'>
+                        <Typography
+                            sx={{ flex: '1 1 100%' }}
+                            variant="h5"
+                            id="tableTitle"
+                            component="div" color="blue-gray"
+                        >
+                            Estate Ranking (Peringkat Estate)
+                        </Typography>
+                        <GetDayAndDateEstateTable/>
+                    </div>
+
                     <Table
                         sx={{ minWidth: 750 }}
                         aria-labelledby="tableTitle"
@@ -423,6 +439,7 @@ export default function EnhancedTable() {
                         </TableBody>
                     </Table>
                 </TableContainer>
+                <EnhancedTableToolbar numSelected={selected.length} />
                 <TablePagination
                     rowsPerPageOptions={[5, 10, 25]}
                     component="div"
