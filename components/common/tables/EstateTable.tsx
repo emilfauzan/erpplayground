@@ -361,14 +361,14 @@ export default function EnhancedTable() {
         <Box sx={{ width: '100%' }}>
             <Paper sx={{ width: '100%', mb: 2 }}>
                 <TableContainer>
-                    <div className='flex justify-between items-center pb-2 pt-4 px-4'>
+                    <div className='rounded-md flex-shrink-0 flex justify-between items-center p-4 bg-[#37474f] '>
                         <Typography
                             sx={{ flex: '1 1 100%' }}
                             variant="h5"
                             id="tableTitle"
-                            component="div" color="blue-gray"
+                            component="div" color="white" className='font-bold'
                         >
-                            Estate Ranking (Peringkat Estate)
+                            Estate Ranking
                         </Typography>
                         <GetDayAndDateEstateTable />
                     </div>

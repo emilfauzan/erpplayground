@@ -5,6 +5,7 @@ import CardDataStats from "@/components/common/cards/CardDataStats";
 import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
 import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
 import Typography from '@mui/material/Typography';
+import { Stack } from '@mui/material';
 
 function Home() {
     return (
@@ -45,11 +46,22 @@ function Home() {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa distinctio assumenda quos unde nostrum illum ullam autem earum error nulla commodi, asperiores provident nobis. Quidem atque, animi mollitia quos ea distinctio consequatur alias minima perferendis quasi quae, ipsa commodi optio vitae nihil? Officia labore atque praesentium voluptates repellat inventore totam. Dicta minus assumenda fuga doloribus, eos voluptatem. Consectetur ducimus et odio assumenda similique animi amet quam, mollitia, incidunt nisi neque, perspiciatis accusantium. Dicta eveniet, ratione nostrum, quasi odit enim beatae quos iure saepe nisi labore reprehenderit. Doloremque quos atque dolore ipsam minima libero assumenda magnam officia eligendi. Inventore, soluta. Recusandae.
             </Typography>
 
+            {/* White divider */}
+            <hr className="text-inherit" />
+
+            <Stack className='rounded-md flex-shrink-0 flex justify-between items-center py-2 px-4 my-8  bg-orange-500 shadow-lg shadow-orange-500/50'>
+                <Typography sx={{ flex: '1 1 100%' }}
+                    variant="h5"
+                    id="tableTitle"
+                    component="div" color="white" className='font-bold italic outlinedblack tracking-wider text-center flex-shrink-0 pointer-default'>
+                    TODAY'S PRODUCTIVITY
+                </Typography>
+            </Stack>
+
             <EstateTable />
 
-            <Typography className='text-justify py-5 indent-8' variant="body2" gutterBottom>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate illum provident eaque consequatur aut fugit itaque facere veniam, quae aspernatur enim esse quo atque perspiciatis dicta molestias perferendis voluptatum ex dignissimos? Nulla, sequi officiis? Accusamus modi voluptatem quas deserunt autem officia non. Dolor nobis enim quidem rem qui suscipit, tempora aspernatur deleniti velit ipsum ipsam accusantium officiis iure error quos blanditiis veritatis pariatur nihil, veniam necessitatibus sint ipsa excepturi non! Deserunt iusto cupiditate sapiente, minima reiciendis reprehenderit maiores quia in voluptatibus, ratione ea velit dignissimos consequatur inventore dicta veritatis iure commodi tempora, harum aperiam quibusdam ipsam eaque corporis odio! Veniam!
-            </Typography>
+            {/* White divider */}
+            <hr className="my-10" />
 
             <HarvesterTable />
 

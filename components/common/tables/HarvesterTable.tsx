@@ -284,9 +284,9 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                     sx={{ flex: '1 1 100%' }}
                     variant="h5"
                     id="tableTitle"
-                    component="div" className='py-2'
+                    component="div" color="black" className='font-bold'
                 >
-                    Harvester Ranking (Peringkat Pemanen)
+                    Harvester Ranking
                 </Typography>
             )}
             {numSelected > 0 ? (
