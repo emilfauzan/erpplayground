@@ -38,6 +38,7 @@ body {
     -1px 1px 0 #000,
     1px 1px 0 #000;
 }
+
 .outlinedwhite {
   color: white;
   text-shadow:
@@ -45,4 +46,12 @@ body {
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;
+}
+
+.shadowwhite {
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.686);
+}
+
+.shadowblack {
+  box-shadow: 0 3px 10px rgb(0, 0, 0, 0.2);
 }

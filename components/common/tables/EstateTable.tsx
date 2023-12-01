@@ -360,8 +360,7 @@ export default function EnhancedTable() {
     return (
         <Box sx={{ width: '100%' }}>
             <Paper sx={{ width: '100%', mb: 2 }}>
-                <TableContainer>
-                    <div className='rounded-md flex-shrink-0 flex justify-between items-center p-4 bg-[#37474f] '>
+                    <div className='rounded-md  flex-shrink-0 flex justify-between items-center p-4 bg-[#37474f] '>
                         <Typography
                             sx={{ flex: '1 1 100%' }}
                             variant="h5"
@@ -372,6 +371,7 @@ export default function EnhancedTable() {
                         </Typography>
                         <GetDayAndDateEstateTable />
                     </div>
+                    <TableContainer>
 
                     <Table
                         sx={{ minWidth: 750 }}

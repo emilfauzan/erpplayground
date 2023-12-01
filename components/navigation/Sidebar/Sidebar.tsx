@@ -63,7 +63,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
     }, [sidebarExpanded]);
 
     return (
-        <aside ref={sidebar} className={`absolute left-0 top-0 z-9999 flex h-screen w-58 flex-col overflow-y-hidden bg-[#37474f] duration-300 ease-in-out dark:bg-boxdark 2xl:static 2xl:translate-x-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
+        <aside ref={sidebar} className={`absolute left-0 top-0 z-9999 flex h-screen w-58 flex-col overflow-y-hidden bg-[#37474f] duration-300 ease-in-out dark:bg-boxdark 2xl:static 2xl:translate-x-0 ${sidebarOpen ? "translate-x-0  shadow-2xl shadow-black/100" : "-translate-x-full "
             }`}>
 
             {/* Title start */}
@@ -71,16 +71,16 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
                 className="flex items-center justify-between gap-2 px-6 
         py-1 2xl:block 2xl:py-1"
             >
-                
+
                 <Button
                     ref={trigger}
                     onClick={() => setSidebarOpen(!sidebarOpen)}
                     aria-controls="sidebar"
                     aria-expanded={sidebarOpen}
-                    className="pl-3 pr-2 py-2 block flex-shrink-0 rounded-md hover:bg-white text-center text-white hover:text-black p-1.5 shadow-sm 2xl:hidden duration-300 ease-in-out"
+                    className="pl-3 pr-2 py-2 block flex-shrink-0 rounded-full hover:bg-white text-center text-white hover:text-black p-1.5 shadow-sm 2xl:hidden duration-300 ease-in-out"
                     variant="text"
                 >
-                        <MenuIcon />
+                    <MenuIcon />
                 </Button>
                 <Link href={"/dashboard/home"}
                     className={`group relative flex items-center gap-2.5 rounded-lg px-4 py-2 font-medium text-white duration-300 ease-in-out
@@ -123,9 +123,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
                         <ul className="flex flex-col gap-1">
                             <li>
                                 <Link href={"/dashboard/home"}
-                                    className={`group relative flex items-center gap-2.5 rounded-lg px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black 
+                                    className={`group relative flex items-center gap-2.5 rounded-full px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-blue-gray-500 
 ${pathname === "/dashboard/home" &&
-                                        "bg-orange-500 dark:bg-black"
+                                        "bg-blue-gray-900 shadow-inner"
                                         }`}
                                 >
                                     <svg
@@ -152,10 +152,10 @@ ${pathname === "/dashboard/home" &&
                                         <React.Fragment>
                                             <Link
                                                 href="#"
-                                                className={`group relative flex items-center gap-2.5 rounded-lg px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black
+                                                className={`group relative flex items-center gap-2.5 rounded-full px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-blue-gray-500
                         ${(pathname === "/dashboard" ||
                                                         pathname === "/dashboard/human_resources") &&
-                                                    "bg-orange-500 dark:bg-black"
+                                                    "bg-blue-gray-900"
                                                     }`}
                                                 onClick={(event) => {
                                                     event.preventDefault();
@@ -193,9 +193,8 @@ ${pathname === "/dashboard/home" &&
                                                     <li>
                                                         <Link
                                                             href="/dashboard/human_resources"
-                                                            className={`group relative flex items-center gap-2.5 rounded-lg py-2 px-4 font-medium text-white duration-300 
-                                ease-in-out hover:bg-white hover:text-black ${pathname === "/dashboard/human_resources" &&
-                                                                "bg-orange-500 dark:bg-black"
+                                                            className={`group relative flex items-center gap-2.5 rounded-full px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-blue-gray-500 ${pathname === "/dashboard/human_resources" &&
+                                                                "bg-blue-gray-900"
                                                                 } `}
                                                         >
                                                             <svg
@@ -218,9 +217,9 @@ ${pathname === "/dashboard/home" &&
                             </SidebarLinkGroup>
                             <li>
                                 <Link href={"/dashboard/production"}
-                                    className={`group relative flex items-center gap-2.5 rounded-lg px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black 
+                                    className={`group relative flex items-center gap-2.5 rounded-full px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-blue-gray-500 
 ${pathname === "/dashboard/production" &&
-                                        "bg-orange-500 dark:bg-black"
+                                        "bg-blue-gray-900"
                                         }`}
                                 >
                                     <svg
@@ -252,9 +251,9 @@ ${pathname === "/dashboard/production" &&
 
                             <li>
                                 <Link href={"/apps/calendar"}
-                                    className={`group relative flex items-center gap-2.5 rounded-lg px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-white hover:text-black
+                                    className={`group relative flex items-center gap-2.5 rounded-full px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-blue-gray-500
                                     ${pathname === "/apps/calendar" &&
-                                        "bg-orange-500 dark:bg-black"
+                                        "bg-blue-gray-900"
                                         }`}
                                 >
                                     <svg

@@ -11,6 +11,7 @@ import {
     // CardFooter,
     Typography,
     Tooltip,
+    Chip,
 } from "@material-tailwind/react";
 
 function CardDataStats({
@@ -33,17 +34,36 @@ function CardDataStats({
                     <h4 className="pl-4 text-title-md font-bold flex items-center justify-center">{title}</h4>
                 </div>
                 <div className="sm:pl-15 mt-4 flex items-end justify-between">
-                    <div>
+                    <div className="gap-2 grid grid-cols-1">
                         <h4 className="text-md whitespace-pre-line font-semibold">{bulanhadir}</h4>
-                        <h4 className="text-md whitespace-pre-line ">Hadir: {hadir} kali <CheckCircleOutlineRoundedIcon className="text-green-500" /></h4>
-                        <h4 className="text-md whitespace-pre-line ">Tidak hadir: {tidakhadir} kali  <HighlightOffRoundedIcon className="text-red-500" /></h4>
+                        <h4 className="whitespace-pre-line ">
+                            <Chip
+                                variant="ghost"
+                                color="green"
+                                size="sm"
+                                value={`Hadir :  ${hadir} kali`}
+                                icon={
+                                    <span className="mx-auto mt-1 block h-2 w-2 rounded-full bg-green-500 " />
+                                }
+                            />
+                        </h4>
+                        <h4 className="whitespace-pre-line ">
+                            <Chip
+                                variant="ghost"
+                                color="red"
+                                size="sm"
+                                value={`Tidak hadir : ${tidakhadir} kali`}
+                                icon={
+                                    <span className="mx-auto mt-1 block h-2 w-2 rounded-full bg-red-500 " />
+                                }
+                            />
+                        </h4>
+                        <Typography color="blue-gray" className="text-md flex items-center gap-1 font-semibold whitespace-pre-line" textGradient>
+                            {presensiterakhir}
+                        </Typography>
                     </div>
                 </div>
 
-                <Typography color="blue-gray" className="text-md sm:pl-15 flex items-center gap-1 font-semibold whitespace-pre-line" textGradient>
-                    {presensiterakhir}
-
-                </Typography>
 
                 {/* <span
                     className={`text-md pl-15 flex items-center gap-1 font-semibold whitespace-pre-line ${levelUp && "text-meta-3"

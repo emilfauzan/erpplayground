@@ -57,7 +57,7 @@ const DropdownUser = () => {
                         href={"#"}
                     > */}
                     <svg
-                        className="mr-5 hover:text-orange-400 text-black sm:block duration-300 ease-in-out cursor-pointer"
+                        className="xl:mr-2 hover:text-orange-400 text-black sm:block duration-300 ease-in-out cursor-pointer"
                         width={60}
                         height={45}
                         viewBox="0 0 12 8"

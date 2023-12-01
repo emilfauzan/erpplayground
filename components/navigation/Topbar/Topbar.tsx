@@ -10,8 +10,8 @@ import CompanyLogo from "@/public/images/companyLogo/companyLogo.png";
 
 const Topbar = ({ sidebarOpen, setSidebarOpen }: TopbarProp) => {
     return (
-        <Navbar className='sticky top-0 z-99 flex h-max max-w-full rounded-none p-1 lg:px-8 lg:py-4'>
-            <div className='flex flex-grow items-center justify-between p-2 md:px-6 2xl:px-11'>
+        <Navbar className='sticky top-0 z-99 flex h-max max-w-full rounded-none p-1 px-3 lg:py-1'>
+            <div className='flex flex-grow items-center justify-between p-2 2xl:px-11'>
                 <div className='flex items-center gap-2 text-black sm:gap-4 2xl:hidden'>
                     <Button
                         aria-controls="sidebar"
@@ -19,7 +19,7 @@ const Topbar = ({ sidebarOpen, setSidebarOpen }: TopbarProp) => {
                             event.stopPropagation();
                             setSidebarOpen(!sidebarOpen);
                         }}
-                        className="z-99 block rounded-md border-stroke hover:bg-black hover:text-white p-1.5 shadow-sm 2xl:hidden duration-300 ease-in-out"
+                        className="z-99 block rounded-full border-stroke hover:bg-black hover:text-white p-1.5 shadow-sm 2xl:hidden duration-300 ease-in-out"
                         variant='text'
                     >
                         <MenuIcon />
