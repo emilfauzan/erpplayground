@@ -1,11 +1,12 @@
 "use client";
 import EstateTable from '@/components/common/tables/EstateTable';
 import HarvesterTable from '@/components/common/tables/HarvesterTable';
-import CardDataStats from "@/components/common/cards/CardDataStats";
+import CardDataBio from "@/components/common/cards/CardDataBio";
 import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
 import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
 import Typography from '@mui/material/Typography';
 import { Stack } from '@mui/material';
+import CardDataStats from '@/components/common/cards/CardDataStats';
 
 function Home() {
     return (
@@ -15,7 +16,7 @@ function Home() {
             </Typography>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-2 2xl:gap-7.5">
 
-                <CardDataStats
+                <CardDataBio
                     title="Informasi Karyawan"
                     subtitle1={`Walter Hartwell White`}
                     subtitle2={`[NIK: JKO/202X/000X]`}
@@ -26,14 +27,14 @@ function Home() {
 
                         <PersonOutlineRoundedIcon />
                     </svg>
-                </CardDataStats>
+                </CardDataBio>
 
                 <CardDataStats
                     title="Status Presensi"
-                    subtitle1={`Kehadiran s.d. 7 November 2023`}
-                    subtitle2={`Hadir: 3 Hari `}
-                    subtitle3={`Tidak Hadir: 2 Hari`}
-                    description={`Absen Terakhir: 7-11-2023 (18:35)`}
+                    bulanhadir={`Kehadiran s.d. 7 November 2023`}
+                    hadir={3}
+                    tidakhadir={2}
+                    presensiterakhir={`Absen Terakhir: 7-11-2023 (18:35)`}
                 >
                     <svg width="30" height="30" fill="none">
                         <WorkHistoryOutlinedIcon />

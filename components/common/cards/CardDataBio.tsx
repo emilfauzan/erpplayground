@@ -1,7 +1,5 @@
-import { CardDataStatProp } from "@/interface/typings";
+import { CardDataBioProp } from "@/interface/typings";
 import React from "react";
-import HighlightOffRoundedIcon from '@mui/icons-material/HighlightOffRounded';
-import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlineRounded';
 // import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 // import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import {
@@ -13,16 +11,16 @@ import {
     Tooltip,
 } from "@material-tailwind/react";
 
-function CardDataStats({
+function CardDataBio({
     title,
-    bulanhadir,
-    hadir,
-    tidakhadir,
-    presensiterakhir,
+    subtitle1,
+    subtitle2,
+    subtitle3,
+    description,
     // levelUp,
     // levelDown,
     children
-}: CardDataStatProp) {
+}: CardDataBioProp) {
     return (
         <Card className="hover:shadow-xl ease-in-out duration-300 border border-stroke">
             <CardBody>
@@ -34,14 +32,14 @@ function CardDataStats({
                 </div>
                 <div className="sm:pl-15 mt-4 flex items-end justify-between">
                     <div>
-                        <h4 className="text-md whitespace-pre-line font-semibold">{bulanhadir}</h4>
-                        <h4 className="text-md whitespace-pre-line ">Hadir: {hadir} kali <CheckCircleOutlineRoundedIcon className="text-green-500" /></h4>
-                        <h4 className="text-md whitespace-pre-line ">Tidak hadir: {tidakhadir} kali  <HighlightOffRoundedIcon className="text-red-500" /></h4>
+                        <h4 className="text-md whitespace-pre-line font-semibold">{subtitle1}</h4>
+                        <h4 className="text-md whitespace-pre-line">{subtitle2}</h4>
+                        <h4 className="text-md whitespace-pre-line">{subtitle3}</h4>
                     </div>
                 </div>
 
                 <Typography color="blue-gray" className="text-md sm:pl-15 flex items-center gap-1 font-semibold whitespace-pre-line" textGradient>
-                    {presensiterakhir}
+                    {description}
 
                 </Typography>
 
@@ -82,4 +80,4 @@ function CardDataStats({
     )
 }
 
-export default CardDataStats
+export default CardDataBio
