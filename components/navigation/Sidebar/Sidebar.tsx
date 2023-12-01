@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/mt_export_file/ExportComponent";
 import { SidebarProp } from "@/interface/typings";
 import SidebarLinkGroup from "./SidebarLinkGroup";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import MenuIcon from "@mui/icons-material/Menu";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import CompanyLogo from "@/public/images/companyLogo/companyLogo.png";
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
@@ -71,6 +71,17 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
                 className="flex items-center justify-between gap-2 px-6 
         py-1 2xl:block 2xl:py-1"
             >
+                
+                <Button
+                    ref={trigger}
+                    onClick={() => setSidebarOpen(!sidebarOpen)}
+                    aria-controls="sidebar"
+                    aria-expanded={sidebarOpen}
+                    className="pl-3 pr-2 py-2 block flex-shrink-0 rounded-md hover:bg-white text-center text-white hover:text-black p-1.5 shadow-sm 2xl:hidden duration-300 ease-in-out"
+                    variant="text"
+                >
+                        <MenuIcon />
+                </Button>
                 <Link href={"/dashboard/home"}
                     className={`group relative flex items-center gap-2.5 rounded-lg px-4 py-2 font-medium text-white duration-300 ease-in-out
                 ${pathname === "/dashboard/home"
@@ -99,25 +110,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
                         </div>
                     </div>
                 </Link>
-                <Button
-                    ref={trigger}
-                    onClick={() => setSidebarOpen(!sidebarOpen)}
-                    aria-controls="sidebar"
-                    aria-expanded={sidebarOpen}
-                    className="pl-3 pr-2 py-2 2xl:hidden hover:bg-black duration-300 ease-in-out flex align-center"
-                    variant="text"
-                >
-                    <svg
-                        className="fill-current"
-                        width="30"
-                        height="30"
-                        viewBox="0 0 10 5"
-                        fill="none"
-                        color="white"
-                    >
-                        <ArrowBackIosIcon />
-                    </svg>
-                </Button>
             </div>
             {/* Title end */}
 

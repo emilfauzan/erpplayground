@@ -361,7 +361,7 @@ export default function EnhancedTable() {
         <Box sx={{ width: '100%' }}>
             <Paper sx={{ width: '100%', mb: 2 }}>
                 <TableContainer>
-                    <div className='flex justify-between items-center py-2 px-4'>
+                    <div className='flex justify-between items-center pb-2 pt-4 px-4'>
                         <Typography
                             sx={{ flex: '1 1 100%' }}
                             variant="h5"
@@ -370,7 +370,7 @@ export default function EnhancedTable() {
                         >
                             Estate Ranking (Peringkat Estate)
                         </Typography>
-                        <GetDayAndDateEstateTable/>
+                        <GetDayAndDateEstateTable />
                     </div>
 
                     <Table
