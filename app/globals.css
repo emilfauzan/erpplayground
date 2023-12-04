@@ -58,25 +58,3 @@ body {
 .shadowblack {
   box-shadow: 0 3px 10px rgb(0, 0, 0, 0.2);
 }
-
-.sidebargrouphidden {
-  /* This timing applies on the way OUT */
-  transition-timing-function: ease-in;
-
-  /* Quick on the way out */
-  transition: 0.3s;
-
-  /* Hide thing by pushing it outside by default */
-  transform: translateY(130%);
-}
-
-.sidebargroupshow {
-  /* This timing applies on the way IN */
-  transition-timing-function: ease-out;
-
-  /* A litttttle slower on the way in */
-  transition: 0.25s;
-
-  /* Move into place */
-  transform: translateY(0);
-}

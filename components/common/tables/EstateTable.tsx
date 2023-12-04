@@ -22,7 +22,6 @@ import Switch from '@mui/material/Switch';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
-import { typography } from '@material-tailwind/react';
 import { GetDayAndDateEstateTable } from '../timeAndDate/TimeAndDate';
 
 // Data props
@@ -257,20 +256,11 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam, labore.
                 </Typography>
             )}
-
-            {numSelected > 0 ? (
-                <Tooltip title="Delete">
-                    <IconButton>
-                        <DeleteIcon />
-                    </IconButton>
-                </Tooltip>
-            ) : (
-                <Tooltip title="Filter list">
-                    <IconButton>
-                        <FilterListIcon />
-                    </IconButton>
-                </Tooltip>
-            )}
+            <Tooltip title="Filter list">
+                <IconButton>
+                    <FilterListIcon />
+                </IconButton>
+            </Tooltip>
         </Toolbar>
     );
 }
@@ -359,19 +349,19 @@ export default function EnhancedTable() {
 
     return (
         <Box sx={{ width: '100%' }}>
-            <Paper sx={{ width: '100%', mb: 2 }}>
-                    <div className='rounded-md  flex-shrink-0 flex justify-between items-center p-4 bg-[#37474f] '>
-                        <Typography
-                            sx={{ flex: '1 1 100%' }}
-                            variant="h5"
-                            id="tableTitle"
-                            component="div" color="white" className='font-bold'
-                        >
-                            Estate Ranking
-                        </Typography>
-                        <GetDayAndDateEstateTable />
-                    </div>
-                    <TableContainer>
+            <Paper sx={{ width: '100%', mb: 2 }} className='rounded-lg'>
+                <div className='rounded-md flex-shrink-0 flex justify-between items-center p-4 bg-[#37474f] mb-4'>
+                    <Typography
+                        sx={{ flex: '1 1 100%' }}
+                        variant="h5"
+                        id="tableTitle"
+                        component="div" color="white" className='font-bold'
+                    >
+                        Estate Ranking
+                    </Typography>
+                    <GetDayAndDateEstateTable />
+                </div>
+                <TableContainer>
 
                     <Table
                         sx={{ minWidth: 750 }}
