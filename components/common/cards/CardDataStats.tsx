@@ -20,8 +20,6 @@ function CardDataStats({
     hadir,
     tidakhadir,
     presensiterakhir,
-    // levelUp,
-    // levelDown,
     children
 }: CardDataStatProp) {
     return (

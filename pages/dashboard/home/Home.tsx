@@ -54,7 +54,7 @@ function Home() {
                 <Typography sx={{ flex: '1 1 100%' }}
                     variant="h5"
                     id="tableTitle"
-                    component="div" color="white" className='font-bold italic outlinedblack tracking-wider text-center flex-shrink-0 pointer-default'>
+                    component="div" color="white" className='font-bold italic outlinedblack tracking-wider text-center flex-shrink-0 cursor-default'>
                     TODAY'S PRODUCTIVITY
                 </Typography>
             </Stack>

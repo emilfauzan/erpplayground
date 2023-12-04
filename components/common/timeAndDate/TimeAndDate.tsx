@@ -89,7 +89,7 @@ export const GetDayAndDateEstateTable = () => {
         return () => clearInterval(timer);
     }, []);
     return (
-        <Typography className="flex-shrink-0 block text-white text-sm text-center py-2 px-4 rounded-md border border-blue-gray-50 bg-inherit shadowwhite">
+        <Typography className="flex-shrink-0 block text-white text-sm text-center py-2 px-4 rounded-md border border-blue-gray-50 shadowwhite">
             {getDay(time)} <br /> {getDate("DD-MM-YYYY", time)} <br /> {getTime(time)}
         </Typography>
     );

@@ -17,8 +17,6 @@ function CardDataBio({
     subtitle2,
     subtitle3,
     description,
-    // levelUp,
-    // levelDown,
     children
 }: CardDataBioProp) {
     return (
