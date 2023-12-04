@@ -152,7 +152,7 @@ ${pathname === "/dashboard/home" &&
                                         <React.Fragment>
                                             <Link
                                                 href="#"
-                                                className={`group relative flex items-center gap-2.5 rounded-full px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-blue-gray-500
+                                                className={`transition-transform group relative flex items-center gap-2.5 rounded-full px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-blue-gray-500
                         ${(pathname === "/dashboard" ||
                                                         pathname === "/dashboard/human_resources") &&
                                                     "bg-blue-gray-900"
@@ -175,7 +175,7 @@ ${pathname === "/dashboard/home" &&
                                                 </svg>
                                                 Human Resources
                                                 <svg
-                                                    className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${open && "rotate-180 ease-in-out duration-300"
+                                                    className={`transition-transform absolute right-4 top-1/2 -translate-y-1/2 fill-current ${open && "rotate-180"
                                                         }`}
                                                     width="20"
                                                     height="20"
@@ -186,7 +186,7 @@ ${pathname === "/dashboard/home" &&
                                                 </svg>
                                             </Link>
                                             <div
-                                                className={`translate transform overflow-hidden ${!open && "hidden"
+                                                className={` overflow-hidden ${!open && "hidden"
                                                     }`}
                                             >
                                                 <ul className="mb-4 mt-1 flex flex-col gap-2 pl-6">
