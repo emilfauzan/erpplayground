@@ -1,4 +1,19 @@
-[
+{
+    "meta": [
+        {
+            "id": 1,
+            "title": "alo1"
+        },
+        {
+            "id": 1,
+            "title": "alo2"
+        },
+        {
+            "id": 3,
+            "title": "alo3"
+        }
+    ],
+    "data": [
         {
             "id": 1,
             "ranking": 2,
@@ -66,3 +81,4 @@
             "variankg": 25
         }
     ]
+}

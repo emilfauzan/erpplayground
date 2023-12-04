@@ -7,7 +7,9 @@ const Calendar = () => {
     return (
         <>
             <h1 className='pb-4 text-title-md2 font-bold'>Calendar</h1>
-            <p>{JSON.stringify(estate, null, 2)}</p>
+            <p>{JSON.stringify(estate.meta, null, 2)}</p>
+            <p>{JSON.stringify(estate.data)}</p>
+            
         </>
     )
 }
