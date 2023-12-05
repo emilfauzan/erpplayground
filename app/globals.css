@@ -49,10 +49,10 @@ body {
 }
 
 .shadowwhite {
-  border-radius: 52px;
+  border-radius: 29px;
   background: #37474f;
-  box-shadow: -9px 9px 18px #2b383e,
-    9px -9px 18px #435660;
+  box-shadow: -10px 10px 20px #232d33,
+    10px -10px 20px #4b616b;
 }
 
 .shadowblack {

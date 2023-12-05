@@ -80,5 +80,79 @@
             "varianjanjang": 12,
             "variankg": 25
         }
+    ],
+    "data2": [
+        {
+            "id": 1,
+            "estate": "BUM1",
+            "rkh_janjang":37671,
+            "rkh_kg":8578,
+            "realisasi_janjang":1060,
+            "realisasi_kg":8680,
+            "varian_hi_kg":4831
+        },
+        {
+            "id": 1,
+            "estate": "BUM1",
+            "rkh_janjang":37671,
+            "rkh_kg":8578,
+            "realisasi_janjang":1060,
+            "realisasi_kg":8680,
+            "varian_hi_kg":4831
+        },
+        {
+            "id": 1,
+            "estate": "BUM1",
+            "rkh_janjang":37671,
+            "rkh_kg":8578,
+            "realisasi_janjang":1060,
+            "realisasi_kg":8680,
+            "varian_hi_kg":4831
+        },
+        {
+            "id": 1,
+            "estate": "BUM1",
+            "rkh_janjang":37671,
+            "rkh_kg":8578,
+            "realisasi_janjang":1060,
+            "realisasi_kg":8680,
+            "varian_hi_kg":4831
+        },
+        {
+            "id": 1,
+            "estate": "BUM1",
+            "rkh_janjang":37671,
+            "rkh_kg":8578,
+            "realisasi_janjang":1060,
+            "realisasi_kg":8680,
+            "varian_hi_kg":4831
+        },
+        {
+            "id": 1,
+            "estate": "BUM1",
+            "rkh_janjang":37671,
+            "rkh_kg":8578,
+            "realisasi_janjang":1060,
+            "realisasi_kg":8680,
+            "varian_hi_kg":4831
+        },
+        {
+            "id": 1,
+            "estate": "BUM1",
+            "rkh_janjang":37671,
+            "rkh_kg":8578,
+            "realisasi_janjang":1060,
+            "realisasi_kg":8680,
+            "varian_hi_kg":4831
+        },
+        {
+            "id": 1,
+            "estate": "BUM1",
+            "rkh_janjang":37671,
+            "rkh_kg":8578,
+            "realisasi_janjang":1060,
+            "realisasi_kg":8680,
+            "varian_hi_kg":4831
+        }
     ]
 }

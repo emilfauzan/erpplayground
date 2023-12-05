@@ -35,7 +35,7 @@ interface Data {
     varian_hi_kg: number
 }
 
-// returning Data alongside with each parameters
+// returning Data alongside with property's each parameters
 function createData(
     id: number,
     estate: string,
