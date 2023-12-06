@@ -4,30 +4,49 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 
 import { DataGrid } from '@mui/x-data-grid';
+import { Paper, Typography } from '@mui/material';
+import { GetDayAndDateEstateTable } from '../timeAndDate/TimeAndDate';
 
 export default function HarvesterTable() {
     return (
         <Box sx={{ height: 250, width: '100%' }}>
-            <DataGrid
-                columns={[{
-                    field: 'username'
-                }, {
-                    field: 'age'
-                }
-                ]}
-                rows={[
-                    {
-                        id: 1,
-                        username: '@MUI',
-                        age: 20,
-                    },
-                    {
-                        id: 2,
-                        username: '@MUI2',
-                        age: 21,
-                    },
-                ]}
-            />
+            <Paper sx={{ width: '100%', mb: 2 }} className='rounded-lg'>
+                <div className='rounded-md flex-shrink-0 flex justify-between items-center p-4 bg-[#37474f] mb-4'>
+                    <Typography
+                        sx={{ flex: '1 1 100%' }}
+                        variant="h5"
+                        id="tableTitle"
+                        component="div" color="white" className='font-bold'
+                    >
+                        Harvester Ranking
+                    </Typography>
+                    <GetDayAndDateEstateTable />
+                </div>
+                <DataGrid
+                    checkboxSelection
+                    onRowSelectionModelChange={(newRowSelectionModel) => {
+                        setRowSelectionModel(newRowSelectionModel);
+                    }}
+                    columns={[{
+                        field: 'username'
+                    }, {
+                        field: 'age'
+                    }
+                    ]}
+                    rows={[
+                        {
+                            id: 1,
+                            username: '@MUI',
+                            age: 20,
+                        },
+                        {
+                            id: 2,
+                            username: '@MUI2',
+                            age: 21,
+                        },
+                    ]}
+                />
+            </Paper>
         </Box>
     );
 }
