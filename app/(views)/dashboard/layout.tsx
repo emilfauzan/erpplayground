@@ -1,5 +1,6 @@
 "use client"
 
+import Footer from "@/components/common/footer/Footer";
 import Loader from "@/components/common/loader/Loader";
 import Sidebar from '@/components/navigation/Sidebar/Sidebar'
 import Topbar from '@/components/navigation/Topbar/Topbar'
@@ -38,6 +39,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                                     {children}
                                 </div>
                             </main>
+                            <Footer />
                         </div>
                     </div>
                 )}
