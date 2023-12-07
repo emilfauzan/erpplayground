@@ -24,101 +24,122 @@ export default function HarvesterTable() {
                 <DataGrid
                     checkboxSelection
                     columns={[{
-                        field: 'estate'
+                        field: 'estate',
+                        headerName : 'Estate',
+                        description: 'Asal Estate'
                     }, {
-                        field: 'afdeling'
+                        field: 'afdeling',
+                        headerName : 'Afdeling',
+                        description: 'Asal Afdeling'
                     }, {
-                        field: 'pemanen'
+                        field: 'pemanen',
+                        headerName : 'Pemanen',
+                        description: 'Nama Pemanen & NIK'
                     }, {
-                        field: 'rkh_janjang'
+                        field: 'rkh_janjang',
+                        headerName : 'RKH Janjang',
+                        description: 'Jumlah janjang sesuai dengan RKH',
+                        type:'number'
                     }, {
-                        field: 'rkh_kg'
+                        field: 'rkh_kg',
+                        headerName : 'RKH Kg',
+                        description: 'Jumlah berat janjang (kg) sesuai dengan RKH',
+                        type:'number'
                     }, {
-                        field: 'realisasi_janjang'
+                        field: 'realisasi_janjang',
+                        headerName : 'Realisasi Janjang',
+                        description: 'Realisasi jumlah janjang saat memanen',
+                        type:'number'
                     }, {
-                        field: 'realisasi_kg'
+                        field: 'realisasi_kg',
+                        headerName : 'Realisasi Kg',
+                        description: 'Realisasi jumlah berat janjang saat memanen',
+                        type:'number'
                     }, {
-                        field: 'varian_hi_kg'
+                        field: 'varian_hi_kg',
+                        headerName : 'Varian Hari Ini /Kg',
+                        description: 'Hasil pengurangan antara RKH Kg dengan Realisasi Kg',
+                        type:'number'
                     }
                     ]}
                     rows={[
                         {
-                            id: 1, estate: 'BUM2', afdeling: 'Afd-20', pemanen: 'Myrtle Chambers - JKO/2011',rkh_janjang: '704', rkh_kg: '6347', realisasi_janjang: '476', realisasi_kg: '9719', varian_hi_kg: '944',
+                            id: 1, estate: 'BUM2', afdeling: 'Afd-20', pemanen: 'Myrtle Chambers - JKO/2011',rkh_janjang: 704, rkh_kg: 6347, realisasi_janjang: 476, realisasi_kg: 9719, varian_hi_kg: 944,
                         },
                         {
-                            id: 2, estate: 'BUM7', afdeling: 'Afd-8', pemanen: 'Madge Harrington - JKO/2021',rkh_janjang: '955', rkh_kg: '3849', realisasi_janjang: '171', realisasi_kg: '4927', varian_hi_kg: '438',
+                            id: 2, estate: 'BUM7', afdeling: 'Afd-8', pemanen: 'Madge Harrington - JKO/2021',rkh_janjang: 955, rkh_kg: 3849, realisasi_janjang: 171, realisasi_kg: 4927, varian_hi_kg: 438,
                         },
                         {
-                            id: 3, estate: 'BUM8', afdeling: 'Afd-7', pemanen: 'Lee Wilkins - JKO/206',rkh_janjang: '619', rkh_kg: '5650', realisasi_janjang: '126', realisasi_kg: '2240', varian_hi_kg: '985',
+                            id: 3, estate: 'BUM8', afdeling: 'Afd-7', pemanen: 'Lee Wilkins - JKO/206',rkh_janjang: 619, rkh_kg: 5650, realisasi_janjang: 126, realisasi_kg: 2240, varian_hi_kg: 985,
                         },
                         {
-                            id: 4, estate: 'BUM5', afdeling: 'Afd-24', pemanen: 'Effie Hale - JKO/2020',rkh_janjang: '833', rkh_kg: '5957', realisasi_janjang: '423', realisasi_kg: '330', varian_hi_kg: '353',
+                            id: 4, estate: 'BUM5', afdeling: 'Afd-24', pemanen: 'Effie Hale - JKO/2020',rkh_janjang: 833, rkh_kg: 5957, realisasi_janjang: 423, realisasi_kg: 330, varian_hi_kg: 353,
                         },
                         {
-                            id: 5, estate: 'BUM1', afdeling: 'Afd-28', pemanen: 'Aaron Becker - JKO/2014',rkh_janjang: '404', rkh_kg: '957', realisasi_janjang: '268', realisasi_kg: '7825', varian_hi_kg: '194',
+                            id: 5, estate: 'BUM1', afdeling: 'Afd-28', pemanen: 'Aaron Becker - JKO/2014',rkh_janjang: 404, rkh_kg: 957, realisasi_janjang: 268, realisasi_kg: 7825, varian_hi_kg: 194,
                         },
                         {
-                            id: 6, estate: 'BUM6', afdeling: 'Afd-4', pemanen: 'Clayton Baker - JKO/2017',rkh_janjang: '341', rkh_kg: '3627', realisasi_janjang: '166', realisasi_kg: '7857', varian_hi_kg: '362',
+                            id: 6, estate: 'BUM6', afdeling: 'Afd-4', pemanen: 'Clayton Baker - JKO/2017',rkh_janjang: 341, rkh_kg: 3627, realisasi_janjang: 166, realisasi_kg: 7857, varian_hi_kg: 362,
                         },
                         {
-                            id: 7, estate: 'BUM5', afdeling: 'Afd-12', pemanen: 'Joshua Santiago - JKO/2022',rkh_janjang: '148', rkh_kg: '1215', realisasi_janjang: '453', realisasi_kg: '6497', varian_hi_kg: '686',
+                            id: 7, estate: 'BUM5', afdeling: 'Afd-12', pemanen: 'Joshua Santiago - JKO/2022',rkh_janjang: 148, rkh_kg: 1215, realisasi_janjang: 453, realisasi_kg: 6497, varian_hi_kg: 686,
                         },
                         {
-                            id: 8, estate: 'BUM7', afdeling: 'Afd-16', pemanen: 'Blake Patrick - JKO/2022',rkh_janjang: '451', rkh_kg: '894', realisasi_janjang: '369', realisasi_kg: '6251', varian_hi_kg: '848',
+                            id: 8, estate: 'BUM7', afdeling: 'Afd-16', pemanen: 'Blake Patrick - JKO/2022',rkh_janjang: 451, rkh_kg: 894, realisasi_janjang: 369, realisasi_kg: 6251, varian_hi_kg: 848,
                         },
                         {
-                            id: 9, estate: 'BUM4', afdeling: 'Afd-15', pemanen: 'Luella Cohen - JKO/2011',rkh_janjang: '342', rkh_kg: '3593', realisasi_janjang: '955', realisasi_kg: '8246', varian_hi_kg: '893',
+                            id: 9, estate: 'BUM4', afdeling: 'Afd-15', pemanen: 'Luella Cohen - JKO/2011',rkh_janjang: 342, rkh_kg: 3593, realisasi_janjang: 955, realisasi_kg: 8246, varian_hi_kg: 893,
                         },
                         {
-                            id: 10, estate: 'BUM1', afdeling: 'Afd-1', pemanen: 'Marcus Garrett - JKO/2013',rkh_janjang: '945', rkh_kg: '9430', realisasi_janjang: '618', realisasi_kg: '6553', varian_hi_kg: '191',
+                            id: 10, estate: 'BUM1', afdeling: 'Afd-1', pemanen: 'Marcus Garrett - JKO/2013',rkh_janjang: 945, rkh_kg: 9430, realisasi_janjang: 618, realisasi_kg: 6553, varian_hi_kg: 191,
                         },
                         {
-                            id: 11, estate: 'BUM3', afdeling: 'Afd-35', pemanen: 'Margaret Carr - JKO/2019',rkh_janjang: '439', rkh_kg: '7791', realisasi_janjang: '440', realisasi_kg: '6899', varian_hi_kg: '709',
+                            id: 11, estate: 'BUM3', afdeling: 'Afd-35', pemanen: 'Margaret Carr - JKO/2019',rkh_janjang: 439, rkh_kg: 7791, realisasi_janjang: 440, realisasi_kg: 6899, varian_hi_kg: 709,
                         },
                         {
-                            id: 12, estate: 'BUM2', afdeling: 'Afd-28', pemanen: 'Clyde Byrd - JKO/203',rkh_janjang: '500', rkh_kg: '417', realisasi_janjang: '681', realisasi_kg: '4744', varian_hi_kg: '737',
+                            id: 12, estate: 'BUM2', afdeling: 'Afd-28', pemanen: 'Clyde Byrd - JKO/203',rkh_janjang: 500, rkh_kg: 417, realisasi_janjang: 681, realisasi_kg: 4744, varian_hi_kg: 737,
                         },
                         {
-                            id: 13, estate: 'BUM3', afdeling: 'Afd-11', pemanen: 'Mitchell Colon - JKO/204',rkh_janjang: '148', rkh_kg: '8635', realisasi_janjang: '388', realisasi_kg: '9431', varian_hi_kg: '602',
+                            id: 13, estate: 'BUM3', afdeling: 'Afd-11', pemanen: 'Mitchell Colon - JKO/204',rkh_janjang: 148, rkh_kg: 8635, realisasi_janjang: 388, realisasi_kg: 9431, varian_hi_kg: 602,
                         },
                         {
-                            id: 14, estate: 'BUM1', afdeling: 'Afd-27', pemanen: 'Adeline Singleton - JKO/203',rkh_janjang: '854', rkh_kg: '1460', realisasi_janjang: '179', realisasi_kg: '5097', varian_hi_kg: '934',
+                            id: 14, estate: 'BUM1', afdeling: 'Afd-27', pemanen: 'Adeline Singleton - JKO/203',rkh_janjang: 854, rkh_kg: 1460, realisasi_janjang: 179, realisasi_kg: 5097, varian_hi_kg: 934,
                         },
                         {
-                            id: 15, estate: 'BUM4', afdeling: 'Afd-11', pemanen: 'Brandon Nunez - JKO/2015',rkh_janjang: '810', rkh_kg: '3501', realisasi_janjang: '613', realisasi_kg: '935', varian_hi_kg: '946',
+                            id: 15, estate: 'BUM4', afdeling: 'Afd-11', pemanen: 'Brandon Nunez - JKO/2015',rkh_janjang: 810, rkh_kg: 3501, realisasi_janjang: 613, realisasi_kg: 935, varian_hi_kg: 946,
                         },
                         {
-                            id: 16, estate: 'BUM2', afdeling: 'Afd-1', pemanen: 'Elsie Jackson - JKO/2014',rkh_janjang: '125', rkh_kg: '6326', realisasi_janjang: '339', realisasi_kg: '9854', varian_hi_kg: '533',
+                            id: 16, estate: 'BUM2', afdeling: 'Afd-1', pemanen: 'Elsie Jackson - JKO/2014',rkh_janjang: 125, rkh_kg: 6326, realisasi_janjang: 339, realisasi_kg: 9854, varian_hi_kg: 533,
                         },
                         {
-                            id: 17, estate: 'BUM2', afdeling: 'Afd-17', pemanen: 'Jessie Joseph - JKO/2010',rkh_janjang: '282', rkh_kg: '3582', realisasi_janjang: '954', realisasi_kg: '5524', varian_hi_kg: '566',
+                            id: 17, estate: 'BUM2', afdeling: 'Afd-17', pemanen: 'Jessie Joseph - JKO/2010',rkh_janjang: 282, rkh_kg: 3582, realisasi_janjang: 954, realisasi_kg: 5524, varian_hi_kg: 566,
                         },
                         {
-                            id: 18, estate: 'BUM4', afdeling: 'Afd-30', pemanen: 'Hattie Warner - JKO/2023',rkh_janjang: '644', rkh_kg: '6233', realisasi_janjang: '989', realisasi_kg: '6570', varian_hi_kg: '841',
+                            id: 18, estate: 'BUM4', afdeling: 'Afd-30', pemanen: 'Hattie Warner - JKO/2023',rkh_janjang: 644, rkh_kg: 6233, realisasi_janjang: 989, realisasi_kg: 6570, varian_hi_kg: 841,
                         },
                         {
-                            id: 19, estate: 'BUM3', afdeling: 'Afd-13', pemanen: 'Richard Hines - JKO/200',rkh_janjang: '259', rkh_kg: '4448', realisasi_janjang: '206', realisasi_kg: '8576', varian_hi_kg: '521',
+                            id: 19, estate: 'BUM3', afdeling: 'Afd-13', pemanen: 'Richard Hines - JKO/200',rkh_janjang: 259, rkh_kg: 4448, realisasi_janjang: 206, realisasi_kg: 8576, varian_hi_kg: 521,
                         },
                         {
-                            id: 20, estate: 'BUM1', afdeling: 'Afd-34', pemanen: 'Howard Alvarez - JKO/209',rkh_janjang: '224', rkh_kg: '372', realisasi_janjang: '726', realisasi_kg: '2538', varian_hi_kg: '501',
+                            id: 20, estate: 'BUM1', afdeling: 'Afd-34', pemanen: 'Howard Alvarez - JKO/209',rkh_janjang: 224, rkh_kg: 372, realisasi_janjang: 726, realisasi_kg: 2538, varian_hi_kg: 501,
                         },
                         {
-                            id: 21, estate: 'BUM5', afdeling: 'Afd-11', pemanen: 'William Figueroa - JKO/2020',rkh_janjang: '295', rkh_kg: '636', realisasi_janjang: '427', realisasi_kg: '3684', varian_hi_kg: '320',
+                            id: 21, estate: 'BUM5', afdeling: 'Afd-11', pemanen: 'William Figueroa - JKO/2020',rkh_janjang: 295, rkh_kg: 636, realisasi_janjang: 427, realisasi_kg: 3684, varian_hi_kg: 320,
                         },
                         {
-                            id: 22, estate: 'BUM2', afdeling: 'Afd-31', pemanen: 'Aiden 2 - JKO/2020',rkh_janjang: '606', rkh_kg: '6238', realisasi_janjang: '312', realisasi_kg: '6277', varian_hi_kg: '418',
+                            id: 22, estate: 'BUM2', afdeling: 'Afd-31', pemanen: 'Aiden 2 - JKO/2020',rkh_janjang: 606, rkh_kg: 6238, realisasi_janjang: 312, realisasi_kg: 6277, varian_hi_kg: 418,
                         },
                         {
-                            id: 23, estate: 'BUM3', afdeling: 'Afd-18', pemanen: 'Sally Curtis - JKO/200',rkh_janjang: '559', rkh_kg: '7627', realisasi_janjang: '928', realisasi_kg: '7223', varian_hi_kg: '672',
+                            id: 23, estate: 'BUM3', afdeling: 'Afd-18', pemanen: 'Sally Curtis - JKO/200',rkh_janjang: 559, rkh_kg: 7627, realisasi_janjang: 928, realisasi_kg: 7223, varian_hi_kg: 672,
                         },
                         {
-                            id: 24, estate: 'BUM5', afdeling: 'Afd-27', pemanen: 'Gabriel Townsend - JKO/206',rkh_janjang: '771', rkh_kg: '5452', realisasi_janjang: '429', realisasi_kg: '8632', varian_hi_kg: '308',
+                            id: 24, estate: 'BUM5', afdeling: 'Afd-27', pemanen: 'Gabriel Townsend - JKO/206',rkh_janjang: 771, rkh_kg: 5452, realisasi_janjang: 429, realisasi_kg: 8632, varian_hi_kg: 308,
                         },
                         {
-                            id: 25, estate: 'BUM5', afdeling: 'Afd-35', pemanen: 'Theodore Dawson - JKO/2019',rkh_janjang: '502', rkh_kg: '8577', realisasi_janjang: '478', realisasi_kg: '7955', varian_hi_kg: '674',
+                            id: 25, estate: 'BUM5', afdeling: 'Afd-35', pemanen: 'Theodore Dawson - JKO/2019',rkh_janjang: 502, rkh_kg: 8577, realisasi_janjang: 478, realisasi_kg: 7955, varian_hi_kg: 674,
                         },
                         {
-                            id: 26, estate: 'BUM5', afdeling: 'Afd-35', pemanen: 'Theodore Dawson - JKO/2019',rkh_janjang: '502', rkh_kg: '8577', realisasi_janjang: '478', realisasi_kg: '7955', varian_hi_kg: '674',
+                            id: 26, estate: 'BUM5', afdeling: 'Afd-35', pemanen: 'Theodore Dawson - JKO/2019',rkh_janjang: 502, rkh_kg: 8577, realisasi_janjang: 478, realisasi_kg: 7955, varian_hi_kg: 674,
                         },
                     ]}
                 />
