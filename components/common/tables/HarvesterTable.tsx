@@ -2,9 +2,11 @@
 
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import { DataGrid } from '@mui/x-data-grid';
+import { GridColDef, DataGrid, GridCellParams } from '@mui/x-data-grid';
 import { Paper, Typography } from '@mui/material';
 import { GetDayAndDateEstateTable } from '../timeAndDate/TimeAndDate';
+import clsx from 'clsx';
+
 interface Row {
     id: number;
     estate: string;
@@ -18,8 +20,100 @@ interface Row {
 }
 
 const calculateVarianHiKg = (row: Row): number => {
-    return row.rkh_kg - row.realisasi_kg;
+    return row.realisasi_kg - row.rkh_kg;
 };
+
+const columns: GridColDef[] = [
+    {
+        field: 'estate',
+        headerName: 'Estate',
+        description: 'Asal Estate',
+        headerAlign: 'center',
+        align: 'center',
+        flex: .2,
+        minWidth: 60
+    }, {
+        field: 'afdeling',
+        headerName: 'Afdeling',
+        description: 'Asal Afdeling',
+        headerAlign: 'center',
+        align: 'center',
+        flex: .2,
+        minWidth: 72
+    }, {
+        field: 'pemanen',
+        headerName: 'Pemanen',
+        description: 'Nama Pemanen & NIK',
+        headerAlign: 'center',
+        align: 'center',
+        flex: 1,
+        minWidth: 250,
+        maxWidth: 1000
+    }, {
+        field: 'rkh_janjang',
+        headerName: 'RKH Janjang',
+        description: 'RKH Janjang - Jumlah janjang sesuai dengan RKH',
+        headerAlign: 'center',
+        align: 'center',
+        type: 'number',
+        filterable: false,
+        flex: .2,
+        minWidth: 90
+    }, {
+        field: 'rkh_kg',
+        headerName: 'RKH Kg',
+        description: 'RKH Kg - Jumlah berat janjang (Kg) sesuai dengan RKH',
+        headerAlign: 'center',
+        align: 'center',
+        type: 'number',
+        filterable: false,
+        flex: .2,
+        minWidth: 90,
+        valueFormatter: ({ value }) => `${value} Kg`
+    }, {
+        field: 'realisasi_janjang',
+        headerName: 'Realisasi Janjang',
+        description: 'Realisasi Janjang - Realisasi jumlah janjang saat memanen',
+        headerAlign: 'center',
+        align: 'center',
+        type: 'number',
+        filterable: false,
+        flex: .2,
+        minWidth: 90
+    }, {
+        field: 'realisasi_kg',
+        headerName: 'Realisasi Kg',
+        description: 'Realisasi Kg - Realisasi jumlah berat janjang saat memanen',
+        headerAlign: 'center',
+        align: 'center',
+        type: 'number',
+        filterable: false,
+        flex: .2,
+        minWidth: 90,
+        valueFormatter: ({ value }) => `${value} Kg`
+    }, {
+        field: 'varian_hi_kg',
+        headerName: 'Varian Hari Ini /Kg',
+        description: 'Varian Hari Ini /Kg - Hasil pengurangan antara RKH Kg dengan Realisasi Kg',
+        headerAlign: 'center',
+        align: 'center',
+        type: 'number',
+        filterable: false,
+        flex: .2,
+        minWidth: 90,
+        valueFormatter: ({ value }) => `${value} Kg`,
+        cellClassName: (params: GridCellParams<any, number>) => {
+            if (params.value == null) {
+                return '';
+            }
+
+            return clsx('super-app', {
+                negative: params.value < 0,
+                positive: params.value > 0,
+            });
+        },
+    },
+];
 
 export default function HarvesterTable() {
     return (
@@ -37,10 +131,13 @@ export default function HarvesterTable() {
                     <GetDayAndDateEstateTable />
                 </div>
                 <DataGrid
+                className='cursor-default text-justify'
                     sx={{
                         "& .MuiDataGrid-columnHeaderTitle": {
                             whiteSpace: "normal",
-                            lineHeight: "normal"
+                            lineHeight: "normal",
+                            fontWeight: "bold",
+                            textAlign: "center",
                         },
                         "& .MuiDataGrid-columnHeader": {
                             // Forced to use important since overriding inline styles
@@ -49,86 +146,28 @@ export default function HarvesterTable() {
                         "& .MuiDataGrid-columnHeaders": {
                             // Forced to use important since overriding inline styles
                             maxHeight: "168px !important"
-                        }
+                        },
+                        '& .super-app.negative': {
+                            backgroundColor: '#ef4444',
+                            color: '#fff',
+                            textShadow:`
+                            -.5px -.5px 0 #000,
+                            .5px -.5px 0 #000,
+                            -.5px .5px 0 #000,
+                            .5px .5px 0 #000`
+                        },
+                        // "& .MuiDataGrid-row": {
+                        //     whiteSpace: "normal",
+                        //     lineHeight: "normal",
+                        //     wordWrap: "break-word",
+                        //     height: "unset !important",
+                        // },
+                        // "& .MuiDataGrid-rows": {
+                        //     maxHeight: "168px !important"
+                        // },
                     }}
                     checkboxSelection
-                    columns={[{
-                        field: 'estate',
-                        headerName: 'Estate',
-                        description: 'Asal Estate',
-                        headerAlign: 'center',
-                        align: 'center',
-                        flex: .1,
-                        minWidth: 60
-                    }, {
-                        field: 'afdeling',
-                        headerName: 'Afdeling',
-                        description: 'Asal Afdeling',
-                        headerAlign: 'center',
-                        align: 'center',
-                        flex: .1,
-                        minWidth: 70
-                    }, {
-                        field: 'pemanen',
-                        headerName: 'Pemanen',
-                        description: 'Nama Pemanen & NIK',
-                        headerAlign: 'center',
-                        align: 'center',
-                        flex: 1,
-                        minWidth: 280,
-                        maxWidth: 1000
-                    }, {
-                        field: 'rkh_janjang',
-                        headerName: 'RKH Janjang',
-                        description: 'RKH Janjang - Jumlah janjang sesuai dengan RKH',
-                        headerAlign: 'center',
-                        align: 'center',
-                        type: 'number',
-                        filterable: false,
-                        flex: .2,
-                        minWidth: 90
-                    }, {
-                        field: 'rkh_kg',
-                        headerName: 'RKH Kg',
-                        description: 'RKH Kg - Jumlah berat janjang (kg) sesuai dengan RKH',
-                        headerAlign: 'center',
-                        align: 'center',
-                        type: 'number',
-                        filterable: false,
-                        flex: .2,
-                        minWidth: 90
-                    }, {
-                        field: 'realisasi_janjang',
-                        headerName: 'Realisasi Janjang',
-                        description: 'Realisasi Janjang - Realisasi jumlah janjang saat memanen',
-                        headerAlign: 'center',
-                        align: 'center',
-                        type: 'number',
-                        filterable: false,
-                        flex: .2,
-                        minWidth: 90
-                    }, {
-                        field: 'realisasi_kg',
-                        headerName: 'Realisasi Kg',
-                        description: 'Realisasi Kg - Realisasi jumlah berat janjang saat memanen',
-                        headerAlign: 'center',
-                        align: 'center',
-                        type: 'number',
-                        filterable: false,
-                        flex: .2,
-                        minWidth: 90
-                    }, {
-                        field: 'varian_hi_kg',
-                        headerName: 'Varian Hari Ini /Kg',
-                        description: 'Varian Hari Ini /Kg - Hasil pengurangan antara RKH Kg dengan Realisasi Kg',
-                        headerAlign: 'center',
-                        align: 'center',
-                        type: 'number',
-                        filterable: false,
-                        flex: .2,
-                        minWidth: 90
-                    }
-                    ]}
+                    columns={columns}
                     rows={[
                         {
                             id: 1, estate: 'BUM2', afdeling: 'Afd-20', pemanen: 'Myrtle Chambers - JKO/2011/1132', rkh_janjang: 704, rkh_kg: 6347, realisasi_janjang: 476, realisasi_kg: 9719,
