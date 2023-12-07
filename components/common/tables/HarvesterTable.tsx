@@ -133,6 +133,11 @@ export default function HarvesterTable() {
                 <div>
 
                     <DataGrid
+                        initialState={{
+                            pagination: {
+                                paginationModel: { pageSize: 10, page: 0 },
+                            },
+                        }}
                         className='cursor-default text-justify'
                         sx={{
                             "& .MuiDataGrid-columnHeaderTitle": {
