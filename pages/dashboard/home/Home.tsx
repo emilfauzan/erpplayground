@@ -1,7 +1,6 @@
 "use client";
 import EstateTable from '@/components/common/tables/EstateTable';
 import HarvesterTable from '@/components/common/tables/HarvesterTable';
-import CardDataBio from "@/components/common/cards/CardDataBio";
 import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
 import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
 import Typography from '@mui/material/Typography';
@@ -16,7 +15,7 @@ function Home() {
             </Typography>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-2 2xl:gap-7.5">
 
-                <CardDataBio
+                <CardDataStats
                     title="Informasi Karyawan"
                     subtitle1={`Walter Hartwell White`}
                     subtitle2={`[NIK: JKO/202X/000X]`}
@@ -27,7 +26,7 @@ function Home() {
 
                         <PersonOutlineRoundedIcon />
                     </svg>
-                </CardDataBio>
+                </CardDataStats>
 
                 <CardDataStats
                     title="Status Presensi"

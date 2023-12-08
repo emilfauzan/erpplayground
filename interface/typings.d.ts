@@ -44,19 +44,12 @@ export interface SidebarLinkGroup {
 }
 
 // Cards Interface
-
-interface CardDataBioProp {
+interface CardDataStatProp {
     title: string;
     subtitle1: string;
     subtitle2: string;
     subtitle3: string;
     description: string;
-    levelUp?: boolean;
-    levelDown?: boolean;
-    children: ReactNode;
-}
-interface CardDataStatProp {
-    title: string;
     bulanhadir: string;
     hadir: integer;
     tidakhadir: integer;

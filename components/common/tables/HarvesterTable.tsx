@@ -31,7 +31,7 @@ const columns: GridColDef[] = [
         headerAlign: 'center',
         align: 'center',
         flex: .2,
-        minWidth: 60
+        minWidth: 100
     }, {
         field: 'afdeling',
         headerName: 'Afdeling',
