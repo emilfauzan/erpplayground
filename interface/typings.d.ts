@@ -50,12 +50,6 @@ interface CardDataStatProp {
     subtitle2: string;
     subtitle3: string;
     description: string;
-    bulanhadir: string;
-    hadir: integer;
-    tidakhadir: integer;
-    presensiterakhir: string;
-    levelUp?: boolean;
-    levelDown?: boolean;
     children: ReactNode;
 }
 

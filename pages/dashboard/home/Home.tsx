@@ -13,7 +13,9 @@ function Home() {
             <Typography className='pb-6 font-bold' variant='h5'>
                 Home
             </Typography>
+
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-2 2xl:gap-7.5">
+
 
                 <CardDataStats
                     title="Informasi Karyawan"
@@ -30,10 +32,10 @@ function Home() {
 
                 <CardDataStats
                     title="Status Presensi"
-                    bulanhadir={`Kehadiran s.d. 7 November 2023`}
-                    hadir={3}
-                    tidakhadir={2}
-                    presensiterakhir={`Absen Terakhir: 7-11-2023 (18:35)`}
+                    subtitle1={`Kehadiran s.d. 7 November 2023`}
+                    subtitle2={`Jumlah Kehadiran: 3`}
+                    subtitle3={`Jumlah Ketidakhadiran: 2`}
+                    description={`Absen Terakhir: 7-11-2023 (18:35)`}
                 >
                     <svg width="30" height="30" fill="none">
                         <WorkHistoryOutlinedIcon />
