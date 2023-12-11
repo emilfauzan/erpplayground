@@ -51,6 +51,7 @@ interface CardDataStatProp {
     subtitle3: string;
     description: string;
     children: ReactNode;
+    index:number;
 }
 
 interface EstateRankingDataProp {

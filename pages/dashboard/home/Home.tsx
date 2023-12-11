@@ -23,6 +23,7 @@ function Home() {
                     subtitle2={`[NIK: JKO/202X/000X]`}
                     subtitle3={`Science School Teacher / Scientist`}
                     description={`Information Technology Department`}
+                    index={1}
                 >
                     <svg width="30" height="30" fill="none">
 
@@ -36,6 +37,7 @@ function Home() {
                     subtitle2={`Jumlah Kehadiran: 3`}
                     subtitle3={`Jumlah Ketidakhadiran: 2`}
                     description={`Absen Terakhir: 7-11-2023 (18:35)`}
+                    index={2}
                 >
                     <svg width="30" height="30" fill="none">
                         <WorkHistoryOutlinedIcon />
