@@ -16,7 +16,6 @@ function Home() {
 
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-2 2xl:gap-7.5">
 
-
                 <CardDataStats
                     title="Informasi Karyawan"
                     subtitle1={`Walter Hartwell White`}
@@ -26,7 +25,6 @@ function Home() {
                     index={1}
                 >
                     <svg width="30" height="30" fill="none">
-
                         <PersonOutlineRoundedIcon />
                     </svg>
                 </CardDataStats>

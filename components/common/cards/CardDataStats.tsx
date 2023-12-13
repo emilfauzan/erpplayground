@@ -35,7 +35,7 @@ export default function CardDataStats({
                         </div>
                         <h4 className="pl-4 text-title-md font-bold flex items-center justify-center">{title}</h4>
                     </div>
-                    <div className="sm:pl-15 flex items-end justify-between">
+                    <div className="sm:pl-15 items-end block text-center sm:text-left">
                         <div>
                             {/* <h4 className="text-md whitespace-pre-line font-semibold">{subtitle1}</h4> */}
                             <Chip
@@ -43,28 +43,28 @@ export default function CardDataStats({
                                 color={subtitle1Color}
                                 size="lg"
                                 value={subtitle1}
-                                className="my-2 font-[600] text-[15px]"
+                                className="my-2 font-[600] text-[15px] whitespace-break-spaces flex-shrink-0"
                             />
                             <Chip
                                 variant="ghost"
                                 color={subtitle2Color}
                                 size="lg"
                                 value={subtitle2}
-                                className="my-2 font-[600] text-[15px]"
+                                className="my-2 font-[600] text-[15px] whitespace-break-spaces flex-shrink-0"
                             />
                             <Chip
                                 variant="ghost"
                                 color={subtitle3Color}
                                 size="lg"
                                 value={subtitle3}
-                                className="my-2 font-[600] text-[15px]"
+                                className="my-2 font-[600] text-[15px] whitespace-break-spaces flex-shrink-0"
                             />
                             <Chip
                                 variant="ghost"
                                 color={descriptionColor}
                                 size="lg"
                                 value={description}
-                                className="my-2 font-[600] text-[15px] italic text-blue-gray-500"
+                                className="my-2 font-[600] text-[15px] whitespace-break-spaces flex-shrink-0 italic text-blue-gray-500"
                             />
                             {/* <Typography color="blue-gray" className="text-md flex items-center gap-1 font-semibold whitespace-pre-line" textGradient>
                         {description}
