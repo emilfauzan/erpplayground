@@ -35,8 +35,8 @@ const ProductionDashboard = () => {
     return (
         <>
             <h1 className='pb-4 text-title-md2 font-bold'>Production Dashboard</h1>
-            <div>
-                <button className='border p-2 rounded-lg' onClick={handleClick} >button</button>
+            <div className='flex justify-center my-20'>
+                <button className='border p-2 rounded-lg font-bold hover:bg-green-500 hover:text-white ease-in-out duration-200 hover:border-green-500' onClick={handleClick} >Post cok</button>
             </div>
         </>
     )
