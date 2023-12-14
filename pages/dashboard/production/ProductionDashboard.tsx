@@ -1,35 +1,50 @@
 "use client"
 import React from 'react'
 
-async function postData(url: string, data: any) {
-    const response = await fetch(url, {
+
+// interface requestDataprops{
+//     p_date: string;
+//     p_sectioncode: string;
+// }
+
+async function postData(url: string) {
+    const response = await fetch('http://103.121.213.173/webapi/dashboard/getCurrentProduction.php', {
         method: 'POST',
-        body: JSON.stringify(data),
-    });
+        body: JSON.stringify({
+            p_date: '12-12-2023',
+            p_sectioncode: '01'
+        }),
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+
+    })
+    // const response = await fetch(url, {
+    //     method: 'POST',
+    //     body: JSON.stringify({
+    //         p_date: '11-12-2023',
+    //         p_sectioncode: '01'
+    //     }),
+    //     headers: {
+    //         'Content-Type': 'application/x-www-form-urlencoded'
+    //     },
+    // });
 
     const result = await response.json();
     console.log(JSON.stringify(result));
 
     return result;
 }
-
 const ProductionDashboard = () => {
     const handleClick = async () => {
         const apiUrl = 'http://103.121.213.173/webapi/dashboard/getCurrentProduction.php';
 
-        const requestData = {
-            p_date: '11-12-2023',
-            p_sectioncode: '01',
-            // Add other data properties as needed
-        };
-
         try {
-            const jsonResponse = await postData(apiUrl, requestData);
+            const jsonResponse = await postData(apiUrl);
             console.log('JSON Response:', jsonResponse);
-            // Handle the response as needed
+            // response bentuk json
         } catch (error) {
             console.error('Error:', error);
-            // Handle errors
         }
     };
     return (
