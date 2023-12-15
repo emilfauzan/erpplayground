@@ -60,6 +60,22 @@ interface RequestData {
     p_sectioncode: string;
 }
 
+// props for api response from backend
+interface ApiResponse{
+    GROUP_DATA: string;
+    RANKING: number;
+    ESTATE: string;
+    AFDELING: string;
+    TPH: string;
+    PEMANEN: string;
+    RKH_JJG: string;
+    RKH_KG: string;
+    REAL_JJG: string;
+    REAL_KG: string;
+    VAR_HI_KG: string;
+    PROD_STATUS: string;
+}
+
 interface EstateRankingDataProp {
     id: number,
     ranking: number,
