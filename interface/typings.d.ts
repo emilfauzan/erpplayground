@@ -62,6 +62,7 @@ interface RequestData {
 
 // props for api response from backend
 interface ApiResponse{
+    ROW_ID: string;
     GROUP_DATA: string;
     RANKING: number;
     ESTATE: string;

@@ -75,37 +75,37 @@ const ProductionDashboard = () => {
                 <div>
                     <h2>Table:</h2>
                     <table>
-                        <thead className='border'>
+                        <thead>
                             <tr>
-                                <th>GROUP_DATA</th>
-                                <th>RANKING</th>
-                                <th>ESTATE</th>
-                                <th>AFDELING</th>
-                                <th>TPH</th>
-                                <th>PEMANEN</th>
-                                <th>RKH_JJG</th>
-                                <th>RKH_KG</th>
-                                <th>REAL_JJG</th>
-                                <th>REAL_KG</th>
-                                <th>VAR_HI_KG</th>
-                                <th>PROD_STATUS</th>
+                                <th className='border'>GROUP_DATA</th>
+                                <th className='border'>RANKING</th>
+                                <th className='border'>ESTATE</th>
+                                <th className='border'>AFDELING</th>
+                                <th className='border'>TPH</th>
+                                <th className='border'>PEMANEN</th>
+                                <th className='border'>RKH_JJG</th>
+                                <th className='border'>RKH_KG</th>
+                                <th className='border'>REAL_JJG</th>
+                                <th className='border'>REAL_KG</th>
+                                <th className='border'>VAR_HI_KG</th>
+                                <th className='border'>PROD_STATUS</th>
                             </tr>
                         </thead>
                         <tbody>
                             {responseData.map((item, index) => (
                                 <tr className='border' key={index}>
-                                    <td>{item.GROUP_DATA}</td>
-                                    <td>{item.RANKING}</td>
-                                    <td>{item.ESTATE}</td>
-                                    <td>{item.AFDELING}</td>
-                                    <td>{item.TPH}</td>
-                                    <td>{item.PEMANEN}</td>
-                                    <td>{item.RKH_JJG}</td>
-                                    <td>{item.RKH_KG}</td>
-                                    <td>{item.REAL_JJG}</td>
-                                    <td>{item.REAL_KG}</td>
-                                    <td>{item.VAR_HI_KG}</td>
-                                    <td>{item.PROD_STATUS}</td>
+                                    <td className='border'>{item.GROUP_DATA}</td>
+                                    <td className='border'>{item.RANKING}</td>
+                                    <td className='border'>{item.ESTATE}</td>
+                                    <td className='border'>{item.AFDELING}</td>
+                                    <td className='border'>{item.TPH}</td>
+                                    <td className='border'>{item.PEMANEN}</td>
+                                    <td className='border'>{item.RKH_JJG}</td>
+                                    <td className='border'>{item.RKH_KG}</td>
+                                    <td className='border'>{item.REAL_JJG}</td>
+                                    <td className='border'>{item.REAL_KG}</td>
+                                    <td className='border'>{item.VAR_HI_KG}</td>
+                                    <td className='border'>{item.PROD_STATUS}</td>
                                 </tr>
                             ))}
                         </tbody>
