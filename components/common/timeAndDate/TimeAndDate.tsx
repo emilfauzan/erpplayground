@@ -93,7 +93,7 @@ export const GetDayAndDateEstateTable = () => {
             <span className="font-bold">
                 {getDay(time)}
             </span>
-            <br /> {getDate("DD-MM-YYYY", time)} <br /> {getTime(time)}
+            
         </Typography>
     );
 };
@@ -108,7 +108,7 @@ export const GetDayAndDateHarvesterTable = () => {
     }, []);
     return (
         <h1 className="text-md text-right">
-            {getDay(time)} <br /> {getDate("DD-MM-YYYY", time)} <br /> {getTime(time)}
+            {getDay(time)}
         </h1>
     );
 };

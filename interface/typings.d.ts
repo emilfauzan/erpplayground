@@ -51,7 +51,13 @@ interface CardDataStatProp {
     subtitle3: string;
     description: string;
     children: ReactNode;
-    index:number;
+    index: number;
+}
+
+// props for api postman
+interface RequestData {
+    p_date: string;
+    p_sectioncode: string;
 }
 
 interface EstateRankingDataProp {
