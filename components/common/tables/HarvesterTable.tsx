@@ -88,7 +88,7 @@ export default function HarvesterTable() {
             headerAlign: 'center',
             align: 'center',
             flex: 1,
-            minWidth: 250,
+            minWidth: 200,
             maxWidth: 1000,
             renderCell: (params) => (
                 <div style={{ whiteSpace: 'pre-wrap', overflowWrap: 'break-word' }}>{params.value}</div>
@@ -104,6 +104,10 @@ export default function HarvesterTable() {
             flex: .2,
             minWidth: 90,
             maxWidth: 120,
+            valueFormatter: (params) => {
+                // Format the number using Intl.NumberFormat
+                return new Intl.NumberFormat().format(params.value as number);
+            },
         }, {
             field: 'RKH_KG',
             headerName: 'RKH Kg',
@@ -113,8 +117,12 @@ export default function HarvesterTable() {
             type: 'number',
             filterable: false,
             flex: .2,
-            minWidth: 90,
+            minWidth: 100,
             maxWidth: 120,
+            valueFormatter: (params) => {
+                // Format the number using Intl.NumberFormat
+                return new Intl.NumberFormat().format(params.value as number);
+            },
         }, {
             field: 'REAL_JJG',
             headerName: 'Realisasi Janjang',
@@ -126,6 +134,10 @@ export default function HarvesterTable() {
             flex: .2,
             minWidth: 90,
             maxWidth: 120,
+            valueFormatter: (params) => {
+                // Format the number using Intl.NumberFormat
+                return new Intl.NumberFormat().format(params.value as number);
+            },
         }, {
             field: 'REAL_KG',
             headerName: 'Realisasi Kg',
@@ -135,8 +147,12 @@ export default function HarvesterTable() {
             type: 'number',
             filterable: false,
             flex: .2,
-            minWidth: 90,
+            minWidth: 100,
             maxWidth: 120,
+            valueFormatter: (params) => {
+                // Format the number using Intl.NumberFormat
+                return new Intl.NumberFormat().format(params.value as number);
+            },
         }, {
             field: 'VAR_HI_KG',
             headerName: 'Varian Hari Ini /Kg',
@@ -146,12 +162,16 @@ export default function HarvesterTable() {
             type: 'number',
             filterable: false,
             flex: .2,
-            minWidth: 90,
-            maxWidth: 120,
+            minWidth: 100,
+            maxWidth: 150,
             cellClassName: (params: GridCellParams) => {
                 const prodStatus = params.row.PROD_STATUS;
                 // Apply red background if PROD_STATUS is 'UT'
                 return prodStatus === 'UT' ? 'bg-red-500 text-white outlinedblack' : '';
+            },
+            valueFormatter: (params) => {
+                // Format the number using Intl.NumberFormat
+                return new Intl.NumberFormat().format(params.value as number);
             },
         }, {
             field: 'PROD_STATUS',
@@ -208,7 +228,7 @@ export default function HarvesterTable() {
                 </div>
 
                 {/* Estate Title */}
-                <div className='rounded-md flex-shrink-0 flex justify-between items-center p-4 bg-[#37474f] mb-4'>
+                <div className='rounded-md flex-shrink-0 flex justify-between items-center p-4 bg-[#37474f]'>
                     <Typography
                         sx={{ flex: '1 1 100%' }}
                         variant="h5"
@@ -244,7 +264,7 @@ export default function HarvesterTable() {
                 )}
 
                 {/* Harvester Title */}
-                <div className='rounded-md flex-shrink-0 flex justify-between items-center p-4 bg-[#37474f] mb-4'>
+                <div className='rounded-md flex-shrink-0 flex justify-between items-center p-4 bg-[#37474f]'>
                     <Typography
                         sx={{ flex: '1 1 100%' }}
                         variant="h5"
@@ -274,6 +294,8 @@ export default function HarvesterTable() {
                                 columns={harvesterColumns}
                                 rows={harvesterData}
                                 getRowId={getRowId}
+                                getRowHeight={() => 'auto'}
+                                getEstimatedRowHeight={() => 400}
                             />
                         </div>
                     </div>
