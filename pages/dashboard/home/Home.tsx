@@ -47,9 +47,6 @@ function Home() {
             <Typography className='text-justify py-5 indent-8' variant="body2" gutterBottom>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa distinctio assumenda quos unde nostrum illum ullam autem earum error nulla commodi, asperiores provident nobis. Quidem atque, animi mollitia quos ea distinctio consequatur alias minima perferendis quasi quae, ipsa commodi optio vitae nihil? Officia labore atque praesentium voluptates repellat inventore totam. Dicta minus assumenda fuga doloribus, eos voluptatem. Consectetur ducimus et odio assumenda similique animi amet quam, mollitia, incidunt nisi neque, perspiciatis accusantium. Dicta eveniet, ratione nostrum, quasi odit enim beatae quos iure saepe nisi labore reprehenderit. Doloremque quos atque dolore ipsam minima libero assumenda magnam officia eligendi. Inventore, soluta. Recusandae.
             </Typography>
-            <Typography className='text-justify py-5 indent-8' variant="body2" gutterBottom>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa distinctio assumenda quos unde nostrum illum ullam autem earum error nulla commodi, asperiores provident nobis. Quidem atque, animi mollitia quos ea distinctio consequatur alias minima perferendis quasi quae, ipsa commodi optio vitae nihil? Officia labore atque praesentium voluptates repellat inventore totam. Dicta minus assumenda fuga doloribus, eos voluptatem. Consectetur ducimus et odio assumenda similique animi amet quam, mollitia, incidunt nisi neque, perspiciatis accusantium. Dicta eveniet, ratione nostrum, quasi odit enim beatae quos iure saepe nisi labore reprehenderit. Doloremque quos atque dolore ipsam minima libero assumenda magnam officia eligendi. Inventore, soluta. Recusandae.
-            </Typography>
 
             {/* White divider */}
             <hr className="text-inherit" />
@@ -63,12 +60,10 @@ function Home() {
                 </Typography>
             </Stack>
 
-            <EstateTable />
-
-            {/* White divider */}
-            <hr className="my-10" />
-
             <HarvesterTable />
+
+            
+
 
 
             {/* <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-2 2xl:gap-7.5">

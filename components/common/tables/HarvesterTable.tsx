@@ -168,8 +168,8 @@ export default function HarvesterTable() {
         const apiUrl = 'http://103.121.213.173/webapi/dashboard/getCurrentProduction.php';
 
         const requestData: RequestData = {
-            p_date: '14-12-2023',
-            p_sectioncode: '04',
+            p_date: '15-12-2023',
+            p_sectioncode: '05',
         };
 
         try {
@@ -200,19 +200,19 @@ export default function HarvesterTable() {
                     <GetDayAndDateEstateTable />
                 </div>
 
-                <div className='flex justify-center my-20'>
+                <div className='flex justify-center my-4'>
                     <button className='border p-2 rounded-lg font-bold hover:bg-green-500 text-green-500 hover:text-white ease-in-out duration-200 hover:border-green-500 border-green-500' onClick={handleClick} >Post la</button>
                 </div>
 
                 {responseData && responseData.length > 0 ? (
-                    <div style={{ height: 400, width: '100%' }}>
+                    <div style={{ height: 600, width: '100%' }}>
                         <DataGrid
                             initialState={{
                                 pagination: {
                                     paginationModel: { pageSize: 25, page: 0 },
                                 },
                             }}
-                            className='cursor-default text-justify'
+                            className='cursor-default text-center'
                             sx={{
                                 "& .MuiDataGrid-columnHeaderTitle": {
                                     whiteSpace: "normal",
@@ -248,6 +248,9 @@ export default function HarvesterTable() {
                     <h4 className='text-center pb-10'>No Data le</h4>
                 )}
             </Paper >
+            {/* White divider */}
+            <hr className="my-10" />
         </Box >
+        
     );
 }

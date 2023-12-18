@@ -33,7 +33,9 @@ export default function CardDataStats({
                         <div className="rounded-full bg-meta-9 flex h-11 w-11 items-center justify-center">
                             {children}
                         </div>
-                        <h4 className="pl-4 text-title-md font-bold flex items-center justify-center">{title}</h4>
+                        <Typography className="pl-4 text-title-md font-bold flex items-center justify-center">
+                            {title}
+                        </Typography>
                     </div>
                     <div className="sm:pl-15 items-end block text-center sm:text-left">
                         <div>
