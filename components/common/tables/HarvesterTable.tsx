@@ -3,7 +3,7 @@
 import { ApiResponse, RequestData } from '@/interface/typings';
 import { Paper, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
-import { DataGrid, GridCellParams, GridColDef } from '@mui/x-data-grid';
+import { DataGrid, GridCellParams, GridColDef, GridColumnGroupingModel } from '@mui/x-data-grid';
 import { useState } from 'react';
 import { GetDayAndDateEstateTable } from '../timeAndDate/TimeAndDate';
 
@@ -79,8 +79,8 @@ export default function HarvesterTable() {
             description: 'Asal TPH',
             headerAlign: 'center',
             align: 'center',
-            flex: 1,
-            minWidth: 80
+            flex: .2,
+            minWidth: 60
         }, {
             field: 'PEMANEN',
             headerName: 'Harvester',
@@ -189,18 +189,30 @@ export default function HarvesterTable() {
         // Exclude AFDELING, TPH, and PEEMANEN columns
         return !['ROW_ID', 'GROUP_DATA', 'AFDELING', 'TPH', 'PEMANEN', 'PROD_STATUS'].includes(column.field as string);
     });
+
     const harvesterColumns: GridColDef[] = columns.filter(column => {
         // Exclude AFDELING, TPH, and PEEMANEN columns
         return !['ROW_ID', 'GROUP_DATA', 'PROD_STATUS'].includes(column.field as string);
     });
 
+    const columnGroupingModel: GridColumnGroupingModel = [
+        {
+            groupId: 'rkh',
+            description: 'rkh',
+            headerName: 'RKH',
+            children: [
+                { field: 'RKH_JJG', },
+                { field: 'REAL_JJG', },
+            ],
+        },
+    ];
 
     const handleClick = async () => {
         const apiUrl = 'http://103.121.213.173/webapi/dashboard/getCurrentProduction.php';
 
         const requestData: RequestData = {
-            p_date: '15-12-2023',
-            p_sectioncode: '05',
+            p_date: '18-12-2023',
+            p_sectioncode: '01',
         };
 
         try {
@@ -251,11 +263,12 @@ export default function HarvesterTable() {
                                     },
                                 }}
                                 className='cursor-default text-center'
-                                checkboxSelection
                                 columns={estateColumns}
                                 rows={estateData}
                                 getRowId={getRowId}
-                            />
+                                columnGroupingModel={columnGroupingModel}
+                                experimentalFeatures={{ columnGrouping: true }}
+                                />
                         </div>
                     </div>
                 )}
@@ -284,12 +297,11 @@ export default function HarvesterTable() {
                                     },
                                 }}
                                 className='cursor-default text-center'
-                                checkboxSelection
                                 columns={harvesterColumns}
                                 rows={harvesterData}
                                 getRowId={getRowId}
                                 getRowHeight={() => 'auto'}
-                                getEstimatedRowHeight={() => 400}
+                            // getEstimatedRowHeight={() => 400}
                             />
                         </div>
                     </div>
