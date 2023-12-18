@@ -243,14 +243,11 @@ export default function HarvesterTable() {
                 {/* Estate Table */}
                 {estateData.length > 0 && (
                     <div>
-                        <Typography variant="h5" component="div" color="white" className='font-bold'>
-                            Estate Table
-                        </Typography>
-                        <div style={{ height: 600, width: '100%' }}>
+                        <div style={{ height: '100%', width: '100%' }}>
                             <DataGrid
                                 initialState={{
                                     pagination: {
-                                        paginationModel: { pageSize: 25, page: 0 },
+                                        paginationModel: { pageSize: 8, page: 0 },
                                     },
                                 }}
                                 className='cursor-default text-center'
@@ -279,9 +276,6 @@ export default function HarvesterTable() {
                 {/* Harvester Table */}
                 {harvesterData.length > 0 && (
                     <div>
-                        <Typography variant="h5" component="div" color="white" className='font-bold'>
-                            Harvester Table
-                        </Typography>
                         <div style={{ height: 600, width: '100%' }}>
                             <DataGrid
                                 initialState={{
