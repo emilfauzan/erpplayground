@@ -3,7 +3,7 @@
 import { ApiResponse, RequestData } from '@/interface/typings';
 import { Paper, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { DataGrid, GridCellParams, GridColDef } from '@mui/x-data-grid';
 import { useState } from 'react';
 import { GetDayAndDateEstateTable } from '../timeAndDate/TimeAndDate';
 
@@ -28,17 +28,18 @@ async function postData(url: string, data: RequestData) {
 }
 
 export default function HarvesterTable() {
-    const [responseData, setResponseData] = useState<ApiResponse[]>([]);
+    const [estateData, setEstateData] = useState<ApiResponse[]>([]);
+    const [harvesterData, setHarvesterData] = useState<ApiResponse[]>([]);
 
     const columns: GridColDef[] = [
         {
             field: 'ROW_ID',
-            headerName: 'Row Id',
+            headerName: '',
             description: 'Row Id',
             headerAlign: 'center',
             align: 'center',
             flex: .2,
-            minWidth: 50
+            minWidth: 60,
         }, {
             field: 'GROUP_DATA',
             headerName: 'Group Data',
@@ -46,14 +47,14 @@ export default function HarvesterTable() {
             headerAlign: 'center',
             align: 'center',
             flex: .2,
-            minWidth: 110
+            minWidth: 110,
         }, {
             field: 'RANKING',
             headerName: 'Ranking',
             description: 'Ranking',
             headerAlign: 'center',
             align: 'center',
-            flex: .2,
+            flex: .1,
             minWidth: 72
         }, {
             field: 'ESTATE',
@@ -61,7 +62,7 @@ export default function HarvesterTable() {
             description: 'Asal Estate',
             headerAlign: 'center',
             align: 'center',
-            flex: 1,
+            flex: .1,
             minWidth: 80
         }, {
             field: 'AFDELING',
@@ -102,6 +103,7 @@ export default function HarvesterTable() {
             filterable: false,
             flex: .2,
             minWidth: 90,
+            maxWidth: 120,
         }, {
             field: 'RKH_KG',
             headerName: 'RKH Kg',
@@ -112,6 +114,7 @@ export default function HarvesterTable() {
             filterable: false,
             flex: .2,
             minWidth: 90,
+            maxWidth: 120,
         }, {
             field: 'REAL_JJG',
             headerName: 'Realisasi Janjang',
@@ -122,6 +125,7 @@ export default function HarvesterTable() {
             filterable: false,
             flex: .2,
             minWidth: 90,
+            maxWidth: 120,
         }, {
             field: 'REAL_KG',
             headerName: 'Realisasi Kg',
@@ -132,6 +136,7 @@ export default function HarvesterTable() {
             filterable: false,
             flex: .2,
             minWidth: 90,
+            maxWidth: 120,
         }, {
             field: 'VAR_HI_KG',
             headerName: 'Varian Hari Ini /Kg',
@@ -142,16 +147,12 @@ export default function HarvesterTable() {
             filterable: false,
             flex: .2,
             minWidth: 90,
-            // cellClassName: (params: GridCellParams<any, number>) => {
-            //     if (params.value == null) {
-            //         return '';
-            //     }
-
-            //     return clsx('super-app', {
-            //         negative: params.value < 0,
-            //         positive: params.value > 0,
-            //     });
-            // },
+            maxWidth: 120,
+            cellClassName: (params: GridCellParams) => {
+                const prodStatus = params.row.PROD_STATUS;
+                // Apply red background if PROD_STATUS is 'UT'
+                return prodStatus === 'UT' ? 'bg-red-500 text-white outlinedblack' : '';
+            },
         }, {
             field: 'PROD_STATUS',
             headerName: 'Status Produksi',
@@ -164,6 +165,16 @@ export default function HarvesterTable() {
         },
     ];
 
+    const estateColumns: GridColDef[] = columns.filter(column => {
+        // Exclude AFDELING, TPH, and PEEMANEN columns
+        return !['ROW_ID', 'GROUP_DATA', 'AFDELING', 'TPH', 'PEMANEN', 'PROD_STATUS'].includes(column.field as string);
+    });
+    const harvesterColumns: GridColDef[] = columns.filter(column => {
+        // Exclude AFDELING, TPH, and PEEMANEN columns
+        return !['ROW_ID', 'GROUP_DATA', 'PROD_STATUS'].includes(column.field as string);
+    });
+
+
     const handleClick = async () => {
         const apiUrl = 'http://103.121.213.173/webapi/dashboard/getCurrentProduction.php';
 
@@ -174,10 +185,14 @@ export default function HarvesterTable() {
 
         try {
             const jsonResponse = await postData(apiUrl, requestData);
-            // const jsonString = JSON.stringify(jsonResponse, null, 2);
-            setResponseData(jsonResponse);
-            // console.log('JSON Response:', jsonString);
-            // response bentuk json
+
+            // Separate data based on GROUP_DATA value
+            const estateData = jsonResponse.filter(item => item.GROUP_DATA === 'ESTATE');
+            const harvesterData = jsonResponse.filter(item => item.GROUP_DATA !== 'ESTATE');
+
+            setEstateData(estateData);
+            setHarvesterData(harvesterData);
+
         } catch (error) {
             console.error('Error:', error);
         }
@@ -188,6 +203,11 @@ export default function HarvesterTable() {
     return (
         <Box sx={{ width: '100%', whiteSpace: 'normal' }}>
             <Paper sx={{ width: '100%' }} className='rounded-lg'>
+                <div className='flex justify-center mt-4'>
+                    <button className='border my-4 p-2 px-14 rounded-lg font-bold hover:bg-green-500 text-green-500 hover:text-white ease-in-out duration-200 hover:border-green-500 border-green-500' onClick={handleClick} >Post la</button>
+                </div>
+
+                {/* Estate Title */}
                 <div className='rounded-md flex-shrink-0 flex justify-between items-center p-4 bg-[#37474f] mb-4'>
                     <Typography
                         sx={{ flex: '1 1 100%' }}
@@ -195,62 +215,73 @@ export default function HarvesterTable() {
                         id="tableTitle"
                         component="div" color="white" className='font-bold'
                     >
-                        Harvester Ranking
+                        ESTATE TABLE RANKING
                     </Typography>
                     <GetDayAndDateEstateTable />
                 </div>
 
-                <div className='flex justify-center my-4'>
-                    <button className='border p-2 rounded-lg font-bold hover:bg-green-500 text-green-500 hover:text-white ease-in-out duration-200 hover:border-green-500 border-green-500' onClick={handleClick} >Post la</button>
+                {/* Estate Table */}
+                {estateData.length > 0 && (
+                    <div>
+                        <Typography variant="h5" component="div" color="white" className='font-bold'>
+                            Estate Table
+                        </Typography>
+                        <div style={{ height: 600, width: '100%' }}>
+                            <DataGrid
+                                initialState={{
+                                    pagination: {
+                                        paginationModel: { pageSize: 25, page: 0 },
+                                    },
+                                }}
+                                className='cursor-default text-center'
+                                checkboxSelection
+                                columns={estateColumns}
+                                rows={estateData}
+                                getRowId={getRowId}
+                            />
+                        </div>
+                    </div>
+                )}
+
+                {/* Harvester Title */}
+                <div className='rounded-md flex-shrink-0 flex justify-between items-center p-4 bg-[#37474f] mb-4'>
+                    <Typography
+                        sx={{ flex: '1 1 100%' }}
+                        variant="h5"
+                        id="tableTitle"
+                        component="div" color="white" className='font-bold'
+                    >
+                        HARVESTER TABLE RANKING
+                    </Typography>
+                    <GetDayAndDateEstateTable />
                 </div>
 
-                {responseData && responseData.length > 0 ? (
-                    <div style={{ height: 600, width: '100%' }}>
-                        <DataGrid
-                            initialState={{
-                                pagination: {
-                                    paginationModel: { pageSize: 25, page: 0 },
-                                },
-                            }}
-                            className='cursor-default text-center'
-                            sx={{
-                                "& .MuiDataGrid-columnHeaderTitle": {
-                                    whiteSpace: "normal",
-                                    lineHeight: "normal",
-                                    fontWeight: "bold",
-                                    textAlign: "center",
-                                },
-                                "& .MuiDataGrid-columnHeader": {
-                                    // Forced to use important since overriding inline styles
-                                    height: "unset !important"
-                                },
-                                "& .MuiDataGrid-columnHeaders": {
-                                    // Forced to use important since overriding inline styles
-                                    maxHeight: "168px !important"
-                                },
-                                '& .super-app.negative': {
-                                    backgroundColor: '#ef4444',
-                                    color: '#fff',
-                                    textShadow: `
-                                -.5px -.5px 0 #000,
-                                .5px -.5px 0 #000,
-                                -.5px .5px 0 #000,
-                                .5px .5px 0 #000`
-                                }
-                            }}
-                            checkboxSelection
-                            columns={columns}
-                            rows={responseData}
-                            getRowId={getRowId}
-                        />
+                {/* Harvester Table */}
+                {harvesterData.length > 0 && (
+                    <div>
+                        <Typography variant="h5" component="div" color="white" className='font-bold'>
+                            Harvester Table
+                        </Typography>
+                        <div style={{ height: 600, width: '100%' }}>
+                            <DataGrid
+                                initialState={{
+                                    pagination: {
+                                        paginationModel: { pageSize: 25, page: 0 },
+                                    },
+                                }}
+                                className='cursor-default text-center'
+                                checkboxSelection
+                                columns={harvesterColumns}
+                                rows={harvesterData}
+                                getRowId={getRowId}
+                            />
+                        </div>
                     </div>
-                ) : (
-                    <h4 className='text-center pb-10'>No Data le</h4>
                 )}
             </Paper >
             {/* White divider */}
             <hr className="my-10" />
         </Box >
-        
+
     );
 }
