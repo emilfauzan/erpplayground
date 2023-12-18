@@ -95,7 +95,7 @@ export default function HarvesterTable() {
             ),
         }, {
             field: 'RKH_JJG',
-            headerName: 'RKH Jajang',
+            headerName: 'Jajang',
             description: 'RKH Janjang - Jumlah janjang sesuai dengan RKH',
             headerAlign: 'center',
             align: 'center',
@@ -110,7 +110,7 @@ export default function HarvesterTable() {
             },
         }, {
             field: 'RKH_KG',
-            headerName: 'RKH Kg',
+            headerName: 'Berat (Kg)',
             description: 'RKH Kg - Jumlah berat janjang (dalam Kg) sesuai dengan RKH',
             headerAlign: 'center',
             align: 'center',
@@ -125,7 +125,7 @@ export default function HarvesterTable() {
             },
         }, {
             field: 'REAL_JJG',
-            headerName: 'Realisasi Janjang',
+            headerName: 'Janjang',
             description: 'Realisasi Janjang - Realisasi jumlah janjang saat panen',
             headerAlign: 'center',
             align: 'center',
@@ -140,7 +140,7 @@ export default function HarvesterTable() {
             },
         }, {
             field: 'REAL_KG',
-            headerName: 'Realisasi Kg',
+            headerName: 'Berat (Kg)',
             description: 'Realisasi Kg - Realisasi jumlah berat (dalam kg) janjang saat memanen',
             headerAlign: 'center',
             align: 'center',
@@ -202,7 +202,16 @@ export default function HarvesterTable() {
             headerName: 'RKH',
             children: [
                 { field: 'RKH_JJG', },
+                { field: 'RKH_KG', },
+            ],
+        },
+        {
+            groupId: 'real',
+            description: 'real',
+            headerName: 'REALISASI',
+            children: [
                 { field: 'REAL_JJG', },
+                { field: 'REAL_KG', },
             ],
         },
     ];
@@ -266,9 +275,10 @@ export default function HarvesterTable() {
                                 columns={estateColumns}
                                 rows={estateData}
                                 getRowId={getRowId}
+                                // getEstimatedRowHeight={() => 400}
                                 columnGroupingModel={columnGroupingModel}
                                 experimentalFeatures={{ columnGrouping: true }}
-                                />
+                            />
                         </div>
                     </div>
                 )}
@@ -301,7 +311,9 @@ export default function HarvesterTable() {
                                 rows={harvesterData}
                                 getRowId={getRowId}
                                 getRowHeight={() => 'auto'}
-                            // getEstimatedRowHeight={() => 400}
+                                // getEstimatedRowHeight={() => 400}
+                                columnGroupingModel={columnGroupingModel}
+                                experimentalFeatures={{ columnGrouping: true }}
                             />
                         </div>
                     </div>
