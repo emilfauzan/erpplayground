@@ -200,6 +200,7 @@ export default function HarvesterTable() {
             groupId: 'rkh',
             description: 'rkh',
             headerName: 'RKH',
+            headerAlign: 'center',
             children: [
                 { field: 'RKH_JJG', },
                 { field: 'RKH_KG', },
@@ -209,6 +210,7 @@ export default function HarvesterTable() {
             groupId: 'real',
             description: 'real',
             headerName: 'REALISASI',
+            headerAlign: 'center',
             children: [
                 { field: 'REAL_JJG', },
                 { field: 'REAL_KG', },
@@ -220,8 +222,8 @@ export default function HarvesterTable() {
         const apiUrl = 'http://103.121.213.173/webapi/dashboard/getCurrentProduction.php';
 
         const requestData: RequestData = {
-            p_date: '18-12-2023',
-            p_sectioncode: '01',
+            p_date: '16-12-2023',
+            p_sectioncode: '06',
         };
 
         try {
