@@ -1,7 +1,7 @@
 "use client"
 
 import { ApiResponse, RequestData } from '@/interface/typings';
-import { Paper, Typography } from '@mui/material';
+import { Paper, Typography, Skeleton } from '@mui/material';
 import Box from '@mui/material/Box';
 import RefreshRoundedIcon from '@mui/icons-material/RefreshRounded';
 import { DataGrid, GridCellParams, GridColDef, GridColumnGroupingModel } from '@mui/x-data-grid';
@@ -29,7 +29,8 @@ async function postData(url: string, data: RequestData) {
     return result;
 }
 
-export default function HarvesterTable() {
+const HarvesterTable: React.FC = () => {
+    const [loading, setLoading] = useState<boolean>(false);
     const [estateData, setEstateData] = useState<ApiResponse[]>([]);
     const [harvesterData, setHarvesterData] = useState<ApiResponse[]>([]);
 
@@ -220,13 +221,17 @@ export default function HarvesterTable() {
         },
     ];
 
+    const getRowId = (row: ApiResponse) => row.ROW_ID;
+
     const handleClick = async () => {
         const apiUrl = 'http://103.121.213.173/webapi/dashboard/getCurrentProduction.php';
 
         const requestData: RequestData = {
-            p_date: '16-12-2023',
-            p_sectioncode: '06',
+            p_date: '19-12-2023',
+            p_sectioncode: '02',
         };
+
+        setLoading(true);
 
         try {
             const jsonResponse = await postData(apiUrl, requestData);
@@ -240,96 +245,113 @@ export default function HarvesterTable() {
 
         } catch (error) {
             console.error('Error:', error);
+        } finally {
+            setLoading(false);
         }
     };
-
-    const getRowId = (row: ApiResponse) => row.ROW_ID;
 
     return (
         <Box sx={{ width: '100%', whiteSpace: 'normal' }}>
             <Paper sx={{ width: '100%' }} className='rounded-lg bg-[#F1F5F9] shadow-none'>
                 <div className='flex justify-center'>
-                    <Button className='text-md border mb-8 p-2 px-14 rounded-lg font-bold hover:bg-green-500 text-green-500 hover:text-white ease-in-out duration-200 hover:border-green-500 border-green-500 flex items-center gap-3' onClick={handleClick} >
+                    <Button className='text-md border mb-8 p-2 py-4 px-14 rounded-lg font-bold hover:bg-green-500 text-green-500 hover:text-white ease-in-out duration-200 hover:border-green-500 border-green-500 flex items-center gap-3' onClick={handleClick} >
                         Refresh
                         <RefreshRoundedIcon />
                     </Button>
                 </div>
 
-                {/* Estate Title */}
-                <div className='rounded-md flex-shrink-0 flex justify-between items-center p-4 bg-[#37474f]'>
-                    <Typography
-                        sx={{ flex: '1 1 100%' }}
-                        variant="h5"
-                        id="tableTitle"
-                        component="div" color="white" className='font-bold'
-                    >
-                        ESTATE TABLE RANKING
-                    </Typography>
-                    <GetDayAndDateEstateTable />
-                </div>
-
                 {/* Estate Table */}
                 {estateData.length > 0 && (
                     <div>
-                        <div style={{ height: '100%', width: '100%' }}>
-                            <DataGrid
-                                initialState={{
-                                    pagination: {
-                                        paginationModel: { pageSize: 8, page: 0 },
-                                    },
-                                }}
-                                className='cursor-default text-center mb-10 bg-white'
-                                columns={estateColumns}
-                                rows={estateData}
-                                getRowId={getRowId}
-                                // getEstimatedRowHeight={() => 400} optional for alternate row height 
-                                columnGroupingModel={columnGroupingModel}
-                                experimentalFeatures={{ columnGrouping: true }}
-                            />
+                        <div className='rounded-md flex-shrink-0 flex justify-between items-center p-4 bg-[#37474f]'>
+                            <Typography
+                                sx={{ flex: '1 1 100%' }}
+                                variant="h5"
+                                id="tableTitle"
+                                component="div" color="white" className='font-bold'
+                            >
+                                ESTATE TABLE RANKING
+                            </Typography>
+                            <GetDayAndDateEstateTable />
                         </div>
+                        {loading && (
+                            // Skeleton loading while data is loading
+                            <div style={{ height: 600, width: '100%' }}>
+                                <Skeleton variant="rectangular" height={600} animation="wave" />
+                            </div>
+                        )}
+                        {!loading && estateData.length > 0 && (
+                            <div style={{ height: '100%', width: '100%' }}>
+                                <DataGrid
+                                    initialState={{
+                                        pagination: {
+                                            paginationModel: { pageSize: 8, page: 0 },
+                                        },
+                                    }}
+                                    className='cursor-default text-center mb-10 bg-white'
+                                    columns={estateColumns}
+                                    rows={estateData}
+                                    getRowId={getRowId}
+                                    // getEstimatedRowHeight={() => 400} optional for alternate row height 
+                                    columnGroupingModel={columnGroupingModel}
+                                    experimentalFeatures={{ columnGrouping: true }}
+                                />
+                            </div>
+                        )}
                     </div>
                 )}
-
-                {/* White divider */}
-                <hr className="my-10" />
-
-                {/* Harvester Title */}
-                <div className='rounded-md flex-shrink-0 flex justify-between items-center p-4 bg-[#37474f]'>
-                    <Typography
-                        sx={{ flex: '1 1 100%' }}
-                        variant="h5"
-                        id="tableTitle"
-                        component="div" color="white" className='font-bold'
-                    >
-                        HARVESTER TABLE RANKING
-                    </Typography>
-                    <GetDayAndDateEstateTable />
-                </div>
 
                 {/* Harvester Table */}
                 {harvesterData.length > 0 && (
                     <div>
-                        <div style={{ height: 600, width: '100%' }}>
-                            <DataGrid
-                                initialState={{
-                                    pagination: {
-                                        paginationModel: { pageSize: 25, page: 0 },
-                                    },
-                                }}
-                                className='cursor-default text-center'
-                                columns={harvesterColumns}
-                                rows={harvesterData}
-                                getRowId={getRowId}
-                                getRowHeight={() => 'auto'}
-                                // getEstimatedRowHeight={() => 400}
-                                columnGroupingModel={columnGroupingModel}
-                                experimentalFeatures={{ columnGrouping: true }}
-                            />
+                        <div className='rounded-md flex-shrink-0 flex justify-between items-center p-4 bg-[#37474f]'>
+                            <Typography
+                                sx={{ flex: '1 1 100%' }}
+                                variant="h5"
+                                id="tableTitle"
+                                component="div" color="white" className='font-bold'
+                            >
+                                HARVESTER TABLE RANKING
+                            </Typography>
+                            <GetDayAndDateEstateTable />
                         </div>
+                        {loading && (
+                            // Skeleton loading while data is loading
+                            <div style={{ height: 600, width: '100%' }}>
+                                <Skeleton variant="rectangular" height={600} animation="wave" />
+                            </div>
+                        )}
+                        {!loading && harvesterData.length > 0 && (
+                            <div style={{ height: '100%', width: '100%' }}>
+                                <DataGrid
+                                    initialState={{
+                                        pagination: {
+                                            paginationModel: { pageSize: 8, page: 0 },
+                                        },
+                                    }}
+                                    className='cursor-default text-center mb-10 bg-white'
+                                    columns={harvesterColumns}
+                                    rows={harvesterData}
+                                    getRowId={getRowId}
+                                    // getEstimatedRowHeight={() => 400} optional for alternate row height 
+                                    columnGroupingModel={columnGroupingModel}
+                                    experimentalFeatures={{ columnGrouping: true }}
+                                />
+                            </div>
+                        )}
                     </div>
                 )}
+
+                {/* No Data Message */}
+                {!loading && estateData.length === 0 && harvesterData.length === 0 && (
+                    <h4 className='text-center pb-10'>Click on Refresh button to show the data.</h4>
+                )}
+
             </Paper >
         </Box >
 
     );
 }
+
+export default HarvesterTable;
+
