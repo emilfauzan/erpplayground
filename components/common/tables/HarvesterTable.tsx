@@ -245,8 +245,8 @@ export default function HarvesterTable() {
 
     return (
         <Box sx={{ width: '100%', whiteSpace: 'normal' }}>
-            <Paper sx={{ width: '100%' }} className='rounded-lg'>
-                <div className='flex justify-center mt-4'>
+            <Paper sx={{ width: '100%' }} className='rounded-lg bg-[#F1F5F9] shadow-none'>
+                <div className='flex justify-center'>
                     <button className='border my-4 p-2 px-14 rounded-lg font-bold hover:bg-green-500 text-green-500 hover:text-white ease-in-out duration-200 hover:border-green-500 border-green-500' onClick={handleClick} >Post la</button>
                 </div>
 
@@ -273,7 +273,7 @@ export default function HarvesterTable() {
                                         paginationModel: { pageSize: 8, page: 0 },
                                     },
                                 }}
-                                className='cursor-default text-center'
+                                className='cursor-default text-center mb-10 bg-white'
                                 columns={estateColumns}
                                 rows={estateData}
                                 getRowId={getRowId}
@@ -284,6 +284,9 @@ export default function HarvesterTable() {
                         </div>
                     </div>
                 )}
+
+                {/* White divider */}
+                <hr className="my-10" />
 
                 {/* Harvester Title */}
                 <div className='rounded-md flex-shrink-0 flex justify-between items-center p-4 bg-[#37474f]'>
@@ -321,8 +324,6 @@ export default function HarvesterTable() {
                     </div>
                 )}
             </Paper >
-            {/* White divider */}
-            <hr className="my-10" />
         </Box >
 
     );
