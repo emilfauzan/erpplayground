@@ -3,7 +3,7 @@
 import { ApiResponse, RequestData } from '@/interface/typings';
 import { Paper, Typography, Skeleton } from '@mui/material';
 import Box from '@mui/material/Box';
-import RefreshRoundedIcon from '@mui/icons-material/RefreshRounded';
+import SyncRoundedIcon from '@mui/icons-material/SyncRounded';
 import { DataGrid, GridCellParams, GridColDef, GridColumnGroupingModel } from '@mui/x-data-grid';
 import { useState } from 'react';
 import { GetDayAndDateEstateTable } from '../timeAndDate/TimeAndDate';
@@ -33,6 +33,7 @@ const HarvesterTable: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(false);
     const [estateData, setEstateData] = useState<ApiResponse[]>([]);
     const [harvesterData, setHarvesterData] = useState<ApiResponse[]>([]);
+    const [rotation, setRotation] = useState<number>(0);
 
     const columns: GridColDef[] = [
         {
@@ -233,6 +234,9 @@ const HarvesterTable: React.FC = () => {
 
         setLoading(true);
 
+        // Rotate the button smoothly
+        setRotation(rotation + 360);
+
         try {
             const jsonResponse = await postData(apiUrl, requestData);
 
@@ -254,9 +258,14 @@ const HarvesterTable: React.FC = () => {
         <Box sx={{ width: '100%', whiteSpace: 'normal' }}>
             <Paper sx={{ width: '100%' }} className='rounded-lg bg-[#F1F5F9] shadow-none'>
                 <div className='flex justify-center'>
-                    <Button className='text-md border mb-8 p-2 py-4 px-14 rounded-lg font-bold hover:bg-green-500 text-green-500 hover:text-white ease-in-out duration-200 hover:border-green-500 border-green-500 flex items-center gap-3' onClick={handleClick} >
-                        Refresh
-                        <RefreshRoundedIcon />
+                    <Button
+                        className='text-md border mb-8 p-2 py-4 px-14 rounded-lg font-bold hover:bg-green-500 text-green-500 hover:text-white ease-in-out duration-200 hover:border-green-500 border-green-500 flex items-center gap-3'
+                        onClick={handleClick}
+                    >
+                        Synchronize
+                        <SyncRoundedIcon
+                            style={{ transform: loading ? 'rotate(-1080deg)' : 'none', transition: 'transform 2s ease-in-out' }}
+                        />
                     </Button>
                 </div>
 
@@ -275,9 +284,21 @@ const HarvesterTable: React.FC = () => {
                             <GetDayAndDateEstateTable />
                         </div>
                         {loading && (
-                            // Skeleton loading while data is loading
-                            <div style={{ height: 600, width: '100%' }}>
-                                <Skeleton variant="rectangular" height={600} animation="wave" />
+                            // Skeleton loading for table header
+                            <div className='my-1' style={{ height: 100, width: '100%' }}>
+                                <Skeleton variant="rounded" height={100} animation="wave" />
+                            </div>
+                        )}
+                        {loading && (
+                            // Skeleton loading for table content
+                            <div className='my-1' style={{ height: 420, width: '100%' }}>
+                                <Skeleton variant="rounded" height={420} animation="wave" />
+                            </div>
+                        )}
+                        {loading && (
+                            // Skeleton loading for table footer
+                            <div className='my-1 mb-10' style={{ height: 50, width: '100%' }}>
+                                <Skeleton variant="rounded" height={50} animation="wave" />
                             </div>
                         )}
                         {!loading && estateData.length > 0 && (
@@ -316,17 +337,29 @@ const HarvesterTable: React.FC = () => {
                             <GetDayAndDateEstateTable />
                         </div>
                         {loading && (
-                            // Skeleton loading while data is loading
-                            <div style={{ height: 600, width: '100%' }}>
-                                <Skeleton variant="rectangular" height={600} animation="wave" />
+                            // Skeleton loading for table header
+                            <div className='my-1' style={{ height: 100, width: '100%' }}>
+                                <Skeleton variant="rounded" height={100} animation="wave" />
+                            </div>
+                        )}
+                        {loading && (
+                            // Skeleton loading for table content
+                            <div className='my-1' style={{ height: 640, width: '100%' }}>
+                                <Skeleton variant="rounded" height={640} animation="wave" />
+                            </div>
+                        )}
+                        {loading && (
+                            // Skeleton loading for table footer
+                            <div className='my-1 mb-10' style={{ height: 50, width: '100%' }}>
+                                <Skeleton variant="rounded" height={50} animation="wave" />
                             </div>
                         )}
                         {!loading && harvesterData.length > 0 && (
-                            <div style={{ height: '100%', width: '100%' }}>
+                            <div style={{ height: 800, width: '100%' }}>
                                 <DataGrid
                                     initialState={{
                                         pagination: {
-                                            paginationModel: { pageSize: 8, page: 0 },
+                                            paginationModel: { pageSize: 25, page: 0 },
                                         },
                                     }}
                                     className='cursor-default text-center mb-10 bg-white'
