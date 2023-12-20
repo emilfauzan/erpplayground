@@ -93,13 +93,12 @@ const HarvesterTable: React.FC = () => {
             align: 'center',
             flex: 1,
             minWidth: 200,
-            maxWidth: 1000,
             renderCell: (params) => (
                 <div style={{ whiteSpace: 'pre-wrap', overflowWrap: 'break-word' }}>{params.value}</div>
             ),
         }, {
             field: 'RKH_JJG',
-            headerName: 'Jajang',
+            headerName: 'Janjang',
             description: 'RKH Janjang - Jumlah janjang sesuai dengan RKH',
             headerAlign: 'center',
             align: 'center',
@@ -107,7 +106,6 @@ const HarvesterTable: React.FC = () => {
             filterable: false,
             flex: .2,
             minWidth: 90,
-            maxWidth: 120,
             valueFormatter: (params) => {
                 // Format the number using Intl.NumberFormat
                 return new Intl.NumberFormat().format(params.value as number);
@@ -122,7 +120,6 @@ const HarvesterTable: React.FC = () => {
             filterable: false,
             flex: .2,
             minWidth: 100,
-            maxWidth: 120,
             valueFormatter: (params) => {
                 // Format the number using Intl.NumberFormat
                 return new Intl.NumberFormat().format(params.value as number);
@@ -137,7 +134,6 @@ const HarvesterTable: React.FC = () => {
             filterable: false,
             flex: .2,
             minWidth: 90,
-            maxWidth: 120,
             valueFormatter: (params) => {
                 // Format the number using Intl.NumberFormat
                 return new Intl.NumberFormat().format(params.value as number);
@@ -152,7 +148,6 @@ const HarvesterTable: React.FC = () => {
             filterable: false,
             flex: .2,
             minWidth: 100,
-            maxWidth: 120,
             valueFormatter: (params) => {
                 // Format the number using Intl.NumberFormat
                 return new Intl.NumberFormat().format(params.value as number);
@@ -167,7 +162,6 @@ const HarvesterTable: React.FC = () => {
             filterable: false,
             flex: .2,
             minWidth: 100,
-            maxWidth: 150,
             cellClassName: (params: GridCellParams) => {
                 const prodStatus = params.row.PROD_STATUS;
                 // Apply red background if PROD_STATUS is 'UT'
@@ -366,7 +360,8 @@ const HarvesterTable: React.FC = () => {
                                     columns={harvesterColumns}
                                     rows={harvesterData}
                                     getRowId={getRowId}
-                                    // getEstimatedRowHeight={() => 400} optional for alternate row height 
+                                    // getRowHeight={() => 100}
+                                    // getEstimatedRowHeight={() => 200}
                                     columnGroupingModel={columnGroupingModel}
                                     experimentalFeatures={{ columnGrouping: true }}
                                 />
