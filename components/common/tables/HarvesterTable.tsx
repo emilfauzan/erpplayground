@@ -277,7 +277,7 @@ export default function HarvesterTable() {
                                 columns={estateColumns}
                                 rows={estateData}
                                 getRowId={getRowId}
-                                // getEstimatedRowHeight={() => 400}
+                                // getEstimatedRowHeight={() => 400} optional for alternate row height 
                                 columnGroupingModel={columnGroupingModel}
                                 experimentalFeatures={{ columnGrouping: true }}
                             />

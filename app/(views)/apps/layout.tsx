@@ -1,5 +1,6 @@
 "use client"
 
+import Footer from "@/components/common/footer/Footer";
 import Loader from "@/components/common/loader/Loader";
 import Sidebar from '@/components/navigation/Sidebar/Sidebar'
 import Topbar from '@/components/navigation/Topbar/Topbar'
@@ -15,7 +16,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 
     return (
         <body suppressHydrationWarning={true}>
-            <div className="dark:bg-boxdark-2 dark:text-bodydark">
+            <div className="subpixel-antialiased dark:bg-boxdark-2 dark:text-bodydark bg-[#F1F5F9]">
                 {loading ? (
                     <Loader />
                 ) : (
@@ -38,6 +39,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                                     {children}
                                 </div>
                             </main>
+                            <Footer/>
                         </div>
                     </div>
                 )}
