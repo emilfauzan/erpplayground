@@ -3,9 +3,11 @@
 import { ApiResponse, RequestData } from '@/interface/typings';
 import { Paper, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
+import RefreshRoundedIcon from '@mui/icons-material/RefreshRounded';
 import { DataGrid, GridCellParams, GridColDef, GridColumnGroupingModel } from '@mui/x-data-grid';
 import { useState } from 'react';
 import { GetDayAndDateEstateTable } from '../timeAndDate/TimeAndDate';
+import { Button } from '@material-tailwind/react';
 
 async function postData(url: string, data: RequestData) {
     const searchParams = new URLSearchParams();
@@ -247,7 +249,10 @@ export default function HarvesterTable() {
         <Box sx={{ width: '100%', whiteSpace: 'normal' }}>
             <Paper sx={{ width: '100%' }} className='rounded-lg bg-[#F1F5F9] shadow-none'>
                 <div className='flex justify-center'>
-                    <button className='border my-4 p-2 px-14 rounded-lg font-bold hover:bg-green-500 text-green-500 hover:text-white ease-in-out duration-200 hover:border-green-500 border-green-500' onClick={handleClick} >Post la</button>
+                    <Button className='text-md border mb-8 p-2 px-14 rounded-lg font-bold hover:bg-green-500 text-green-500 hover:text-white ease-in-out duration-200 hover:border-green-500 border-green-500 flex items-center gap-3' onClick={handleClick} >
+                        Refresh
+                        <RefreshRoundedIcon />
+                    </Button>
                 </div>
 
                 {/* Estate Title */}

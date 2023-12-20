@@ -27,7 +27,7 @@ export default function CardDataStats({
         <>
             {/* <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-2 2xl:gap-7.5"> */}
 
-            <Card className="hover:shadow-xl ease-in-out duration-300 border border-stroke">
+            <Card className=" hover:shadow-orange-500 ease-in-out duration-300 border border-stroke">
                 <CardBody>
                     <div className="flex border-2 border-transparent border-b-black pb-4 rounded-sm">
                         <div className="rounded-full bg-meta-9 flex h-11 w-11 items-center justify-center">
