@@ -50,12 +50,6 @@ const DropdownUser = () => {
         <>
             <Menu>
                 <MenuHandler>
-                    {/* <Link
-                        ref={trigger}
-                        onClick={() => setDropdownOpen(!dropdownOpen)}
-                        className="flex items-center gap-4"
-                        href={"#"}
-                    > */}
                     <svg
                         className="xl:mr-2 hover:text-orange-400 text-black sm:block duration-300 ease-in-out cursor-pointer"
                         width={60}
@@ -65,7 +59,6 @@ const DropdownUser = () => {
                     >
                         <AccountCircleRoundedIcon />
                     </svg>
-                    {/* </Link> */}
                 </MenuHandler>
                 <MenuList className="w-block sm:w-90">
 

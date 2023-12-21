@@ -47,7 +47,6 @@ export default function CardDataStats({
 
                 <CardBody>
                     <div className="sm:pl-15 items-end block text-center sm:text-left">
-                        <div>
                             <Chip
                                 variant="ghost"
                                 color={subtitle1Color}
@@ -76,7 +75,6 @@ export default function CardDataStats({
                                 value={description}
                                 className="my-2 font-[600] text-[15px] whitespace-break-spaces flex-shrink-0 italic text-blue-gray-500"
                             />
-                        </div>
                     </div>
                 </CardBody>
 
