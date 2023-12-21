@@ -37,7 +37,7 @@ const Topbar = ({ sidebarOpen, setSidebarOpen }: TopbarProp) => {
                         />
                     </Link>
                     <div className='flex'>
-                    <Typography className='font-cinzel font-bold hidden sm:block tracking-wide'>
+                    <Typography className='font-cinzel font-bold hidden 3xsm:block tracking-wide pl-2'>
                         PT. BANGKITGIAT USAHA MANDIRI
                     </Typography>
 

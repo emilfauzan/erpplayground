@@ -60,7 +60,7 @@ const HarvesterTable: React.FC = () => {
         }, {
             field: 'RANKING',
             headerName: 'Ranking',
-            // description: 'Ranking',
+            description: 'Ranking berdasarkan realisasi berat (Kg)',
             headerAlign: 'center',
             align: 'center',
             flex: .1,
@@ -118,7 +118,7 @@ const HarvesterTable: React.FC = () => {
         }, {
             field: 'RKH_KG',
             headerName: 'Berat (Kg)',
-            description: 'RKH Kg - Jumlah berat janjang (dalam Kg) sesuai dengan RKH',
+            description: 'RKH (Kg) - Jumlah berat janjang (dalam Kg) sesuai dengan RKH',
             headerAlign: 'center',
             align: 'center',
             type: 'number',

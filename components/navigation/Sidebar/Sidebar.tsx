@@ -103,8 +103,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
                                 NT CORP ANALYTICS
                             </Typography>
                             {/* White divider */}
-                            <hr className="block sm:hidden text-inherit" />
-                            <Typography className="tracking-wider text-left text-white font-bolder block sm:hidden" variant="h6">
+                            <hr className="block 3xsm:hidden text-inherit" />
+                            <Typography className="tracking-wider text-left text-white font-bolder block 3xsm:hidden" variant="h6">
                                 PT. BANGKITGIAT USAHA MANDIRI
                             </Typography>
                         </div>

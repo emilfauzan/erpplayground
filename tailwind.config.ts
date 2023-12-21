@@ -248,6 +248,7 @@ const config: Config = withMT({
       warning: "#FFA70B",
     },
     screens: {
+      "3xsm": "360px",
       "2xsm": "375px",
       "xsm": "425px",
       "3xl": "2000px",
