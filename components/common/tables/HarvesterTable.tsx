@@ -3,9 +3,9 @@
 import { ApiResponse, RequestData } from '@/interface/typings';
 import { Paper, Typography, Skeleton } from '@mui/material';
 import Box from '@mui/material/Box';
-import SyncRoundedIcon from '@mui/icons-material/SyncRounded';
+import RefreshRoundedIcon from '@mui/icons-material/RefreshRounded';
 import { DataGrid, GridCellParams, GridColDef, GridColumnGroupingModel } from '@mui/x-data-grid';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { GetDayAndDateEstateTable } from '../timeAndDate/TimeAndDate';
 import { Button } from '@material-tailwind/react';
 
@@ -38,6 +38,10 @@ const HarvesterTable: React.FC = () => {
     const [harvesterData, setHarvesterData] = useState<ApiResponse[]>([]);
     // Icon rotation
     const [rotation, setRotation] = useState<number>(0);
+    // Refresh counter
+    const [refreshCount, setRefreshCount] = useState<number>(0);
+    // Set the response time from the server 
+    const [responseTime, setResponseTime] = useState<number | null>(null);
 
     // Data format
     const columns: GridColDef[] = [
@@ -229,14 +233,17 @@ const HarvesterTable: React.FC = () => {
         const apiUrl = 'http://103.121.213.173/webapi/dashboard/getCurrentProduction.php';
 
         const requestData: RequestData = {
-            p_date: '19-12-2023',
-            p_sectioncode: '02',
+            p_date: '21-12-2023',
+            p_sectioncode: '04',
         };
 
         setLoading(true);
 
         // Rotate the button smoothly
-        setRotation(rotation + 360);
+        setRotation(rotation - 360);
+
+        // Increment the refresh count
+        setRefreshCount(prevCount => prevCount + 1);
 
         try {
             const jsonResponse = await postData(apiUrl, requestData);
@@ -249,6 +256,13 @@ const HarvesterTable: React.FC = () => {
             setEstateData(estateData);
             setHarvesterData(harvesterData);
 
+            // Calculate response time
+            const endTime = new Date().getTime();
+            const currentResponseTime = endTime - startTime;
+
+            // Set response time in milliseconds
+            setResponseTime(currentResponseTime);
+
         } catch (error) {
             console.error('Error:', error);
         } finally {
@@ -256,6 +270,50 @@ const HarvesterTable: React.FC = () => {
             setLoading(false);
         }
     };
+
+    const fetchData = async () => {
+        const apiUrl = 'http://103.121.213.173/webapi/dashboard/getCurrentProduction.php';
+
+        const requestData: RequestData = {
+            p_date: '21-12-2023', // Update with the desired date logic
+            p_sectioncode: '04', // Update with the desired section code
+        };
+
+        setLoading(true);
+        setRotation(rotation - 360);
+
+        try {
+            const jsonResponse = await postData(apiUrl, requestData);
+
+            // Separate data based on GROUP_DATA value
+            const estateData = jsonResponse.filter(item => item.GROUP_DATA === 'ESTATE');
+            const harvesterData = jsonResponse.filter(item => item.GROUP_DATA !== 'ESTATE');
+
+            // Typescript syntax to set the data on each table
+            setEstateData(estateData);
+            setHarvesterData(harvesterData);
+
+            // Increment the refresh count
+            setRefreshCount(prevCount => prevCount + 1);
+
+        } catch (error) {
+            console.error('Error:', error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        // Fetch data on page load
+        fetchData();
+
+        // Set up a timer to refresh data every 1 hour
+        const refreshTimer = setInterval(fetchData, 60 * 2 * 1000); // 1 hour in milliseconds
+
+        // Cleanup the timer on component unmount
+        return () => clearInterval(refreshTimer);
+    }, []); // Empty dependency array means this effect runs once on mount
+
 
     return (
         <Box sx={{ width: '100%', whiteSpace: 'normal' }}>
@@ -265,13 +323,24 @@ const HarvesterTable: React.FC = () => {
                         className='text-md border mb-8 p-2 py-4 px-14 rounded-lg font-bold hover:bg-green-500 text-green-500 hover:text-white ease-in-out duration-200 hover:border-green-500 border-green-500 flex items-center gap-3'
                         onClick={handleClick}
                     >
-                        Synchronize
-                        <SyncRoundedIcon
-                            style={{ transform: loading ? 'rotate(-1080deg)' : 'none', transition: 'transform 2s ease-in-out' }}
+                        Refresh
+                        <RefreshRoundedIcon
+                            style={{ transform: loading ? 'rotate(1080deg)' : 'none', transition: 'transform 2s ease-in-out' }}
                         />
                     </Button>
                 </div>
-
+                <div>
+                    <Typography className='flex pb-4'>
+                        Refresh Count: {refreshCount}
+                    </Typography>
+                    {responseTime !== null && (
+                        <div>
+                            <Typography>
+                                Response Time: {responseTime} milliseconds
+                            </Typography>
+                        </div>
+                    )}
+                </div>
                 {/* Estate Table */}
                 {estateData.length > 0 && (
                     <div>
@@ -381,7 +450,7 @@ const HarvesterTable: React.FC = () => {
 
                 {/* No Data Message */}
                 {!loading && estateData.length === 0 && harvesterData.length === 0 && (
-                    <h4 className='text-center pb-10'>Click on Synchronize button to show the data.</h4>
+                    <h4 className='text-center pb-10'>Click on Refresh button to show the data.</h4>
                 )}
 
             </Paper >

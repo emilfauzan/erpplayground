@@ -19,7 +19,7 @@ const Topbar = ({ sidebarOpen, setSidebarOpen }: TopbarProp) => {
                             event.stopPropagation();
                             setSidebarOpen(!sidebarOpen);
                         }}
-                        className="z-99 block rounded-full border-stroke hover:bg-black hover:text-white p-1.5 shadow-sm 2xl:hidden duration-300 ease-in-out"
+                        className="z-99 block rounded-full border-stroke hover:bg-black hover:text-white p-1.5 shadow-sm 2xl:hidden duration-300 ease-in-out flex-shrink-0"
                         variant='text'
                     >
                         <MenuIcon />
