@@ -1,7 +1,7 @@
 "use client"
 
 import { ApiResponse, RequestData } from '@/interface/typings';
-import { Paper, Typography, Skeleton } from '@mui/material';
+import { Paper, Typography, Skeleton, LinearProgress } from '@mui/material';
 import Box from '@mui/material/Box';
 import RefreshRoundedIcon from '@mui/icons-material/RefreshRounded';
 import { DataGrid, GridCellParams, GridColDef, GridColumnGroupingModel } from '@mui/x-data-grid';
@@ -229,72 +229,6 @@ const HarvesterTable: React.FC = () => {
     // Set the unique key for each row
     const getRowId = (row: ApiResponse) => row.ROW_ID;
 
-    const handleClick = async () => {
-        const apiUrl = 'http://103.121.213.173/webapi/dashboard/getCurrentProduction.php';
-        // Get today's date in dd-mm-yyyy format
-        const today = new Date();
-        const dd = String(today.getDate()).padStart(2, '0');
-        const mm = String(today.getMonth() + 1).padStart(2, '0');
-        const yyyy = today.getFullYear();
-        const formattedDate = `${dd}-${mm}-${yyyy}`;
-
-        // Get the day of the week (0 is Sunday, 1 is Monday, ..., 6 is Saturday)
-        const dayOfWeek = today.getDay();
-
-        // Set p_sectioncode based on the day of the week
-        const sectionCodeMap = {
-            0: '07', // Sunday
-            1: '01', // Monday
-            2: '02', // Tuesday
-            3: '03', // Wednesday
-            4: '04', // Thursday
-            5: '05', // Friday
-            6: '06', // Saturday
-        };
-        const sectionCode = sectionCodeMap[dayOfWeek];
-
-        const requestData: RequestData = {
-            p_date: formattedDate,
-            p_sectioncode: sectionCode,
-        };
-
-        setLoading(true);
-
-        // Rotate the button smoothly
-        setRotation(rotation - 360);
-
-        // Increment the refresh count
-        setRefreshCount(prevCount => prevCount + 1);
-
-        // Record start time before making the API request
-        const startTime = new Date().getTime();
-
-        try {
-            const jsonResponse = await postData(apiUrl, requestData);
-
-            // Separate data based on GROUP_DATA value
-            const estateData = jsonResponse.filter(item => item.GROUP_DATA === 'ESTATE');
-            const harvesterData = jsonResponse.filter(item => item.GROUP_DATA !== 'ESTATE');
-
-            // Typescript syntax to set the data on each table
-            setEstateData(estateData);
-            setHarvesterData(harvesterData);
-
-            // Calculate response time
-            const endTime = new Date().getTime();
-            const currentResponseTime = endTime - startTime;
-
-            // Set response time in milliseconds
-            setResponseTime(currentResponseTime);
-
-        } catch (error) {
-            console.error('Error:', error);
-        } finally {
-            // Stops the skeleton loader
-            setLoading(false);
-        }
-    };
-
     const fetchData = async () => {
         const apiUrl = 'http://103.121.213.173/webapi/dashboard/getCurrentProduction.php';
 
@@ -326,7 +260,8 @@ const HarvesterTable: React.FC = () => {
         };
 
         setLoading(true);
-        setRotation(rotation - 360);
+        setRotation(rotation + 1080);
+
         // Record start time before making the API request
         const startTime = new Date().getTime();
 
@@ -376,14 +311,17 @@ const HarvesterTable: React.FC = () => {
                 <div className='flex justify-center'>
                     <Button
                         className='text-md border mb-4 p-2 py-4 px-14 rounded-lg font-bold hover:bg-green-500 text-green-500 hover:text-white ease-in-out duration-200 hover:border-green-500 border-green-500 flex items-center gap-3'
-                        onClick={handleClick}
+                        onClick={fetchData}
                     >
+
                         Refresh
                         <RefreshRoundedIcon
-                            style={{ transform: loading ? 'rotate(1080deg)' : 'none', transition: 'transform 2s ease-in-out' }}
+                            style={{ transform: loading ? 'rotate(1080deg)' : 'none', transition: 'transform 3s ease-in-out' }}
                         />
                     </Button>
                 </div>
+
+
 
                 {/* Refresh counter & response time section */}
                 <div className='flex-wrap xsm:flex xsm:justify-between text-center py-4'>
@@ -392,7 +330,7 @@ const HarvesterTable: React.FC = () => {
                             <Typography variant="caption">
                                 Refresh Count: <strong> {refreshCount} </strong> Times
                             </Typography>
-                        } variant='outlined' className="rounded-full" />
+                        } variant='outlined' className="rounded-full text-blue-gray-600" />
                     </div>
                     {responseTime !== null && (
                         <div>
@@ -402,7 +340,7 @@ const HarvesterTable: React.FC = () => {
                                         Response Time: <strong> {responseTime} </strong> milliseconds
                                     </Typography>
                                 }
-                                variant='ghost' className="rounded-full"
+                                variant='ghost' className="rounded-full text-blue-gray-600"
                             />
                         </div>
                     )}

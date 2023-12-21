@@ -88,3 +88,4 @@ interface EstateRankingDataProp {
     varianjanjang: number,
     variankg: number,
 }
+
