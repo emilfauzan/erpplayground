@@ -7,7 +7,7 @@ import RefreshRoundedIcon from '@mui/icons-material/RefreshRounded';
 import { DataGrid, GridCellParams, GridColDef, GridColumnGroupingModel } from '@mui/x-data-grid';
 import { useEffect, useState } from 'react';
 import { GetDayAndDateEstateTable } from '../timeAndDate/TimeAndDate';
-import { Button } from '@material-tailwind/react';
+import { Button, Chip } from '@material-tailwind/react';
 
 async function postData(url: string, data: RequestData) {
     const searchParams = new URLSearchParams();
@@ -31,7 +31,7 @@ async function postData(url: string, data: RequestData) {
 
 const HarvesterTable: React.FC = () => {
     // Skeleton loader
-    const [loading, setLoading] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(true);
     // Estate data table
     const [estateData, setEstateData] = useState<ApiResponse[]>([]);
     // Harvester data table
@@ -43,7 +43,7 @@ const HarvesterTable: React.FC = () => {
     // Set the response time from the server 
     const [responseTime, setResponseTime] = useState<number | null>(null);
 
-    // Data format
+    // Data tables format
     const columns: GridColDef[] = [
         {
             field: 'ROW_ID',
@@ -226,15 +226,36 @@ const HarvesterTable: React.FC = () => {
         },
     ];
 
-    // Unique key for each row
+    // Set the unique key for each row
     const getRowId = (row: ApiResponse) => row.ROW_ID;
 
     const handleClick = async () => {
         const apiUrl = 'http://103.121.213.173/webapi/dashboard/getCurrentProduction.php';
+        // Get today's date in dd-mm-yyyy format
+        const today = new Date();
+        const dd = String(today.getDate()).padStart(2, '0');
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const yyyy = today.getFullYear();
+        const formattedDate = `${dd}-${mm}-${yyyy}`;
+
+        // Get the day of the week (0 is Sunday, 1 is Monday, ..., 6 is Saturday)
+        const dayOfWeek = today.getDay();
+
+        // Set p_sectioncode based on the day of the week
+        const sectionCodeMap = {
+            0: '07', // Sunday
+            1: '01', // Monday
+            2: '02', // Tuesday
+            3: '03', // Wednesday
+            4: '04', // Thursday
+            5: '05', // Friday
+            6: '06', // Saturday
+        };
+        const sectionCode = sectionCodeMap[dayOfWeek];
 
         const requestData: RequestData = {
-            p_date: '21-12-2023',
-            p_sectioncode: '04',
+            p_date: formattedDate,
+            p_sectioncode: sectionCode,
         };
 
         setLoading(true);
@@ -244,6 +265,9 @@ const HarvesterTable: React.FC = () => {
 
         // Increment the refresh count
         setRefreshCount(prevCount => prevCount + 1);
+
+        // Record start time before making the API request
+        const startTime = new Date().getTime();
 
         try {
             const jsonResponse = await postData(apiUrl, requestData);
@@ -274,13 +298,37 @@ const HarvesterTable: React.FC = () => {
     const fetchData = async () => {
         const apiUrl = 'http://103.121.213.173/webapi/dashboard/getCurrentProduction.php';
 
+        // Get today's date in dd-mm-yyyy format
+        const today = new Date();
+        const dd = String(today.getDate()).padStart(2, '0');
+        const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+        const yyyy = today.getFullYear();
+        const formattedDate = `${dd}-${mm}-${yyyy}`;
+
+        // Get the day of the week (0 is Sunday, 1 is Monday, ..., 6 is Saturday)
+        const dayOfWeek = today.getDay();
+
+        // Set p_sectioncode based on the day of the week
+        const sectionCodeMap = {
+            0: '07', // Sunday
+            1: '01', // Monday
+            2: '02', // Tuesday
+            3: '03', // Wednesday
+            4: '04', // Thursday
+            5: '05', // Friday
+            6: '06', // Saturday
+        };
+        const sectionCode = sectionCodeMap[dayOfWeek];
+
         const requestData: RequestData = {
-            p_date: '21-12-2023', // Update with the desired date logic
-            p_sectioncode: '04', // Update with the desired section code
+            p_date: formattedDate,
+            p_sectioncode: sectionCode,
         };
 
         setLoading(true);
         setRotation(rotation - 360);
+        // Record start time before making the API request
+        const startTime = new Date().getTime();
 
         try {
             const jsonResponse = await postData(apiUrl, requestData);
@@ -296,6 +344,13 @@ const HarvesterTable: React.FC = () => {
             // Increment the refresh count
             setRefreshCount(prevCount => prevCount + 1);
 
+            // Calculate response time
+            const endTime = new Date().getTime();
+            const currentResponseTime = endTime - startTime;
+
+            // Set response time in milliseconds
+            setResponseTime(currentResponseTime);
+
         } catch (error) {
             console.error('Error:', error);
         } finally {
@@ -308,7 +363,7 @@ const HarvesterTable: React.FC = () => {
         fetchData();
 
         // Set up a timer to refresh data every 1 hour
-        const refreshTimer = setInterval(fetchData, 60 * 2 * 1000); // 1 hour in milliseconds
+        const refreshTimer = setInterval(fetchData, 60 * 1 * 1000); // 1 hour in milliseconds
 
         // Cleanup the timer on component unmount
         return () => clearInterval(refreshTimer);
@@ -320,7 +375,7 @@ const HarvesterTable: React.FC = () => {
             <Paper sx={{ width: '100%' }} className='rounded-lg bg-[#F1F5F9] shadow-none'>
                 <div className='flex justify-center'>
                     <Button
-                        className='text-md border mb-8 p-2 py-4 px-14 rounded-lg font-bold hover:bg-green-500 text-green-500 hover:text-white ease-in-out duration-200 hover:border-green-500 border-green-500 flex items-center gap-3'
+                        className='text-md border mb-4 p-2 py-4 px-14 rounded-lg font-bold hover:bg-green-500 text-green-500 hover:text-white ease-in-out duration-200 hover:border-green-500 border-green-500 flex items-center gap-3'
                         onClick={handleClick}
                     >
                         Refresh
@@ -329,18 +384,30 @@ const HarvesterTable: React.FC = () => {
                         />
                     </Button>
                 </div>
-                <div>
-                    <Typography className='flex pb-4'>
-                        Refresh Count: {refreshCount}
-                    </Typography>
+
+                {/* Refresh counter & response time section */}
+                <div className='flex-wrap xsm:flex xsm:justify-between text-center py-4'>
+                    <div>
+                        <Chip value={
+                            <Typography variant="caption">
+                                Refresh Count: <strong> {refreshCount} </strong> Times
+                            </Typography>
+                        } variant='outlined' className="rounded-full" />
+                    </div>
                     {responseTime !== null && (
                         <div>
-                            <Typography>
-                                Response Time: {responseTime} milliseconds
-                            </Typography>
+                            <Chip
+                                value={
+                                    <Typography variant="caption">
+                                        Response Time: <strong> {responseTime} </strong> milliseconds
+                                    </Typography>
+                                }
+                                variant='ghost' className="rounded-full"
+                            />
                         </div>
                     )}
                 </div>
+
                 {/* Estate Table */}
                 {estateData.length > 0 && (
                     <div>
