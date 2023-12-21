@@ -44,12 +44,12 @@ function Home() {
 
             </div>
 
-            <Typography className='text-justify py-5 indent-8' variant="body2" gutterBottom>
+            {/* <Typography className='text-justify py-5 indent-8' variant="body2" gutterBottom>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa distinctio assumenda quos unde nostrum illum ullam autem earum error nulla commodi, asperiores provident nobis. Quidem atque, animi mollitia quos ea distinctio consequatur alias minima perferendis quasi quae, ipsa commodi optio vitae nihil? Officia labore atque praesentium voluptates repellat inventore totam. Dicta minus assumenda fuga doloribus, eos voluptatem. Consectetur ducimus et odio assumenda similique animi amet quam, mollitia, incidunt nisi neque, perspiciatis accusantium. Dicta eveniet, ratione nostrum, quasi odit enim beatae quos iure saepe nisi labore reprehenderit. Doloremque quos atque dolore ipsam minima libero assumenda magnam officia eligendi. Inventore, soluta. Recusandae.
-            </Typography>
+            </Typography> */}
 
             {/* White divider */}
-            <hr className="text-inherit" />
+            {/* <hr className="text-inherit" /> */}
 
             <Stack className='rounded-md flex-shrink-0 flex justify-between items-center py-2 px-4 my-8  bg-orange-500 shadow-lg shadow-orange-500/50'>
                 <Typography sx={{ flex: '1 1 100%' }}

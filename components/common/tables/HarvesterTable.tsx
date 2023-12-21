@@ -30,11 +30,16 @@ async function postData(url: string, data: RequestData) {
 }
 
 const HarvesterTable: React.FC = () => {
+    // Skeleton loader
     const [loading, setLoading] = useState<boolean>(false);
+    // Estate data table
     const [estateData, setEstateData] = useState<ApiResponse[]>([]);
+    // Harvester data table
     const [harvesterData, setHarvesterData] = useState<ApiResponse[]>([]);
+    // Icon rotation
     const [rotation, setRotation] = useState<number>(0);
 
+    // Data format
     const columns: GridColDef[] = [
         {
             field: 'ROW_ID',
@@ -55,7 +60,7 @@ const HarvesterTable: React.FC = () => {
         }, {
             field: 'RANKING',
             headerName: 'Ranking',
-            description: 'Ranking',
+            // description: 'Ranking',
             headerAlign: 'center',
             align: 'center',
             flex: .1,
@@ -63,7 +68,7 @@ const HarvesterTable: React.FC = () => {
         }, {
             field: 'ESTATE',
             headerName: 'Estate',
-            description: 'Asal Estate',
+            // description: 'Asal Estate',
             headerAlign: 'center',
             align: 'center',
             flex: .1,
@@ -90,11 +95,11 @@ const HarvesterTable: React.FC = () => {
             headerName: 'Harvester',
             description: 'NIK - Nama Pemanen (Harvester)',
             headerAlign: 'center',
-            align: 'center',
+            align: 'left',
             flex: 1,
             minWidth: 200,
             renderCell: (params) => (
-                <div style={{ whiteSpace: 'pre-wrap', overflowWrap: 'break-word' }}>{params.value}</div>
+                <div style={{ whiteSpace: 'pre-wrap', overflowWrap: 'break-word', textAlign: 'left' }}>{params.value}</div>
             ),
         }, {
             field: 'RKH_JJG',
@@ -154,7 +159,7 @@ const HarvesterTable: React.FC = () => {
             },
         }, {
             field: 'VAR_HI_KG',
-            headerName: 'Varian Hari Ini /Kg',
+            headerName: 'Varian (Kg)',
             description: 'Varian Hari Ini /Kg - Hasil pengurangan antara RKH Kg dengan Realisasi Kg',
             headerAlign: 'center',
             align: 'center',
@@ -193,10 +198,11 @@ const HarvesterTable: React.FC = () => {
         return !['ROW_ID', 'GROUP_DATA', 'PROD_STATUS'].includes(column.field as string);
     });
 
+    // Column grouping
     const columnGroupingModel: GridColumnGroupingModel = [
         {
             groupId: 'rkh',
-            description: 'rkh',
+            description: 'Rencana Kerja Harian',
             headerName: 'RKH',
             headerAlign: 'center',
             children: [
@@ -206,8 +212,8 @@ const HarvesterTable: React.FC = () => {
         },
         {
             groupId: 'real',
-            description: 'real',
-            headerName: 'REALISASI',
+            description: 'Realisasi',
+            headerName: 'Realisasi',
             headerAlign: 'center',
             children: [
                 { field: 'REAL_JJG', },
@@ -216,6 +222,7 @@ const HarvesterTable: React.FC = () => {
         },
     ];
 
+    // Unique key for each row
     const getRowId = (row: ApiResponse) => row.ROW_ID;
 
     const handleClick = async () => {
@@ -238,12 +245,14 @@ const HarvesterTable: React.FC = () => {
             const estateData = jsonResponse.filter(item => item.GROUP_DATA === 'ESTATE');
             const harvesterData = jsonResponse.filter(item => item.GROUP_DATA !== 'ESTATE');
 
+            // Typescript syntax to set the data on each table
             setEstateData(estateData);
             setHarvesterData(harvesterData);
 
         } catch (error) {
             console.error('Error:', error);
         } finally {
+            // Stops the skeleton loader
             setLoading(false);
         }
     };
@@ -360,7 +369,7 @@ const HarvesterTable: React.FC = () => {
                                     columns={harvesterColumns}
                                     rows={harvesterData}
                                     getRowId={getRowId}
-                                    // getRowHeight={() => 100}
+                                    getRowHeight={() => 80}
                                     // getEstimatedRowHeight={() => 200}
                                     columnGroupingModel={columnGroupingModel}
                                     experimentalFeatures={{ columnGrouping: true }}
@@ -372,7 +381,7 @@ const HarvesterTable: React.FC = () => {
 
                 {/* No Data Message */}
                 {!loading && estateData.length === 0 && harvesterData.length === 0 && (
-                    <h4 className='text-center pb-10'>Click on Refresh button to show the data.</h4>
+                    <h4 className='text-center pb-10'>Click on Synchronize button to show the data.</h4>
                 )}
 
             </Paper >
