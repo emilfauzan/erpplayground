@@ -16,9 +16,11 @@
     "@mui/material": "^5.14.18",
     "@mui/x-data-grid": "^6.18.2",
     "@mui/x-data-grid-generator": "^6.18.3",
+    "@nivo/bar": "^0.84.0",
     "next": "14.0.2",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-query": "^3.39.3"
   },
   "devDependencies": {
     "@types/node": "^20",

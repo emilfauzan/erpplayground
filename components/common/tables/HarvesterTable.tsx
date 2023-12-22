@@ -232,33 +232,6 @@ const HarvesterTable: React.FC = () => {
     const fetchData = async () => {
         const apiUrl = 'http://103.121.213.173/webapi/dashboard/getCurrentProduction.php';
 
-        // Get today's date in dd-mm-yyyy format
-        const today = new Date();
-        const dd = String(today.getDate()).padStart(2, '0');
-        const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
-        const yyyy = today.getFullYear();
-        const formattedDate = `${dd}-${mm}-${yyyy}`;
-
-        // Get the day of the week (0 is Sunday, 1 is Monday, ..., 6 is Saturday)
-        const dayOfWeek = today.getDay();
-
-        // Set p_sectioncode based on the day of the week
-        const sectionCodeMap = {
-            0: '07', // Sunday
-            1: '01', // Monday
-            2: '02', // Tuesday
-            3: '03', // Wednesday
-            4: '04', // Thursday
-            5: '05', // Friday
-            6: '06', // Saturday
-        };
-        const sectionCode = sectionCodeMap[dayOfWeek];
-
-        const requestData: RequestData = {
-            p_date: formattedDate,
-            p_sectioncode: sectionCode,
-        };
-
         setLoading(true);
         setRotation(rotation + 1080);
 
@@ -304,13 +277,39 @@ const HarvesterTable: React.FC = () => {
         return () => clearInterval(refreshTimer);
     }, []); // Empty dependency array means this effect runs once on mount
 
+    // Get today's date in dd-mm-yyyy format
+    const today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+    const yyyy = today.getFullYear();
+    const formattedDate = `${dd}-${mm}-${yyyy}`;
+
+    // Get the day of the week (0 is Sunday, 1 is Monday, ..., 6 is Saturday)
+    const dayOfWeek = today.getDay();
+
+    // Set p_sectioncode based on the day of the week
+    const sectionCodeMap = {
+        0: '07', // Sunday
+        1: '01', // Monday
+        2: '02', // Tuesday
+        3: '03', // Wednesday
+        4: '04', // Thursday
+        5: '05', // Friday
+        6: '06', // Saturday
+    };
+    const sectionCode = sectionCodeMap[dayOfWeek];
+
+    const requestData: RequestData = {
+        p_date: formattedDate,
+        p_sectioncode: sectionCode,
+    };
 
     return (
         <Box sx={{ width: '100%', whiteSpace: 'normal' }}>
             <Paper sx={{ width: '100%' }} className='rounded-lg bg-[#F1F5F9] shadow-none'>
                 <div className='flex justify-center'>
                     <Button
-                        className='text-md border mb-4 p-2 py-4 px-14 rounded-lg font-bold hover:bg-green-500 text-green-500 hover:text-white ease-in-out duration-200 hover:border-green-500 border-green-500 flex items-center gap-3'
+                        className='text-md border mb-4 p-2 py-4 px-14 rounded-lg font-bold hover:bg-green-500 text-green-500 hover:text-white hover:shadow-xl ease-in-out duration-200 hover:border-green-500 border-green-500 flex items-center gap-3'
                         onClick={fetchData}
                     >
 
@@ -320,8 +319,6 @@ const HarvesterTable: React.FC = () => {
                         />
                     </Button>
                 </div>
-
-
 
                 {/* Refresh counter & response time section */}
                 <div className='flex-wrap xsm:flex xsm:justify-between text-center py-4'>
