@@ -232,8 +232,6 @@ const HarvesterTable: React.FC = () => {
     const fetchData = async () => {
         const apiUrl = 'http://103.121.213.173/webapi/dashboard/getCurrentProduction.php';
 
-
-
         setLoading(true);
         setRotation(rotation + 1080);
 
@@ -273,12 +271,11 @@ const HarvesterTable: React.FC = () => {
         fetchData();
 
         // Set up a timer to refresh data every 1 hour
-        const refreshTimer = setInterval(fetchData, 60 * 1 * 1000); // 1 hour in milliseconds
+        const refreshTimer = setInterval(fetchData, 60 * 60 * 1000); // 1 hour in milliseconds
 
         // Cleanup the timer on component unmount
         return () => clearInterval(refreshTimer);
     }, []); // Empty dependency array means this effect runs once on mount
-
 
     // Get today's date in dd-mm-yyyy format
     const today = new Date();

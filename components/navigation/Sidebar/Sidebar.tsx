@@ -12,7 +12,7 @@ import CompanyLogo from "@/public/images/companyLogo/companyLogo.png";
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import PeopleOutlineOutlinedIcon from '@mui/icons-material/PeopleOutlineOutlined';
 import InsertChartOutlinedRoundedIcon from '@mui/icons-material/InsertChartOutlinedRounded';
-import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
+import BarChartRoundedIcon from '@mui/icons-material/BarChartRounded';
 import Image from "next/image";
 import { Typography } from "@material-tailwind/react";
 
@@ -250,9 +250,9 @@ ${pathname === "/dashboard/production" &&
 
 
                             <li>
-                                <Link href={"/apps/calendar"}
+                                <Link href={"/apps/chart"}
                                     className={`group relative flex items-center gap-2.5 rounded-full px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-blue-gray-500
-                                    ${pathname === "/apps/calendar" &&
+                                    ${pathname === "/apps/chart" &&
                                         "bg-blue-gray-900"
                                         }`}
                                 >
@@ -263,9 +263,9 @@ ${pathname === "/dashboard/production" &&
                                         viewBox="0 0 18 18"
                                         fill="none"
                                     >
-                                        <CalendarMonthOutlinedIcon />
+                                        <BarChartRoundedIcon />
                                     </svg>
-                                    Calendar
+                                    Chart
                                 </Link>
                             </li>
 
