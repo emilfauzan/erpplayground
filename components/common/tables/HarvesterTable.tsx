@@ -320,8 +320,6 @@ const HarvesterTable: React.FC = () => {
                     </Button>
                 </div>
 
-
-
                 {/* Refresh counter & response time section */}
                 <div className='flex-wrap xsm:flex xsm:justify-between text-center py-4'>
                     <div>
