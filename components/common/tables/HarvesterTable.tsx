@@ -232,6 +232,8 @@ const HarvesterTable: React.FC = () => {
     const fetchData = async () => {
         const apiUrl = 'http://103.121.213.173/webapi/dashboard/getCurrentProduction.php';
 
+
+
         setLoading(true);
         setRotation(rotation + 1080);
 
@@ -277,6 +279,7 @@ const HarvesterTable: React.FC = () => {
         return () => clearInterval(refreshTimer);
     }, []); // Empty dependency array means this effect runs once on mount
 
+
     // Get today's date in dd-mm-yyyy format
     const today = new Date();
     const dd = String(today.getDate()).padStart(2, '0');
@@ -319,6 +322,8 @@ const HarvesterTable: React.FC = () => {
                         />
                     </Button>
                 </div>
+
+
 
                 {/* Refresh counter & response time section */}
                 <div className='flex-wrap xsm:flex xsm:justify-between text-center py-4'>
