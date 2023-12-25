@@ -320,7 +320,7 @@ const HarvesterTable: React.FC = () => {
                     </Button>
                 </div>
 
-                {/* Refresh counter & response time section */}
+                {/* Refresh counter & response time */}
                 <div className='flex-wrap xsm:flex xsm:justify-between text-center py-4'>
                     <div>
                         <Chip value={
