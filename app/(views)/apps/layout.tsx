@@ -15,7 +15,8 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
     }, []);
 
     return (
-        <body suppressHydrationWarning={true}>
+        // <>
+        <main suppressHydrationWarning={true}>
             <div className="subpixel-antialiased dark:bg-boxdark-2 dark:text-bodydark bg-[#F1F5F9]">
                 {loading ? (
                     <Loader />
@@ -34,16 +35,17 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                             />
                             <main>
                                 <div
-                                    className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10"
+                                    className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10 min-h-fit grow"
                                 >
                                     {children}
                                 </div>
                             </main>
-                            <Footer/>
+                            <Footer />
                         </div>
                     </div>
                 )}
             </div>
-        </body>
+        </main>
+        // </>
     )
 }
