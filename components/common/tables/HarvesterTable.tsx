@@ -285,8 +285,9 @@ const HarvesterTable: React.FC = () => {
     const formattedDate = `${dd}-${mm}-${yyyy}`;
 
     // Get the day of the week (0 is Sunday, 1 is Monday, ..., 6 is Saturday)
-    const dayOfWeek = today.getDay();
-
+    // Using keyof & typeof instead of plain declaration to make sure the mappings are correct on every expected type
+    const dayOfWeek = new Date().getDay() as keyof typeof sectionCodeMap;
+    
     // Set p_sectioncode based on the day of the week
     const sectionCodeMap = {
         0: '07', // Sunday
@@ -297,7 +298,7 @@ const HarvesterTable: React.FC = () => {
         5: '05', // Friday
         6: '06', // Saturday
     };
-    const sectionCode = sectionCodeMap[dayOfWeek];
+    const sectionCode = sectionCodeMap[dayOfWeek].toString();
 
     const requestData: RequestData = {
         p_date: formattedDate,
