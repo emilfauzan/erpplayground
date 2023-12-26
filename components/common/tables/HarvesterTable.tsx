@@ -270,8 +270,14 @@ const HarvesterTable: React.FC = () => {
         // Fetch data on page load
         fetchData();
 
-        // Set up a timer to refresh data every 1 hour
-        const refreshTimer = setInterval(fetchData, 60 * 60 * 1000); // 1 hour in milliseconds
+        // Set up a timer to refresh data every hour at the start of the hour
+        const refreshTimer = setInterval(() => {
+            const currentHour = new Date().getHours();
+            if (currentHour === 0) {
+                // Refresh only when the current hour is 00:00
+                fetchData();
+            }
+        }, 60 * 60 * 1000); // 1 hour in milliseconds
 
         // Cleanup the timer on component unmount
         return () => clearInterval(refreshTimer);
@@ -287,7 +293,7 @@ const HarvesterTable: React.FC = () => {
     // Get the day of the week (0 is Sunday, 1 is Monday, ..., 6 is Saturday)
     // Using keyof & typeof instead of plain declaration to make sure the mappings are correct on every expected type
     const dayOfWeek = new Date().getDay() as keyof typeof sectionCodeMap;
-    
+
     // Set p_sectioncode based on the day of the week
     const sectionCodeMap = {
         0: '07', // Sunday
