@@ -278,6 +278,7 @@ const HarvesterTable: React.FC = () => {
                 fetchData();
             }
         }, 60 * 60 * 1000); // 1 hour in milliseconds
+        // + 5 minutes in JKO
 
         // Cleanup the timer on component unmount
         return () => clearInterval(refreshTimer);

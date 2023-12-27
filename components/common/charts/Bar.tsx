@@ -6,7 +6,7 @@ interface BarProps {
     data: ApiResponse[];
 }
 
-const Bar: React.FC<BarProps> = ({ data }) => {
+const Bar: React.FC<BarProps> = () => {
     const chartData = data
         .filter((item) => item.GROUP_DATA === 'ESTATE')
         .map((item) => ({
