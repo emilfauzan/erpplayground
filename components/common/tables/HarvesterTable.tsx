@@ -1,7 +1,7 @@
 "use client"
 
 import { ApiResponse, RequestData } from '@/interface/typings';
-import { Paper, Typography, Skeleton, LinearProgress } from '@mui/material';
+import { Paper, Typography, Skeleton, Alert, AlertTitle } from '@mui/material';
 import Box from '@mui/material/Box';
 import RefreshRoundedIcon from '@mui/icons-material/RefreshRounded';
 import { DataGrid, GridCellParams, GridColDef, GridColumnGroupingModel } from '@mui/x-data-grid';
@@ -42,6 +42,8 @@ const HarvesterTable: React.FC = () => {
     const [refreshCount, setRefreshCount] = useState<number>(0);
     // Set the response time from the server 
     const [responseTime, setResponseTime] = useState<number | null>(null);
+    // Alert outside the refresh time window
+    const [showAlert, setShowAlert] = useState<boolean>(false);
 
     // Data tables format
     const columns: GridColDef[] = [
@@ -230,7 +232,6 @@ const HarvesterTable: React.FC = () => {
     const getRowId = (row: ApiResponse) => row.ROW_ID;
 
     const fetchData = async () => {
-        const apiUrl = 'http://103.121.213.173/webapi/dashboard/getCurrentProduction.php';
 
         setLoading(true);
         setRotation(rotation + 1080);
@@ -239,25 +240,43 @@ const HarvesterTable: React.FC = () => {
         const startTime = new Date().getTime();
 
         try {
-            const jsonResponse = await postData(apiUrl, requestData);
+            const currentHour = new Date().getHours();
+            
+            // Check if the current hour is between 8 and 20
+            if (currentHour >= 8 && currentHour < 20) {
+                const apiUrl = 'http://103.121.213.173/webapi/dashboard/getCurrentProduction.php';
 
-            // Separate data based on GROUP_DATA value
-            const estateData = jsonResponse.filter(item => item.GROUP_DATA === 'ESTATE');
-            const harvesterData = jsonResponse.filter(item => item.GROUP_DATA !== 'ESTATE');
+                const requestData: RequestData = {
+                    p_date: formattedDate,
+                    p_sectioncode: sectionCode,
+                };
 
-            // Typescript syntax to set the data on each table
-            setEstateData(estateData);
-            setHarvesterData(harvesterData);
+                const jsonResponse = await postData(apiUrl, requestData);
 
-            // Increment the refresh count
-            setRefreshCount(prevCount => prevCount + 1);
+                // Separate data based on GROUP_DATA value
+                const estateData = jsonResponse.filter(item => item.GROUP_DATA === 'ESTATE');
+                const harvesterData = jsonResponse.filter(item => item.GROUP_DATA !== 'ESTATE');
 
-            // Calculate response time
-            const endTime = new Date().getTime();
-            const currentResponseTime = endTime - startTime;
+                // Typescript syntax to set the data on each table
+                setEstateData(estateData);
+                setHarvesterData(harvesterData);
 
-            // Set response time in milliseconds
-            setResponseTime(currentResponseTime);
+                // Increment the refresh count
+                setRefreshCount(prevCount => prevCount + 1);
+
+                // Calculate response time
+                const endTime = new Date().getTime();
+                const currentResponseTime = endTime - startTime;
+
+                // Set response time in milliseconds
+                setResponseTime(currentResponseTime);
+
+            } else {
+
+                // Show alert outside the allowed time range
+                setShowAlert(true);
+
+            }
 
         } catch (error) {
             console.error('Error:', error);
@@ -307,49 +326,67 @@ const HarvesterTable: React.FC = () => {
     };
     const sectionCode = sectionCodeMap[dayOfWeek].toString();
 
-    const requestData: RequestData = {
-        p_date: formattedDate,
-        p_sectioncode: sectionCode,
-    };
+
 
     return (
         <Box sx={{ width: '100%', whiteSpace: 'normal' }}>
             <Paper sx={{ width: '100%' }} className='rounded-lg bg-[#F1F5F9] shadow-none'>
-                <div className='flex justify-center'>
-                    <Button
-                        className='text-md border mb-4 p-2 py-4 px-14 rounded-lg font-bold hover:bg-green-500 text-green-500 hover:text-white hover:shadow-xl ease-in-out duration-200 hover:border-green-500 border-green-500 flex items-center gap-3'
-                        onClick={fetchData}
-                    >
 
-                        Refresh
-                        <RefreshRoundedIcon
-                            style={{ transform: loading ? 'rotate(1080deg)' : 'none', transition: 'transform 3s ease-in-out' }}
-                        />
-                    </Button>
-                </div>
-
-                {/* Refresh counter & response time */}
-                <div className='flex-wrap xsm:flex xsm:justify-between text-center py-4'>
+                {showAlert ? (
+                    // Show alert outside the allowed time range
+                    <Alert variant="filled" severity="info" className='mb-4'>
+                        <AlertTitle><strong>Info</strong></AlertTitle>
+                        Data is only displayed between <strong> 08:00 </strong> and <strong> 20:00 </strong> WIB. Please try again tomorrow.
+                    </Alert>
+                ) : (
                     <div>
-                        <Chip value={
-                            <Typography variant="caption">
-                                Refresh Count: <strong> {refreshCount} </strong> Times
-                            </Typography>
-                        } variant='outlined' className="rounded-full text-blue-gray-600" />
-                    </div>
-                    {responseTime !== null && (
-                        <div>
-                            <Chip
-                                value={
-                                    <Typography variant="caption">
-                                        Response Time: <strong> {responseTime} </strong> milliseconds
-                                    </Typography>
-                                }
-                                variant='ghost' className="rounded-full text-blue-gray-600"
-                            />
+                        <div className='flex justify-center'>
+                            {/* Refresh Button */}
+                            <Button
+                                className='text-md border mb-4 p-2 py-4 px-14 rounded-lg font-bold hover:bg-green-500 text-green-500 hover:text-white hover:shadow-xl ease-in-out duration-200 hover:border-green-500 border-green-500 flex items-center gap-3'
+                                onClick={fetchData}
+                            >
+                                Refresh
+                                <RefreshRoundedIcon
+                                    style={{ transform: loading ? 'rotate(1080deg)' : 'none', transition: 'transform 3s ease-in-out' }}
+                                />
+                            </Button>
                         </div>
-                    )}
-                </div>
+
+                        <div className='flex-wrap xsm:flex xsm:justify-between text-center py-4'>
+                            <div>
+                                {/* Refresh Count */}
+                                <Chip value={
+                                    <Typography variant="caption">
+                                        Refresh Count: <strong> {refreshCount} </strong> Times
+                                    </Typography>
+                                } variant='outlined' className="rounded-full text-blue-gray-600" />
+                            </div>
+                            {/* Response Time */}
+                            {responseTime !== null && (
+                                <div>
+                                    <Chip
+                                        value={
+                                            <Typography variant="caption">
+                                                Response Time: <strong> {responseTime} </strong> milliseconds
+                                            </Typography>
+                                        }
+                                        variant='ghost' className="rounded-full text-blue-gray-600"
+                                    />
+                                </div>
+                            )}
+                        </div>
+                        {/* No Data Message */}
+                        {!loading && estateData.length === 0 && harvesterData.length === 0 && (
+                            <h4 className='text-center pb-10'>Click on Refresh button to show the data.</h4>
+                        )}
+                    </div>
+
+                )}
+
+
+
+
 
                 {/* Estate Table */}
                 {estateData.length > 0 && (
@@ -456,11 +493,6 @@ const HarvesterTable: React.FC = () => {
                             </div>
                         )}
                     </div>
-                )}
-
-                {/* No Data Message */}
-                {!loading && estateData.length === 0 && harvesterData.length === 0 && (
-                    <h4 className='text-center pb-10'>Click on Refresh button to show the data.</h4>
                 )}
 
             </Paper >
