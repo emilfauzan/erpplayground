@@ -44,6 +44,10 @@ const HarvesterTable: React.FC = () => {
     const [responseTime, setResponseTime] = useState<number | null>(null);
     // Alert outside the refresh time window
     const [showAlert, setShowAlert] = useState<boolean>(false);
+    // Refresh cooldown
+    const [buttonDisabled, setButtonDisabled] = useState<boolean>(false);
+    // Cooldown countdown 
+    const [remainingCooldown, setRemainingCooldown] = useState<number | null>(null);
 
     // Data tables format
     const columns: GridColDef[] = [
@@ -241,9 +245,9 @@ const HarvesterTable: React.FC = () => {
 
         try {
             const currentHour = new Date().getHours();
-            
+
             // Check if the current hour is between 8 and 20
-            if (currentHour >= 8 && currentHour < 20) {
+            if (currentHour >= 8 && currentHour < 20 && !buttonDisabled) {
                 const apiUrl = 'http://103.121.213.173/webapi/dashboard/getCurrentProduction.php';
 
                 const requestData: RequestData = {
@@ -270,6 +274,24 @@ const HarvesterTable: React.FC = () => {
 
                 // Set response time in milliseconds
                 setResponseTime(currentResponseTime);
+
+                // Set a one-minute cooldown after each successful refresh
+                setButtonDisabled(true);
+                // Initialize remainingCooldown to 60 seconds
+                setRemainingCooldown(60);
+
+                // Update remainingCooldown every second
+                const cooldownInterval = setInterval(() => {
+                    setRemainingCooldown(prevRemaining => {
+                        if (prevRemaining === null || prevRemaining <= 0) {
+                            setButtonDisabled(false);
+                            clearInterval(cooldownInterval);
+                            return null;
+                        }
+
+                        return prevRemaining - 1;
+                    });
+                }, 1000);
 
             } else {
 
@@ -326,8 +348,6 @@ const HarvesterTable: React.FC = () => {
     };
     const sectionCode = sectionCodeMap[dayOfWeek].toString();
 
-
-
     return (
         <Box sx={{ width: '100%', whiteSpace: 'normal' }}>
             <Paper sx={{ width: '100%' }} className='rounded-lg bg-[#F1F5F9] shadow-none'>
@@ -336,17 +356,20 @@ const HarvesterTable: React.FC = () => {
                     // Show alert outside the allowed time range
                     <Alert variant="filled" severity="info" className='mb-4'>
                         <AlertTitle><strong>Info</strong></AlertTitle>
-                        Data is only displayed between <strong> 08:00 </strong> and <strong> 20:00 </strong> WIB. Please try again tomorrow.
+                        Data is only displayed between <strong> 08:00 </strong> and <strong> 20:00 </strong> WIB. Please try again later.
                     </Alert>
                 ) : (
                     <div>
                         <div className='flex justify-center'>
                             {/* Refresh Button */}
                             <Button
-                                className='text-md border mb-4 p-2 py-4 px-14 rounded-lg font-bold hover:bg-green-500 text-green-500 hover:text-white hover:shadow-xl ease-in-out duration-200 hover:border-green-500 border-green-500 flex items-center gap-3'
                                 onClick={fetchData}
+                                disabled={buttonDisabled}
+                                className='text-md border mb-8 p-2 py-4 px-14 rounded-lg font-bold hover:bg-green-500 text-green-500 hover:text-white ease-in-out duration-200 hover:border-green-500 border-green-500 flex items-center gap-3'
                             >
-                                Refresh
+                                {buttonDisabled
+                                    ? `Refresh (${remainingCooldown} seconds)`
+                                    : 'Refresh'}
                                 <RefreshRoundedIcon
                                     style={{ transform: loading ? 'rotate(1080deg)' : 'none', transition: 'transform 3s ease-in-out' }}
                                 />
@@ -362,6 +385,7 @@ const HarvesterTable: React.FC = () => {
                                     </Typography>
                                 } variant='outlined' className="rounded-full text-blue-gray-600" />
                             </div>
+
                             {/* Response Time */}
                             {responseTime !== null && (
                                 <div>
@@ -376,6 +400,7 @@ const HarvesterTable: React.FC = () => {
                                 </div>
                             )}
                         </div>
+
                         {/* No Data Message */}
                         {!loading && estateData.length === 0 && harvesterData.length === 0 && (
                             <h4 className='text-center pb-10'>Click on Refresh button to show the data.</h4>
@@ -383,10 +408,6 @@ const HarvesterTable: React.FC = () => {
                     </div>
 
                 )}
-
-
-
-
 
                 {/* Estate Table */}
                 {estateData.length > 0 && (
