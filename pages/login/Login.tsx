@@ -65,7 +65,7 @@ const Login = () => {
 
         </div>
 
-        {/* Picture Section */}
+        {/* Picture / Logo Section */}
         <div className='items-center m-6 p-4 text-center hidden sm:grid gap-0'>
           <Grid
             container
