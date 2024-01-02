@@ -19,7 +19,6 @@ export const FormUsernamePassword = () => {
             label="Email"
             variant="outlined"
             placeholder="example@example.com"
-            className='hover:border-orange-500'
           />
 
           <FormControl variant="outlined">
@@ -45,7 +44,7 @@ export const FormUsernamePassword = () => {
             />
           </FormControl>
 
-          <Button variant="contained" color="success" className='text-green-500 hover:text-white font-bold hover:bg-green-500 py-3'>
+          <Button variant="contained" color="success" className='text-green-500 hover:text-white font-bold hover:bg-green-500 py-3 border border-blue-gray-500'>
             Login
           </Button>
     </div>
