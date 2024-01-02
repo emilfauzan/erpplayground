@@ -5,23 +5,17 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { FilledInput, FormControl, IconButton, InputAdornment, InputLabel, TextField, Typography, Button, Link, Grid, OutlinedInput, Tooltip } from '@mui/material'
 import Image from "next/image";
 import CompanyLogo from "@/public/images/companyLogo/companyLogo.png";
+import { FormUsernamePassword } from '@/components/login/FormUsernamePassword';
 
 const Login = () => {
 
-  const [showPassword, setShowPassword] = React.useState(false);
-
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-  const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-  };
 
   return (
     <section className='flex min-h-screen items-center justify-center'>
       <div className="border grid grid-cols-1 sm:grid-cols-2 border-blue-gray-500 rounded-xl mx-10">
 
         {/* Login Section */}
-        <div className='items-center m-6 p-4 grid gap-4'>
+        <div className='items-center m-6 p-4 grid gap-1'>
           <Typography className="text-left font-extrabold" variant="h5">
             NT CORP ANALYTICS
           </Typography>
@@ -29,40 +23,7 @@ const Login = () => {
             Digital Analysis Made Simple
           </Typography>
 
-          <TextField
-            id="standard-basic"
-            label="Email"
-            variant="outlined"
-            placeholder="example@example.com"
-            className='hover:border-orange-500'
-          />
-
-          <FormControl variant="outlined">
-            <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-            <OutlinedInput
-              id="outlined-adornment-password"
-              type={showPassword ? 'text' : 'password'}
-              endAdornment={
-                <InputAdornment position="end">
-                  <Tooltip title="Toggle password visibility">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={handleClickShowPassword}
-                      onMouseDown={handleMouseDownPassword}
-                      edge="end"
-                    >
-                      {showPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </Tooltip>
-                </InputAdornment>
-              }
-              label="Password"
-            />
-          </FormControl>
-
-          <Button variant="contained" color="success" className='text-green-500 hover:text-white font-bold hover:bg-green-500 py-3'>
-            Login
-          </Button>
+          <FormUsernamePassword />
 
           <Tooltip title="Contact HRD via WhatsApp for further information." placement="bottom-end">
             <Link className='text-right text-success text-sm' href="https://wa.me/+628170791244" target="_blank">
@@ -72,7 +33,7 @@ const Login = () => {
 
         </div>
 
-        {/* Picture / Logo Section */}
+        {/* Picture & Logo Section */}
         <div className='items-center m-6 p-4 text-center hidden sm:grid gap-0 duration-300 ease-in-out'>
           <Grid
             container
