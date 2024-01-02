@@ -18,7 +18,7 @@ const Login = () => {
 
   return (
     <section className='flex min-h-screen items-center justify-center'>
-      <div className="border grid grid-cols-1 sm:grid-cols-2 border-blue-gray-500 rounded-xl mx-4">
+      <div className="border grid grid-cols-1 sm:grid-cols-2 border-blue-gray-500 rounded-xl mx-10">
 
         {/* Login Section */}
         <div className='items-center m-6 p-4 grid gap-4'>
@@ -44,7 +44,7 @@ const Login = () => {
               type={showPassword ? 'text' : 'password'}
               endAdornment={
                 <InputAdornment position="end">
-                  <Tooltip title="Toggle Password Visibility">
+                  <Tooltip title="Toggle password visibility">
                     <IconButton
                       aria-label="toggle password visibility"
                       onClick={handleClickShowPassword}
@@ -60,7 +60,7 @@ const Login = () => {
             />
           </FormControl>
 
-          <Button variant="contained" color="success" className='text-green-500 hover:text-white font-bold hover:bg-green-500'>
+          <Button variant="contained" color="success" className='text-green-500 hover:text-white font-bold hover:bg-green-500 py-3'>
             Login
           </Button>
 
