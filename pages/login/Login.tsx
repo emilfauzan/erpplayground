@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import { FilledInput, FormControl, IconButton, InputAdornment, InputLabel, TextField, Typography, Button, Link, Grid, OutlinedInput } from '@mui/material'
+import { FilledInput, FormControl, IconButton, InputAdornment, InputLabel, TextField, Typography, Button, Link, Grid, OutlinedInput, Tooltip } from '@mui/material'
 import Image from "next/image";
 import CompanyLogo from "@/public/images/companyLogo/companyLogo.png";
 
@@ -21,7 +21,7 @@ const Login = () => {
       <div className="border grid grid-cols-1 sm:grid-cols-2 border-blue-gray-500 rounded-xl mx-4">
 
         {/* Login Section */}
-        <div className='items-center m-6 p-4 grid gap-3'>
+        <div className='items-center m-6 p-4 grid gap-4'>
           <Typography className="text-left font-extrabold" variant="h5">
             NT CORP ANALYTICS
           </Typography>
@@ -34,6 +34,7 @@ const Login = () => {
             label="Email"
             variant="outlined"
             placeholder="example@example.com"
+            className='hover:border-orange-500'
           />
 
           <FormControl variant="outlined">
@@ -43,15 +44,19 @@ const Login = () => {
               type={showPassword ? 'text' : 'password'}
               endAdornment={
                 <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                  >
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
+                  <Tooltip title="Toggle Password Visibility">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </Tooltip>
                 </InputAdornment>
               }
+              label="Password"
             />
           </FormControl>
 
@@ -59,14 +64,16 @@ const Login = () => {
             Login
           </Button>
 
-          <Link className='text-right text-success text-sm' href="https://wa.me/+628170791244" target="_blank">
-            Forgot Password?
-          </Link>
+          <Tooltip title="Contact HRD via WhatsApp for further information." placement="bottom-end">
+            <Link className='text-right text-success text-sm' href="https://wa.me/+628170791244" target="_blank">
+              Forgot Password?
+            </Link>
+          </Tooltip>
 
         </div>
 
         {/* Picture / Logo Section */}
-        <div className='items-center m-6 p-4 text-center hidden sm:grid gap-0'>
+        <div className='items-center m-6 p-4 text-center hidden sm:grid gap-0 duration-300 ease-in-out'>
           <Grid
             container
             direction="column"
@@ -83,12 +90,12 @@ const Login = () => {
               />
             </Grid>
             <Grid item>
-              <Typography  className='font-cinzel font-bold hidden 3xsm:block tracking-wide pl-2' variant='h4'>
+              <Typography className='font-cinzel font-bold hidden 3xsm:block tracking-wide pl-2' variant='h4'>
                 NT CORP
               </Typography>
             </Grid>
             <Grid item>
-              <Typography  className='font-cinzel font-bold hidden 3xsm:block tracking-wide pl-2' variant='h6'>
+              <Typography className='font-cinzel font-bold hidden 3xsm:block tracking-wide pl-2' variant='h6'>
                 PT. BANGKITGIAT USAHA MANDIRI
               </Typography>
             </Grid>
