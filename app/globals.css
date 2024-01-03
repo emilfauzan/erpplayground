@@ -43,40 +43,40 @@ body {
 }
 
 .fade-in-left1 {
-  animation: fade-in-left .4s cubic-bezier(.39, .575, .565, 1.000) .4s both
+  animation: fade-in-left .4s cubic-bezier(.39, .575, .565, 1.000) .2s both
 }
 
 .fade-in-left2 {
-  animation: fade-in-left .5s cubic-bezier(.39, .575, .565, 1.000) .4s both
+  animation: fade-in-left .5s cubic-bezier(.39, .575, .565, 1.000) .2s both
 }
 
 .fade-in-left3 {
-  animation: fade-in-left .6s cubic-bezier(.39, .575, .565, 1.000) .4s both
+  animation: fade-in-left .6s cubic-bezier(.39, .575, .565, 1.000) .2s both
 }
 
 .fade-in-left4 {
-  animation: fade-in-left .7s cubic-bezier(.39, .575, .565, 1.000) .4s both
+  animation: fade-in-left .7s cubic-bezier(.39, .575, .565, 1.000) .2s both
 }
 
 .fade-in-left5 {
-  animation: fade-in-left .8s cubic-bezier(.39, .575, .565, 1.000) .4s both
+  animation: fade-in-left .8s cubic-bezier(.39, .575, .565, 1.000) .2s both
 }
 
 .fade-in-left6 {
-  animation: fade-in-left .9s cubic-bezier(.39, .575, .565, 1.000) .4s both
+  animation: fade-in-left .9s cubic-bezier(.39, .575, .565, 1.000) .2s both
 }
 
 @media (min-width: 640px) {
   .sm\:fade-in-left1 {
-    animation: fade-in-left .4s cubic-bezier(.39, .575, .565, 1.000) .4s both
+    animation: fade-in-left .4s cubic-bezier(.39, .575, .565, 1.000) .2s both
   }
 
   .sm\:fade-in-left2 {
-    animation: fade-in-left .5s cubic-bezier(.39, .575, .565, 1.000) .4s both
+    animation: fade-in-left .5s cubic-bezier(.39, .575, .565, 1.000) .2s both
   }
 
   .sm\:fade-in-left3 {
-    animation: fade-in-left .6s cubic-bezier(.39, .575, .565, 1.000) .4s both
+    animation: fade-in-left .6s cubic-bezier(.39, .575, .565, 1.000) .2s both
   }
 }
 
