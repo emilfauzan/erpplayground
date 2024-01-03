@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import { Typography, Link, Grid, Tooltip, Divider } from '@mui/material'
 import Image from "next/image";
 import CompanyLogo from "@/public/images/companyLogo/companyLogo.png";

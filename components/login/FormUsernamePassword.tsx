@@ -42,7 +42,7 @@ export const FormUsernamePassword = () => {
       return;
     }
 
-    // Example: Redirect to the dashboard on successful login
+    // Redirect to the dashboard on successful login
     window.location.href = '/dashboard/home';
   };
 
