@@ -46,6 +46,13 @@ const DropdownUser = () => {
         return () => document.removeEventListener("keydown", keyHandler);
     });
 
+    const handleLogout = () => {
+        // Perform any additional logout logic if needed
+
+        // Redirect to the login page
+        window.location.href = '/'; // Replace '/login' with your login page route
+    };
+
     return (
         <>
             <Menu>
@@ -95,7 +102,9 @@ const DropdownUser = () => {
                     {/* separator */}
                     <hr className="my-3" />
 
-                    <Button fullWidth variant="text" className="flex justify-center gap-2 py-2 border text-red-500 hover:bg-red-500 hover:text-white">
+                    <Button fullWidth variant="text" className="flex justify-center gap-2 py-2 border text-red-500 hover:bg-red-500 hover:text-white"
+                        onClick={handleLogout}
+                    >
                         <LogoutIcon className="mr-2" fontSize="small" />
 
                         <Typography variant="small" className="font-medium">
