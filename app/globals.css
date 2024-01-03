@@ -106,7 +106,7 @@ body {
 }
 
 .rotate-in-center {
-  animation: rotate-in-center .6s cubic-bezier(.25, .46, .45, .94) both
+  animation: rotate-in-center .8s cubic-bezier(.25, .46, .45, .94) both
 }
 
 .outlinedblack {
