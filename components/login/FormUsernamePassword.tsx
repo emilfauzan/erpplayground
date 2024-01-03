@@ -8,7 +8,6 @@ export const FormUsernamePassword = () => {
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
-  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -43,62 +42,63 @@ export const FormUsernamePassword = () => {
       return;
     }
 
-    // If credentials are correct, perform the desired action (e.g., redirect)
-    if (!emailError && !passwordError) {
-      setFormSubmitted(true);
-      // Redirect to the next page
-      window.location.href = '/dashboard/home';
+    // Example: Redirect to the dashboard on successful login
+    window.location.href = '/dashboard/home';
+  };
 
-      // Perform additional actions here if needed
-    }
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault(); // Prevents the default form submission behavior
+    handleLogin();
   };
 
   return (
-    <div className='grid grid-cols-1 gap-5 my-4'>
-      <TextField
-        error={Boolean(emailError)}
-        id="outlined-basic-email"
-        label="Email"
-        variant="outlined"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        helperText={emailError}
-      />
-
-      <FormControl variant="outlined" error={Boolean(passwordError)}>
-        <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-        <OutlinedInput
-          id="outlined-adornment-password"
-          type={showPassword ? 'text' : 'password'}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          endAdornment={
-            <InputAdornment position="end">
-              <Tooltip title="Toggle password visibility">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  onMouseDown={handleMouseDownPassword}
-                  edge="end"
-                >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </Tooltip>
-            </InputAdornment>
-          }
-          label="Password"
+    <form onSubmit={handleSubmit}>
+      <div className='grid grid-cols-1 gap-5 my-4'>
+        <TextField
+          error={Boolean(emailError)}
+          id="outlined-basic-email"
+          label="Email"
+          variant="outlined"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          helperText={emailError}
         />
-        <FormHelperText>{passwordError}</FormHelperText>
-      </FormControl>
 
-      <Button
-        variant="contained"
-        color="success"
-        className='text-green-500 hover:text-white font-bold hover:bg-green-500 py-3 border border-blue-gray-500'
-        onClick={handleLogin}
-      >
-        Login
-      </Button>
-    </div>
+        <FormControl variant="outlined" error={Boolean(passwordError)}>
+          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+          <OutlinedInput
+            id="outlined-adornment-password"
+            type={showPassword ? 'text' : 'password'}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            endAdornment={
+              <InputAdornment position="end">
+                <Tooltip title="Toggle password visibility">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                    edge="end"
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </Tooltip>
+              </InputAdornment>
+            }
+            label="Password"
+          />
+          <FormHelperText>{passwordError}</FormHelperText>
+        </FormControl>
+
+        <Button
+          variant="contained"
+          color="success"
+          className='text-green-500 hover:text-white font-bold hover:bg-green-500 py-3 border border-blue-gray-500'
+          type="submit"
+        >
+          Login
+        </Button>
+      </div>
+    </form>
   )
 }

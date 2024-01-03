@@ -9,8 +9,7 @@ import { FormUsernamePassword } from '@/components/login/FormUsernamePassword';
 const Login = () => {
 
   return (
-    <div className="fade-in-left-container">
-
+    <div>
       <section className='flex min-h-screen items-center justify-center cursor-default'>
         <div className="border grid grid-cols-1 sm:grid-cols-2 border-blue-gray-500 rounded-2xl mx-10">
 
