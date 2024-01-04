@@ -260,4 +260,59 @@ const config: Config = withMT({
   important: true,
 });
 
+const theme = {
+  chip: {
+    defaultProps: {
+      variant: "filled",
+      size: "md",
+      color: "blue",
+      icon: undefined,
+      open: true,
+      onClose: undefined,
+      action: undefined,
+      animate: {
+        unmount: {},
+        mount: {},
+      },
+      className: "",
+    },
+    valid: {
+      variants: ["filled", "gradient", "outlined", "ghost"],
+      sizes: ["sm", "md", "lg"],
+      colors: [
+        "blue-gray",
+        "gray",
+        "brown",
+        "deep-orange",
+        "orange",
+        "amber",
+        "yellow",
+        "lime",
+        "light-green",
+        "green",
+        "teal",
+        "cyan",
+        "light-blue",
+        "blue",
+        "indigo",
+        "deep-purple",
+        "purple",
+        "pink",
+        "red",
+        "alo"
+      ],
+    },
+    styles: {
+      variants: {
+        ghost: {
+          "alo": {
+            backgroud: "bg-orange-500/20",
+            color: "text-white",
+          },
+        },
+      },
+    },
+  },
+}
+
 export default config;
