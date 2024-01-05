@@ -419,7 +419,7 @@ const HarvesterTable: React.FC = () => {
                                 id="tableTitle"
                                 component="div" color="white" className='font-bold'
                             >
-                                ESTATE TABLE RANKING
+                                ESTATE RANKING
                             </Typography>
                             <GetDayAndDateEstateTable />
                         </div>
@@ -472,7 +472,7 @@ const HarvesterTable: React.FC = () => {
                                 id="tableTitle"
                                 component="div" color="white" className='font-bold'
                             >
-                                HARVESTER TABLE RANKING
+                                HARVESTER RANKING
                             </Typography>
                             <GetDayAndDateEstateTable />
                         </div>

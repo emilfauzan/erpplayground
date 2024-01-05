@@ -4,23 +4,23 @@ import React from 'react'
 import { useQuery } from 'react-query';
 
 const Chart: React.FC = () => {
-    const { data, isLoading, error } = useQuery<ApiResponse[], Error>(
-        'fetchData',
-        fetchData
-      );
+    // const { data, isLoading, error } = useQuery<ApiResponse[], Error>(
+    //     'fetchData',
+    //     fetchData
+    //   );
     
-      if (isLoading) {
-        return <div>Loading...</div>;
-      }
+    //   if (isLoading) {
+    //     return <div>Loading...</div>;
+    //   }
     
-      if (error) {
-        return <div>Error: {error.message}</div>;
-      }
+    //   if (error) {
+    //     return <div>Error: {error.message}</div>;
+    //   }
   return (
     <>
     <div>Chart</div>
     <div>
-         {data && <Bar data={data} />}
+         {/* {data && <Bar data={data} />} */}
     </div>
     </>
   )
