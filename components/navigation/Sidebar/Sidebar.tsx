@@ -15,6 +15,7 @@ import InsertChartOutlinedRoundedIcon from '@mui/icons-material/InsertChartOutli
 import BarChartRoundedIcon from '@mui/icons-material/BarChartRounded';
 import Image from "next/image";
 import { Typography } from "@material-tailwind/react";
+import { Box } from "@mui/material";
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
     const pathname = usePathname();
@@ -63,223 +64,227 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProp) => {
     }, [sidebarExpanded]);
 
     return (
-        <aside ref={sidebar} className={`absolute left-0 top-0 z-9999 flex h-screen w-58 flex-col overflow-y-hidden bg-[#37474f] duration-300 ease-in-out dark:bg-boxdark 2xl:static 2xl:translate-x-0 ${sidebarOpen ? "translate-x-0  shadow-2xl shadow-black/100" : "-translate-x-full "
-            }`}>
+        <Box style={{
+            backgroundColor: 'background.paper',
+        }}>
+            <aside ref={sidebar} className={`absolute left-0 top-0 z-9999 flex h-screen w-58 flex-col overflow-y-hidden bg-[#37474f] duration-300 ease-in-out dark:bg-boxdark 2xl:static 2xl:translate-x-0 ${sidebarOpen ? "translate-x-0  shadow-2xl shadow-black/100" : "-translate-x-full "
+                }`}>
 
-            {/* Title start */}
-            <div
-                className="flex items-center justify-between gap-2 px-6 
+                {/* Title start */}
+                <div
+                    className="flex items-center justify-between gap-2 px-6 
         py-1 2xl:block 2xl:py-1"
-            >
+                >
 
-                <Button
-                    ref={trigger}
-                    onClick={() => setSidebarOpen(!sidebarOpen)}
-                    aria-controls="sidebar"
-                    aria-expanded={sidebarOpen}
-                    className="pl-3 pr-2 py-2 block flex-shrink-0 rounded-full hover:bg-white text-center text-white hover:text-black p-1.5 shadow-sm 2xl:hidden duration-300 ease-in-out"
-                    variant="text"
-                >
-                    <MenuIcon />
-                </Button>
-                <Link href={"/dashboard/home"}
-                    className={`group relative flex items-center gap-2.5 rounded-lg px-4 py-2 font-medium text-white duration-300 ease-in-out
-                ${pathname === "/dashboard/home"
-                        }`}
-                >
-                    <div
-                        className="content flex place-items-center 
-              justify-center py-2 align-middle"
+                    <Button
+                        ref={trigger}
+                        onClick={() => setSidebarOpen(!sidebarOpen)}
+                        aria-controls="sidebar"
+                        aria-expanded={sidebarOpen}
+                        className="pl-3 pr-2 py-2 block flex-shrink-0 rounded-full hover:bg-white text-center text-white hover:text-black p-1.5 shadow-sm 2xl:hidden duration-300 ease-in-out"
+                        variant="text"
                     >
-                        <Image
-                            width={50}
-                            height={50}
-                            src={CompanyLogo}
-                            alt="Company Logo"
-                            className="flex place-items-center justify-center"
-                        />
-                        <div className="ml-4">
-                            <Typography className="tracking-wider text-left text-white font-extrabold" variant="h6">
-                                NT CORP ANALYTICS
-                            </Typography>
-                            {/* White divider */}
-                            <hr className="block 3xsm:hidden text-inherit" />
-                            <Typography className="tracking-wider text-left text-white font-bolder block 3xsm:hidden" variant="h6">
-                                PT. BANGKITGIAT USAHA MANDIRI
-                            </Typography>
+                        <MenuIcon />
+                    </Button>
+                    <Link href={"/dashboard/home"}
+                        className={`group relative flex items-center gap-2.5 rounded-lg px-4 py-2 font-medium text-white duration-300 ease-in-out
+                ${pathname === "/dashboard/home"
+                            }`}
+                    >
+                        <div
+                            className="content flex place-items-center 
+              justify-center py-2 align-middle"
+                        >
+                            <Image
+                                width={50}
+                                height={50}
+                                src={CompanyLogo}
+                                alt="Company Logo"
+                                className="flex place-items-center justify-center"
+                            />
+                            <div className="ml-4">
+                                <Typography className="tracking-wider text-left text-white font-extrabold" variant="h6">
+                                    NT CORP ANALYTICS
+                                </Typography>
+                                {/* White divider */}
+                                <hr className="block 3xsm:hidden text-inherit" />
+                                <Typography className="tracking-wider text-left text-white font-bolder block 3xsm:hidden" variant="h6">
+                                    PT. BANGKITGIAT USAHA MANDIRI
+                                </Typography>
+                            </div>
                         </div>
-                    </div>
-                </Link>
-            </div>
-            {/* Title end */}
+                    </Link>
+                </div>
+                {/* Title end */}
 
-            {/* Sidebar Content - Start */}
+                {/* Sidebar Content - Start */}
 
-            <div className="no-scrollbar flex flex-col overflow-y-auto  duration-300 ease-linear">
-                <nav className="mt-5 px-4 py-4 2xl:mt-0 2xl:px-6">
+                <div className="no-scrollbar flex flex-col overflow-y-auto  duration-300 ease-linear">
+                    <nav className="mt-5 px-4 py-4 2xl:mt-0 2xl:px-6">
 
-                    {/* Main Navigations - Start */}
-                    <div>
-                        <ul className="flex flex-col gap-1">
-                            <li>
-                                <Link href={"/dashboard/home"}
-                                    className={`group relative flex items-center gap-2.5 rounded-full px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-blue-gray-500 
+                        {/* Main Navigations - Start */}
+                        <div>
+                            <ul className="flex flex-col gap-1">
+                                <li>
+                                    <Link href={"/dashboard/home"}
+                                        className={`group relative flex items-center gap-2.5 rounded-full px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-blue-gray-500 
 ${pathname === "/dashboard/home" &&
-                                        "bg-blue-gray-900 shadow-inner"
-                                        }`}
-                                >
-                                    <svg
-                                        className="fill-current mr-3"
-                                        width="18"
-                                        height="18"
-                                        viewBox="0 0 18 18"
-                                        fill="none"
+                                            "bg-blue-gray-900 shadow-inner"
+                                            }`}
                                     >
-                                        <HomeOutlinedIcon />
-                                    </svg>
-                                    Home
-                                </Link>
-                            </li>
-                            {/*Human Resources Link*/}
-                            <SidebarLinkGroup
-                                activeCondition={
-                                    pathname === "/dashboard" ||
-                                    pathname === "/dashboard/human_resources"
-                                }
-                            >
-                                {(handleClick, open) => {
-                                    return (
-                                        <React.Fragment>
-                                            <Link
-                                                href="#"
-                                                className={`transition-transform group relative flex items-center gap-2.5 rounded-full px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-blue-gray-500
+                                        <svg
+                                            className="fill-current mr-3"
+                                            width="18"
+                                            height="18"
+                                            viewBox="0 0 18 18"
+                                            fill="none"
+                                        >
+                                            <HomeOutlinedIcon />
+                                        </svg>
+                                        Home
+                                    </Link>
+                                </li>
+                                {/*Human Resources Link*/}
+                                <SidebarLinkGroup
+                                    activeCondition={
+                                        pathname === "/dashboard" ||
+                                        pathname === "/dashboard/human_resources"
+                                    }
+                                >
+                                    {(handleClick, open) => {
+                                        return (
+                                            <React.Fragment>
+                                                <Link
+                                                    href="#"
+                                                    className={`transition-transform group relative flex items-center gap-2.5 rounded-full px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-blue-gray-500
                         ${(pathname === "/dashboard" ||
-                                                        pathname === "/dashboard/human_resources") &&
-                                                    "bg-blue-gray-900"
-                                                    }`}
-                                                onClick={(event) => {
-                                                    event.preventDefault();
-                                                    sidebarExpanded
-                                                        ? handleClick()
-                                                        : setSidebarExpanded(true);
-                                                }}
-                                            >
-                                                <svg
-                                                    className="fill-current mr-3"
-                                                    width="18"
-                                                    height="18"
-                                                    viewBox="0 0 18 18"
-                                                    fill="none"
-                                                >
-                                                    <PeopleOutlineOutlinedIcon />
-                                                </svg>
-                                                Human Resources
-                                                <svg
-                                                    className={`transition-transform absolute right-4 top-1/2 -translate-y-1/2 fill-current ${open && "rotate-180"
+                                                            pathname === "/dashboard/human_resources") &&
+                                                        "bg-blue-gray-900"
                                                         }`}
-                                                    width="20"
-                                                    height="20"
-                                                    viewBox="0 0 20 20"
-                                                    fill="none"
+                                                    onClick={(event) => {
+                                                        event.preventDefault();
+                                                        sidebarExpanded
+                                                            ? handleClick()
+                                                            : setSidebarExpanded(true);
+                                                    }}
                                                 >
-                                                    <KeyboardArrowUpIcon />
-                                                </svg>
-                                            </Link>
-                                            <div
-                                                className={` overflow-hidden ${!open && "hidden"
-                                                    }`}
-                                            >
-                                                <ul className="mb-4 mt-1 flex flex-col gap-2 pl-6">
-                                                    <li>
-                                                        <Link
-                                                            href="/dashboard/human_resources"
-                                                            className={`group relative flex items-center gap-2.5 rounded-full px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-blue-gray-500 ${pathname === "/dashboard/human_resources" &&
-                                                                "bg-blue-gray-900"
-                                                                } `}
-                                                        >
-                                                            <svg
-                                                                className="fill-current mr-3"
-                                                                width="18"
-                                                                height="18"
-                                                                viewBox="0 0 18 18"
-                                                                fill="none"
+                                                    <svg
+                                                        className="fill-current mr-3"
+                                                        width="18"
+                                                        height="18"
+                                                        viewBox="0 0 18 18"
+                                                        fill="none"
+                                                    >
+                                                        <PeopleOutlineOutlinedIcon />
+                                                    </svg>
+                                                    Human Resources
+                                                    <svg
+                                                        className={`transition-transform absolute right-4 top-1/2 -translate-y-1/2 fill-current ${open && "rotate-180"
+                                                            }`}
+                                                        width="20"
+                                                        height="20"
+                                                        viewBox="0 0 20 20"
+                                                        fill="none"
+                                                    >
+                                                        <KeyboardArrowUpIcon />
+                                                    </svg>
+                                                </Link>
+                                                <div
+                                                    className={` overflow-hidden ${!open && "hidden"
+                                                        }`}
+                                                >
+                                                    <ul className="mb-4 mt-1 flex flex-col gap-2 pl-6">
+                                                        <li>
+                                                            <Link
+                                                                href="/dashboard/human_resources"
+                                                                className={`group relative flex items-center gap-2.5 rounded-full px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-blue-gray-500 ${pathname === "/dashboard/human_resources" &&
+                                                                    "bg-blue-gray-900"
+                                                                    } `}
                                                             >
-                                                                <PeopleOutlineOutlinedIcon />
-                                                            </svg>
-                                                            HR Dashboard
-                                                        </Link>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </React.Fragment>
-                                    );
-                                }}
-                            </SidebarLinkGroup>
-                            <li>
-                                <Link href={"/dashboard/production"}
-                                    className={`group relative flex items-center gap-2.5 rounded-full px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-blue-gray-500 
+                                                                <svg
+                                                                    className="fill-current mr-3"
+                                                                    width="18"
+                                                                    height="18"
+                                                                    viewBox="0 0 18 18"
+                                                                    fill="none"
+                                                                >
+                                                                    <PeopleOutlineOutlinedIcon />
+                                                                </svg>
+                                                                HR Dashboard
+                                                            </Link>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </React.Fragment>
+                                        );
+                                    }}
+                                </SidebarLinkGroup>
+                                <li>
+                                    <Link href={"/dashboard/production"}
+                                        className={`group relative flex items-center gap-2.5 rounded-full px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-blue-gray-500 
 ${pathname === "/dashboard/production" &&
-                                        "bg-blue-gray-900"
-                                        }`}
-                                >
-                                    <svg
-                                        className="fill-current mr-3"
-                                        width="18"
-                                        height="18"
-                                        viewBox="0 0 18 18"
-                                        fill="none"
+                                            "bg-blue-gray-900"
+                                            }`}
                                     >
-                                        <InsertChartOutlinedRoundedIcon />
-                                    </svg>
-                                    Production
-                                </Link>
-                            </li>
+                                        <svg
+                                            className="fill-current mr-3"
+                                            width="18"
+                                            height="18"
+                                            viewBox="0 0 18 18"
+                                            fill="none"
+                                        >
+                                            <InsertChartOutlinedRoundedIcon />
+                                        </svg>
+                                        Production
+                                    </Link>
+                                </li>
 
-                        </ul>
+                            </ul>
 
-                    </div>
-                    {/* Main Navigations - End */}
+                        </div>
+                        {/* Main Navigations - End */}
 
-                    {/* White divider */}
-                    <hr className="my-3 mx-1 text-stroke" />
+                        {/* White divider */}
+                        <hr className="my-3 mx-1 text-stroke" />
 
-                    {/* App Navigations - Start */}
-                    <div>
-                        <ul className="mb-6 flex flex-col gap-1.5">
-                            <h3 className="ml-4 text-sm font-semibold text-white">Applications</h3>
+                        {/* App Navigations - Start */}
+                        <div>
+                            <ul className="mb-6 flex flex-col gap-1.5">
+                                <h3 className="ml-4 text-sm font-semibold text-white">Applications</h3>
 
 
-                            <li>
-                                <Link href={"/apps/chart"}
-                                    className={`group relative flex items-center gap-2.5 rounded-full px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-blue-gray-500
+                                <li>
+                                    <Link href={"/apps/chart"}
+                                        className={`group relative flex items-center gap-2.5 rounded-full px-4 py-2 font-medium text-white duration-300 ease-in-out hover:bg-blue-gray-500
                                     ${pathname === "/apps/chart" &&
-                                        "bg-blue-gray-900"
-                                        }`}
-                                >
-                                    <svg
-                                        className="fill-current mr-3"
-                                        width="18"
-                                        height="18"
-                                        viewBox="0 0 18 18"
-                                        fill="none"
+                                            "bg-blue-gray-900"
+                                            }`}
                                     >
-                                        <BarChartRoundedIcon />
-                                    </svg>
-                                    Chart
-                                </Link>
-                            </li>
+                                        <svg
+                                            className="fill-current mr-3"
+                                            width="18"
+                                            height="18"
+                                            viewBox="0 0 18 18"
+                                            fill="none"
+                                        >
+                                            <BarChartRoundedIcon />
+                                        </svg>
+                                        Chart
+                                    </Link>
+                                </li>
 
-                        </ul>
+                            </ul>
 
-                    </div>
-                    {/* App Navigations - End */}
+                        </div>
+                        {/* App Navigations - End */}
 
-                </nav>
-            </div>
+                    </nav>
+                </div>
 
-            {/* Sidebar Content - End */}
+                {/* Sidebar Content - End */}
 
-        </aside>
+            </aside>
+        </Box>
     )
 }
 
