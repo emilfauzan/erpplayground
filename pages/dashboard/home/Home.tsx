@@ -3,8 +3,10 @@ import HarvesterTable from '@/components/common/tables/HarvesterTable';
 import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
 import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
 import Typography from '@mui/material/Typography';
-import { Stack } from '@mui/material';
+import { IconButton, Stack } from '@mui/material';
 import CardDataStats from '@/components/common/cards/CardDataStats';
+import BadgeRoundedIcon from '@mui/icons-material/BadgeRounded';
+import TableChartRoundedIcon from '@mui/icons-material/TableChartRounded';
 
 function Home() {
     return (
@@ -53,6 +55,27 @@ function Home() {
             </Stack>
 
             <HarvesterTable />
+
+            <div className='hover:bg-white'>
+
+                <IconButton
+                    className='fixed right-5 bottom-29 bg-white/60 z-9999 hover:bg-white ease-in-out duration-300'
+                    data-ga-event-category="docs"
+                    data-ga-event-action="click-back-to-top"
+                    aria-label="Scroll back to top"
+                >
+                    <BadgeRoundedIcon />
+                </IconButton>
+
+                <IconButton className='fixed right-5 bottom-17 bg-white/60 z-9999 hover:bg-white ease-in-out duration-300'>
+                    <TableChartRoundedIcon />
+                </IconButton>
+
+                <IconButton className='fixed right-5 bottom-5 bg-white/60 z-9999 hover:bg-white ease-in-out duration-300'>
+                    <TableChartRoundedIcon />
+                </IconButton>
+
+            </div>
 
             {/*
         A. Estate / Afdeling / Block Ranking - Today Only (updated every hour) 

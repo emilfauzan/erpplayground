@@ -365,7 +365,7 @@ const HarvesterTable: React.FC = () => {
                             <Button
                                 onClick={fetchData}
                                 disabled={buttonDisabled}
-                                className='text-md border mb-8 p-2 py-4 px-14 rounded-lg font-bold hover:bg-green-500 text-green-500 hover:text-white ease-in-out duration-200 hover:border-green-500 border-green-500 flex items-center gap-3'
+                                className='text-md border p-2 py-4 px-14 rounded-lg font-bold hover:bg-green-500 text-green-500 hover:text-white ease-in-out duration-200 hover:border-green-500 border-green-500 flex items-center gap-3'
                             >
                                 {buttonDisabled
                                     ? `Refresh (${remainingCooldown} seconds)`
