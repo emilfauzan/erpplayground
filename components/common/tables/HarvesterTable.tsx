@@ -268,7 +268,7 @@ const HarvesterTable: React.FC = () => {
                 // Increment the refresh count
                 setRefreshCount(prevCount => prevCount + 1);
 
-                // Calculate response time
+                // Calculate response time to get the response
                 const endTime = new Date().getTime();
                 const currentResponseTime = endTime - startTime;
 
