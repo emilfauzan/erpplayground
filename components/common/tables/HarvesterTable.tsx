@@ -24,7 +24,7 @@ async function postData(url: string, data: RequestData) {
     })
 
     const result: ApiResponse[] = await response.json();
-    // console.log(JSON.stringify(result));
+    // console.log(JSON.stringify(result)); // stringify response
 
     return result;
 }
@@ -46,7 +46,7 @@ const HarvesterTable: React.FC = () => {
     const [showAlert, setShowAlert] = useState<boolean>(false);
     // Refresh cooldown
     const [buttonDisabled, setButtonDisabled] = useState<boolean>(false);
-    // Cooldown countdown 
+    // Cooldown the countdown 
     const [remainingCooldown, setRemainingCooldown] = useState<number | null>(null);
 
     // Data tables format
