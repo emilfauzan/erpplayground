@@ -265,7 +265,7 @@ const HarvesterTable: React.FC = () => {
                 setEstateData(estateData);
                 setHarvesterData(harvesterData);
 
-                // Increment the refresh count
+                // Increment the refresh count for each refresh
                 setRefreshCount(prevCount => prevCount + 1);
 
                 // Calculate response time to get the response
