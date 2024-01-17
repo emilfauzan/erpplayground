@@ -1,9 +1,16 @@
+import { Typography } from '@mui/material'
 import React from 'react'
 
 const HRDashboard = () => {
     return (
         <>
-            <h1 className='pb-4 text-title-md2 font-bold'>HR Dashboard</h1>
+            <Typography className='pb-6 font-bold' variant='h5'>
+                Human Resources Dashboard
+            </Typography>
+
+            <Typography variant='body1'>
+                This is a Human Resources Dashboard page. <br /> Kindly please wait for our further development process.
+            </Typography>
         </>
     )
 }

@@ -1,5 +1,6 @@
 "use client"
 import { ApiResponse, RequestData } from '@/interface/typings';
+import { Typography } from '@mui/material';
 import React, { useState } from 'react'
 
 
@@ -67,9 +68,16 @@ const ProductionDashboard = () => {
     };
     return (
         <>
-            <h1 className='pb-4 text-title-md2 font-bold'>Production Dashboard</h1>
+            <Typography className='pb-6 font-bold' variant='h5'>
+                Production Dashboard
+            </Typography>
+
+            <Typography variant='body1'>
+            This is a Production Dashboard page. <br /> Kindly please wait for our further development process.
+            </Typography>
+
             <div className='flex justify-center my-20'>
-                <button className='border p-2 rounded-lg font-bold hover:bg-green-500 text-green-500 hover:text-white ease-in-out duration-200 hover:border-green-500 border-green-500' onClick={handleClick} >Post la</button>
+                <button className='border p-2 rounded-lg font-bold hover:bg-green-500 text-green-500 hover:text-white ease-in-out duration-200 hover:border-green-500 border-green-500' onClick={handleClick} >Post</button>
             </div>
             {responseData && (
                 <div>
