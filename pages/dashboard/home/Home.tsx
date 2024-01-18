@@ -11,7 +11,7 @@ import TableChartRoundedIcon from '@mui/icons-material/TableChartRounded';
 function Home() {
     return (
         <>
-            <Typography className='pb-6 font-bold' variant='h5'>
+            <Typography className='pb-6 font-bold' variant='h5' id="first-section">
                 Home
             </Typography>
 
@@ -21,8 +21,8 @@ function Home() {
                     title="Informasi Karyawan"
                     subtitle1={`Walter Hartwell White`}
                     subtitle2={`[NIK: JKO/202X/000X]`}
-                    subtitle3={`Science School Teacher / Scientist`}
-                    description={`Information Technology Department`}
+                    subtitle3={`Full Stack Web Developer`}
+                    description={`Information & Technology Department`}
                     index={1}
                 >
                     <svg width="30" height="30" fill="none">
@@ -45,7 +45,8 @@ function Home() {
 
             </div>
 
-            <Stack className='rounded-md flex-shrink-0 flex justify-between items-center py-2 px-4 my-8 bg-orange-500 shadow-lg shadow-orange-500/50'>
+            <Stack className='rounded-md flex-shrink-0 flex justify-between items-center py-2 px-4 my-8 bg-orange-500 shadow-lg shadow-orange-500/50'
+                id="second-section">
                 <Typography sx={{ flex: '1 1 100%' }}
                     variant="h5"
                     id="tableTitle"
@@ -63,15 +64,18 @@ function Home() {
                     data-ga-event-category="docs"
                     data-ga-event-action="click-back-to-top"
                     aria-label="Scroll back to top"
+                    href='#first-section'
                 >
                     <BadgeRoundedIcon />
                 </IconButton>
 
-                <IconButton className='fixed right-5 bottom-17 bg-white/60 z-9999 hover:bg-white ease-in-out duration-300'>
+                <IconButton className='fixed right-5 bottom-17 bg-white/60 z-9999 hover:bg-white ease-in-out duration-300'
+                    href='#second-section'>
                     <TableChartRoundedIcon />
                 </IconButton>
 
-                <IconButton className='fixed right-5 bottom-5 bg-white/60 z-9999 hover:bg-white ease-in-out duration-300'>
+                <IconButton className='fixed right-5 bottom-5 bg-white/60 z-9999 hover:bg-white ease-in-out duration-300'
+                    href='#third-section'>
                     <TableChartRoundedIcon />
                 </IconButton>
 
