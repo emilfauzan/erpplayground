@@ -251,6 +251,11 @@ const HarvesterTable: React.FC = () => {
                 const apiUrl = 'http://103.121.213.173/webapi/dashboard/getCurrentProduction.php';
 
                 const requestData: RequestData = {
+                    // Manual request input
+                    // p_date: '18-01-2024',
+                    // p_sectioncode: '04',
+
+                    // Automated request input by now date
                     p_date: formattedDate,
                     p_sectioncode: sectionCode,
                 };
@@ -465,7 +470,7 @@ const HarvesterTable: React.FC = () => {
                 {/* Harvester Table */}
                 {harvesterData.length > 0 && (
                     <div>
-                        <div className='rounded-md flex-shrink-0 flex justify-between items-center p-4 bg-[#37474f]'>
+                        <div className='rounded-md flex-shrink-0 flex justify-between items-center p-4 bg-[#37474f]' id='third-section'>
                             <Typography
                                 sx={{ flex: '1 1 100%' }}
                                 variant="h5"
