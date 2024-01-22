@@ -9,6 +9,22 @@ import BadgeRoundedIcon from '@mui/icons-material/BadgeRounded';
 import TableChartRoundedIcon from '@mui/icons-material/TableChartRounded';
 
 function Home() {
+
+    const handleScrollWithPadding = () => {
+        const targetElement = document.getElementById('#first-section');
+
+        if (targetElement) {
+            const paddingTop = 6; // Adjust this value based on your requirement
+            const scrollPosition = targetElement.offsetTop - paddingTop;
+
+            window.scrollTo({
+                top: scrollPosition,
+                behavior: 'smooth',
+            });
+        }
+    };
+
+
     return (
         <>
             <Typography className='pb-6 font-bold' variant='h5' id="first-section">
@@ -64,7 +80,8 @@ function Home() {
                     data-ga-event-category="docs"
                     data-ga-event-action="click-back-to-top"
                     aria-label="Scroll back to top"
-                    href='#first-section'
+                    // href='#first-section'
+                    onClick={handleScrollWithPadding}
                 >
                     <BadgeRoundedIcon />
                 </IconButton>

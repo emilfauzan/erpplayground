@@ -247,17 +247,17 @@ const HarvesterTable: React.FC = () => {
             const currentHour = new Date().getHours();
 
             // Check if the current hour is between 8 and 20
-            if (currentHour >= 8 && currentHour < 20 && !buttonDisabled) {
+            if (currentHour >= 8 && currentHour < 24 && !buttonDisabled) {
                 const apiUrl = 'http://103.121.213.173/webapi/dashboard/getCurrentProduction.php';
 
                 const requestData: RequestData = {
                     // Manual request input
-                    // p_date: '18-01-2024',
-                    // p_sectioncode: '04',
+                    p_date: '22-01-2024',
+                    p_sectioncode: '01',
 
                     // Automated request input by now date
-                    p_date: formattedDate,
-                    p_sectioncode: sectionCode,
+                    // p_date: formattedDate,
+                    // p_sectioncode: sectionCode,
                 };
 
                 const jsonResponse = await postData(apiUrl, requestData);
@@ -451,7 +451,7 @@ const HarvesterTable: React.FC = () => {
                                 <DataGrid
                                     initialState={{
                                         pagination: {
-                                            paginationModel: { pageSize: 8, page: 0 },
+                                            paginationModel: { pageSize: 10, page: 0 },
                                         },
                                     }}
                                     className='cursor-default text-center mb-10 bg-white'
