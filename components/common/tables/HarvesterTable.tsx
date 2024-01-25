@@ -252,12 +252,12 @@ const HarvesterTable: React.FC = () => {
 
                 const requestData: RequestData = {
                     // Manual request input
-                    p_date: '22-01-2024',
-                    p_sectioncode: '01',
+                    // p_date: '22-01-2024',
+                    // p_sectioncode: '01',
 
                     // Automated request input by now date
-                    // p_date: formattedDate,
-                    // p_sectioncode: sectionCode,
+                    p_date: formattedDate,
+                    p_sectioncode: sectionCode,
                 };
 
                 const jsonResponse = await postData(apiUrl, requestData);
@@ -451,7 +451,7 @@ const HarvesterTable: React.FC = () => {
                                 <DataGrid
                                     initialState={{
                                         pagination: {
-                                            paginationModel: { pageSize: 10, page: 0 },
+                                            paginationModel: { pageSize: 8, page: 0 },
                                         },
                                     }}
                                     className='cursor-default text-center mb-10 bg-white'

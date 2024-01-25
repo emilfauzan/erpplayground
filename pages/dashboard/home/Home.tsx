@@ -10,6 +10,7 @@ import TableChartRoundedIcon from '@mui/icons-material/TableChartRounded';
 
 function Home() {
 
+    // Smooth scroll behavior (still won't work)
     // const handleScrollWithPadding = () => {
     //     const targetElement = document.getElementById('#first-section');
 
