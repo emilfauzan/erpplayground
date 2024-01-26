@@ -470,7 +470,7 @@ const HarvesterTable: React.FC = () => {
                 {/* Harvester Table */}
                 {harvesterData.length > 0 && (
                     <div>
-                        <div className='rounded-md flex-shrink-0 flex justify-between items-center p-4 bg-[#37474f]' id='third-section'>
+                        <div className='rounded-md flex-shrink-0 flex justify-between items-center p-4 bg-[#37474f]' id='section-3'>
                             <Typography
                                 sx={{ flex: '1 1 100%' }}
                                 variant="h5"

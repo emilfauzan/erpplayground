@@ -10,25 +10,38 @@ import TableChartRoundedIcon from '@mui/icons-material/TableChartRounded';
 
 function Home() {
 
-    // Smooth scroll behavior (still won't work)
-    // const handleScrollWithPadding = () => {
-    //     const targetElement = document.getElementById('#first-section');
+    // Smooth behavior on scroll to section
+    const offset = 20; // Adjust the offset as needed
 
-    //     if (targetElement) {
-    //         const paddingTop = 6; // Adjust this value based on your requirement
-    //         const scrollPosition = targetElement.offsetTop - paddingTop;
+    const handleScrollToFirstSection = () => {
+        scrollToSection('section-1', offset);
+    };
 
-    //         window.scrollTo({
-    //             top: scrollPosition,
-    //             behavior: 'smooth',
-    //         });
-    //     }
-    // };
+    const handleScrollToSecondSection = () => {
+        scrollToSection('section-2', offset);
+    };
+
+    const handleScrollToThirdSection = () => {
+        scrollToSection('section-3', offset);
+    };
+
+    const scrollToSection = (sectionId: string, offset: number) => {
+        const targetElement = document.getElementById(sectionId);
+
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+                inline: 'nearest',
+                top: targetElement.offsetTop - offset,
+            });
+        }
+    };
 
 
     return (
         <>
-            <Typography className='pb-6 font-bold' variant='h5' id="first-section">
+            <Typography className='pb-6 font-bold' variant='h5' id='section-1'>
                 Home
             </Typography>
 
@@ -63,7 +76,7 @@ function Home() {
             </div>
 
             <Stack className='rounded-md flex-shrink-0 flex justify-between items-center py-2 px-4 my-8 bg-orange-500 shadow-lg shadow-orange-500/50'
-                id="second-section">
+                id="section-2">
                 <Typography sx={{ flex: '1 1 100%' }}
                     variant="h5"
                     id="tableTitle"
@@ -81,19 +94,20 @@ function Home() {
                     data-ga-event-category="docs"
                     data-ga-event-action="click-back-to-top"
                     aria-label="Scroll back to top"
-                    href='#first-section'
-                    // onClick={handleScrollWithPadding}
+                    onClick={handleScrollToFirstSection}
                 >
                     <BadgeRoundedIcon />
                 </IconButton>
 
                 <IconButton className='fixed right-5 bottom-17 bg-white/60 z-9999 hover:bg-white ease-in-out duration-300'
-                    href='#second-section'>
+                    onClick={handleScrollToSecondSection}
+                >
                     <TableChartRoundedIcon />
                 </IconButton>
 
                 <IconButton className='fixed right-5 bottom-5 bg-white/60 z-9999 hover:bg-white ease-in-out duration-300'
-                    href='#third-section'>
+                    onClick={handleScrollToThirdSection}
+                >
                     <TableChartRoundedIcon />
                 </IconButton>
 
