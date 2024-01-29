@@ -1,4 +1,5 @@
 "use client";
+import React from 'react';
 import HarvesterTable from '@/components/common/tables/HarvesterTable';
 import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
 import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
@@ -13,28 +14,30 @@ function Home() {
     // Smooth behavior on scroll to section
     const offset = 20; // Adjust the offset as needed
 
-    const handleScrollToFirstSection = () => {
+    function handleScrollToFirstSection () {
         scrollToSection('section-1', offset);
     };
 
-    const handleScrollToSecondSection = () => {
+    function handleScrollToSecondSection () {
         scrollToSection('section-2', offset);
     };
 
-    const handleScrollToThirdSection = () => {
+    function handleScrollToThirdSection () {
         scrollToSection('section-3', offset);
     };
 
-    const scrollToSection = (sectionId: string, offset: number) => {
+    function scrollToSection(sectionId: string, offset: number){
         const targetElement = document.getElementById(sectionId);
 
         if (targetElement) {
-            targetElement.scrollIntoView({
+            // Use type assertion here
+            const options: any = {
                 behavior: 'smooth',
                 block: 'start',
                 inline: 'nearest',
                 top: targetElement.offsetTop - offset,
-            });
+            }
+            targetElement.scrollIntoView(options);
         }
     };
 
