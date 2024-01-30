@@ -11,8 +11,8 @@ import TableChartRoundedIcon from '@mui/icons-material/TableChartRounded';
 
 function Home() {
 
-    // Smooth behavior on scroll to section
-    const offset = 20; // Adjust the offset as needed
+    // Smooth behavior on scroll to each section
+    const offset = 20; 
 
     function handleScrollToFirstSection () {
         scrollToSection('section-1', offset);
@@ -30,13 +30,16 @@ function Home() {
         const targetElement = document.getElementById(sectionId);
 
         if (targetElement) {
+            const rect = targetElement.getBoundingClientRect();
+            
             // Use type assertion here
-            const options: any = {
+            const options: ScrollToOptions & ScrollIntoViewOptions  = {
                 behavior: 'smooth',
                 block: 'start',
                 inline: 'nearest',
-                top: targetElement.offsetTop - offset,
+                top: window.scrollY + rect.top - offset,
             }
+
             targetElement.scrollIntoView(options);
         }
     };
@@ -94,9 +97,6 @@ function Home() {
 
                 <IconButton
                     className='fixed right-5 bottom-29 bg-white/60 z-9999 hover:bg-white ease-in-out duration-300'
-                    data-ga-event-category="docs"
-                    data-ga-event-action="click-back-to-top"
-                    aria-label="Scroll back to top"
                     onClick={handleScrollToFirstSection}
                 >
                     <BadgeRoundedIcon />
