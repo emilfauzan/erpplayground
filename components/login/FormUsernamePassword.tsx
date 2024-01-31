@@ -17,33 +17,26 @@ export const FormUsernamePassword = () => {
 
   const handleLogin = () => {
     // Dummy credentials
-    const dummyEmail = 'admin@gmail.com';
-    const dummyPassword = 'admin';
+    const dummyCredentials = [
+      { username: 'admin@gmail.com', password: 'admin', redirectPath: '/dashboard/home' },
+      { username: 'hradmin@gmail.com', password: 'hradmin', redirectPath: '/dashboard/human_resources' },
+    ];
 
     // Reset error messages
     setEmailError('');
     setPasswordError('');
 
-    // Validate email
-    if (!email) {
-      setEmailError('Email field must not be empty.');
-      return;
-    } else if (email !== dummyEmail) {
-      setEmailError('Email not found.');
+    // Validate email & password
+    const user = dummyCredentials.find(cred => cred.username === email && cred.password === password);
+
+    if (!user) {
+      // Credentials not found
+      setEmailError('Invalid email or password.');
       return;
     }
-
-    // Validate password
-    if (!password) {
-      setPasswordError('Password field must not be empty.');
-      return;
-    } else if (password !== dummyPassword) {
-      setPasswordError('Incorrect password.');
-      return;
-    }
-
+  
     // Redirect to the dashboard on successful login
-    window.location.href = '/dashboard/home';
+    window.location.href = user.redirectPath;
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
