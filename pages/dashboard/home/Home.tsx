@@ -29,11 +29,11 @@ function Home() {
     function scrollToSection(sectionId: string) {
         const targetElement = document.getElementById(sectionId);
 
+        // set the target element with its behavior in class
         if (targetElement) {
             targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     }
-
 
     return (
         <>
