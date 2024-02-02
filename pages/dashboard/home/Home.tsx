@@ -12,7 +12,7 @@ import TableChartRoundedIcon from '@mui/icons-material/TableChartRounded';
 function Home() {
 
     // Smooth behavior on scroll to each section
-    const offset = 20;
+    const offset = 4;
 
     function handleScrollToFirstSection() {
         scrollToSection('section-1');
@@ -38,7 +38,7 @@ function Home() {
     return (
         <>
             <Typography className='pb-6 font-bold' variant='h5' id='section-1'
-                style={{ scrollMarginTop: `${offset}px` }}
+                style={{ scrollMarginTop: `${offset}em` }}
             >
                 Home
             </Typography>
