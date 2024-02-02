@@ -12,7 +12,7 @@ import TableChartRoundedIcon from '@mui/icons-material/TableChartRounded';
 function Home() {
 
     // Smooth behavior on scroll to each section
-    const offset = 4;
+    const offset = 5.5;
 
     function handleScrollToFirstSection() {
         scrollToSection('section-1');
@@ -74,7 +74,7 @@ function Home() {
             </div>
 
             <Stack className='rounded-md flex-shrink-0 flex justify-between items-center py-2 px-4 my-8 bg-orange-500 shadow-lg shadow-orange-500/50'
-                id="section-2">
+                id="section-2" style={{ scrollMarginTop: `${offset}em` }}>
                 <Typography sx={{ flex: '1 1 100%' }}
                     variant="h5"
                     id="tableTitle"

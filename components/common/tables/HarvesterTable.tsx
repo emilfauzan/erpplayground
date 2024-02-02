@@ -252,12 +252,12 @@ const HarvesterTable: React.FC = () => {
 
                 const requestData: RequestData = {
                     // Manual request input
-                    // p_date: '22-01-2024',
-                    // p_sectioncode: '01',
+                    p_date: '22-01-2024',
+                    p_sectioncode: '01',
 
                     // Automated request input by now date
-                    p_date: formattedDate,
-                    p_sectioncode: sectionCode,
+                    // p_date: formattedDate,
+                    // p_sectioncode: sectionCode,
                 };
 
                 const jsonResponse = await postData(apiUrl, requestData);
@@ -470,7 +470,7 @@ const HarvesterTable: React.FC = () => {
                 {/* Harvester Table */}
                 {harvesterData.length > 0 && (
                     <div>
-                        <div className='rounded-md flex-shrink-0 flex justify-between items-center p-4 bg-[#37474f]' id='section-3'>
+                        <div className='rounded-md flex-shrink-0 flex justify-between items-center p-4 bg-[#37474f]' id='section-3' style={{ scrollMarginTop: '5em' }}>
                             <Typography
                                 sx={{ flex: '1 1 100%' }}
                                 variant="h5"
