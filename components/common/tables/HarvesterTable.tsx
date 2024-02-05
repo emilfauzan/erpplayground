@@ -439,8 +439,8 @@ const HarvesterTable: React.FC = () => {
                         </div>
                         {loading && (
                             // Skeleton loading for table header
-                            <div className='my-1' style={{ height: 100, width: '100%' }}>
-                                <Skeleton variant="rounded" height={100} animation="wave" />
+                            <div className='my-1' style={{ height: 100, width: '100%', animationDuration: "0.4s" }}>
+                                <Skeleton variant="rounded" height={100} animation="wave"  />
                             </div>
                         )}
                         {loading && (
