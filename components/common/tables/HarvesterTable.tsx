@@ -417,7 +417,7 @@ const HarvesterTable: React.FC = () => {
 
                         {/* Loading Message */}
                         {loading &&
-                            <LinearProgress className='mb-4 bg-orange-300 shadow-lg shadow-orange-500/50' color="primary" />
+                            <LinearProgress className='mb-4 bg-[#F1F5F9]' color="warning" />
                         }
                     </div>
 
