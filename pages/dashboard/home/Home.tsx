@@ -4,13 +4,14 @@ import HarvesterTable from '@/components/common/tables/HarvesterTable';
 import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
 import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
 import Typography from '@mui/material/Typography';
-import { IconButton, Stack } from '@mui/material';
+import { ButtonGroup, IconButton, Stack } from '@mui/material';
 import CardDataStats from '@/components/common/cards/CardDataStats';
 import BadgeRoundedIcon from '@mui/icons-material/BadgeRounded';
 import TableChartRoundedIcon from '@mui/icons-material/TableChartRounded';
 
 function Home() {
 
+    {/* Smooth scroll behavior to 3 sections start */ }
     // Smooth behavior on scroll to each section
     const offset = 5.5;
 
@@ -34,6 +35,26 @@ function Home() {
             targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     }
+    {/* Smooth scroll behavior to 3 sections end */ }
+
+    const buttons = [
+        <IconButton
+            className='bg-white/60 z-9999 ease-in-out duration-300 hover:bg-white' key='one'
+            onClick={handleScrollToFirstSection}
+        >
+            <BadgeRoundedIcon />
+        </IconButton>,
+        <IconButton className='bg-white/60 z-9999 hover:bg-white ease-in-out duration-300' key='two'
+            onClick={handleScrollToSecondSection}
+        >
+            <TableChartRoundedIcon />
+        </IconButton>,
+        <IconButton className='bg-white/60 z-9999 hover:bg-white ease-in-out duration-300' key='three'
+            onClick={handleScrollToThirdSection}
+        >
+            <TableChartRoundedIcon />
+        </IconButton>
+    ];
 
     return (
         <>
@@ -85,28 +106,13 @@ function Home() {
 
             <HarvesterTable />
 
-            <div className='hover:bg-white'>
-
-                <IconButton
-                    className='fixed right-5 bottom-29 bg-white/60 z-9999 hover:bg-white ease-in-out duration-300'
-                    onClick={handleScrollToFirstSection}
-                >
-                    <BadgeRoundedIcon />
-                </IconButton>
-
-                <IconButton className='fixed right-5 bottom-17 bg-white/60 z-9999 hover:bg-white ease-in-out duration-300'
-                    onClick={handleScrollToSecondSection}
-                >
-                    <TableChartRoundedIcon />
-                </IconButton>
-
-                <IconButton className='fixed right-5 bottom-5 bg-white/60 z-9999 hover:bg-white ease-in-out duration-300'
-                    onClick={handleScrollToThirdSection}
-                >
-                    <TableChartRoundedIcon />
-                </IconButton>
-
-            </div>
+            <ButtonGroup
+                className='fixed right-5 bottom-5 gap-2 z-9'
+                orientation="vertical"
+                aria-label="vertical contained button group"
+            >
+                {buttons}
+            </ButtonGroup>
 
             {/*
         A. Estate / Afdeling / Block Ranking - Today Only (updated every hour) 

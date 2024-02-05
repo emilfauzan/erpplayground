@@ -137,3 +137,9 @@ hr {
   margin: 1em 0;
   padding: 0;
 }
+
+.shadowfixed {
+  background: #ffffff;
+  box-shadow: -24px 24px 47px #d9d9d9,
+    24px -24px 47px #ffffff;
+}

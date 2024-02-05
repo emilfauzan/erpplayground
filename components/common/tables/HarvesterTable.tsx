@@ -504,14 +504,14 @@ const HarvesterTable: React.FC = () => {
                                 <DataGrid
                                     initialState={{
                                         pagination: {
-                                            paginationModel: { pageSize: 25, page: 0 },
+                                            paginationModel: { pageSize: 8, page: 0 },
                                         },
                                     }}
                                     className='cursor-default text-center mb-10 bg-white'
                                     columns={harvesterColumns}
                                     rows={harvesterData}
                                     getRowId={getRowId}
-                                    getRowHeight={() => 80}
+                                    getRowHeight={() => 79}
                                     // getEstimatedRowHeight={() => 200}
                                     columnGroupingModel={columnGroupingModel}
                                     experimentalFeatures={{ columnGrouping: true }}
