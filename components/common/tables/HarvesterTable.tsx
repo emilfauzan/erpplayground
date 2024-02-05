@@ -1,7 +1,7 @@
 "use client"
 
 import { ApiResponse, RequestData } from '@/interface/typings';
-import { Paper, Typography, Skeleton, Alert, AlertTitle } from '@mui/material';
+import { Paper, Typography, Skeleton, Alert, AlertTitle, LinearProgress } from '@mui/material';
 import Box from '@mui/material/Box';
 import RefreshRoundedIcon from '@mui/icons-material/RefreshRounded';
 import { DataGrid, GridCellParams, GridColDef, GridColumnGroupingModel } from '@mui/x-data-grid';
@@ -252,12 +252,12 @@ const HarvesterTable: React.FC = () => {
 
                 const requestData: RequestData = {
                     // Manual request input
-                    p_date: '22-01-2024',
-                    p_sectioncode: '01',
+                    // p_date: '22-01-2024',
+                    // p_sectioncode: '01',
 
                     // Automated request input by now date
-                    // p_date: formattedDate,
-                    // p_sectioncode: sectionCode,
+                    p_date: formattedDate,
+                    p_sectioncode: sectionCode,
                 };
 
                 const jsonResponse = await postData(apiUrl, requestData);
@@ -361,7 +361,7 @@ const HarvesterTable: React.FC = () => {
                     // Show alert outside the allowed time range
                     <Alert variant="filled" severity="info" className='mb-4'>
                         <AlertTitle><strong>Info</strong></AlertTitle>
-                        Data is only displayed between <strong> 08:00 </strong> and <strong> 20:00 </strong> WIB. Please try again later.
+                        Data is only displayed between <strong> 08:00 </strong> to <strong> 20:00 </strong> WIB. Please try again later.
                     </Alert>
                 ) : (
                     <div>
@@ -372,9 +372,13 @@ const HarvesterTable: React.FC = () => {
                                 disabled={buttonDisabled}
                                 className='text-md border p-2 py-4 px-14 rounded-lg font-bold hover:bg-green-500 text-green-500 hover:text-white ease-in-out duration-200 hover:border-green-500 border-green-500 flex items-center gap-3'
                             >
-                                {buttonDisabled
-                                    ? `Refresh (${remainingCooldown} seconds)`
-                                    : 'Refresh'}
+                                {buttonDisabled ? (
+                                    `Refresh (${remainingCooldown} seconds)`
+                                ) : loading ? (
+                                    'Fetching Data...'
+                                ) : (
+                                    'Refresh'
+                                )}
                                 <RefreshRoundedIcon
                                     style={{ transform: loading ? 'rotate(1080deg)' : 'none', transition: 'transform 3s ease-in-out' }}
                                 />
@@ -408,8 +412,13 @@ const HarvesterTable: React.FC = () => {
 
                         {/* No Data Message */}
                         {!loading && estateData.length === 0 && harvesterData.length === 0 && (
-                            <h4 className='text-center pb-10'>Click on Refresh button to show the data.</h4>
+                            <h4 className='text-center pb-10'>Click on <strong> Refresh </strong> button to show the data.</h4>
                         )}
+
+                        {/* Loading Message */}
+                        {loading &&
+                            <LinearProgress className='mb-4 bg-orange-300 shadow-lg shadow-orange-500/50' color="primary" />
+                        }
                     </div>
 
                 )}
