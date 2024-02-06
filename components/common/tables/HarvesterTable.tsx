@@ -247,7 +247,7 @@ const HarvesterTable: React.FC = () => {
             const currentHour = new Date().getHours();
 
             // Check if the current hour is between 8 and 20
-            if (currentHour >= 8 && currentHour < 24 && !buttonDisabled) {
+            if (currentHour >= 8 && currentHour < 20 && !buttonDisabled) {
                 const apiUrl = 'http://103.121.213.173/webapi/dashboard/getCurrentProduction.php';
 
                 const requestData: RequestData = {

@@ -28,7 +28,7 @@ const Topbar = ({ sidebarOpen, setSidebarOpen }: TopbarProp) => {
               cursor-pointer"
                         ></span>
                     </Button>
-                    <Link className="block flex-shrink-0 2xl-hidden pl-3 sm:pl-0" href="home">
+                    <Link className="block flex-shrink-0 2xl-hidden pl-3 sm:pl-0" href={"/dashboard/home"}>
                         <Image
                             src={CompanyLogo}
                             width={32}
