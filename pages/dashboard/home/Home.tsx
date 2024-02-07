@@ -39,7 +39,8 @@ function Home() {
 
     const buttons = [
         <IconButton
-            className='bg-white/60 z-9999 ease-in-out duration-300 hover:bg-white' key='one'
+            className='bg-white/60 z-9999 ease-in-out duration-300 hover:bg-white' 
+            key='one'
             onClick={handleScrollToFirstSection}
         >
             <BadgeRoundedIcon />
