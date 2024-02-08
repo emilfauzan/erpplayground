@@ -24,7 +24,7 @@ async function postData(url: string, data: RequestData) {
     })
 
     const result: ApiResponse[] = await response.json();
-    // console.log(JSON.stringify(result)); // stringify response
+    // console.log(JSON.stringify(result)); // stringify the response
 
     return result;
 }
