@@ -479,11 +479,13 @@ const HarvesterTable: React.FC = () => {
                 {/* Harvester Table */}
                 {harvesterData.length > 0 && (
                     <div>
+
                         {/* Loading LinearProgress Bar Start */}
                 {loading &&
                     <LinearProgress className='mb-4 bg-[#F1F5F9] rounded-full' color="warning" />
                 }
                         {/* Loading LinearProgress Bar End */}
+                        
                         <div className='rounded-md flex-shrink-0 flex justify-between items-center p-4 bg-[#37474f]' id='section-3' style={{ scrollMarginTop: '5em' }}>
                             <Typography
                                 sx={{ flex: '1 1 100%' }}
