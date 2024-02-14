@@ -476,7 +476,7 @@ const HarvesterTable: React.FC = () => {
                     </div>
                 )}
 
-                {/* Harvester Table */}
+                {/* Harvester Table Start */}
                 {harvesterData.length > 0 && (
                     <div>
 
@@ -536,6 +536,8 @@ const HarvesterTable: React.FC = () => {
                         )}
                     </div>
                 )}
+                {/* Harvester Table End */}
+
 
             </Paper >
         </Box >
