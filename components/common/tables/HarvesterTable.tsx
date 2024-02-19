@@ -415,7 +415,7 @@ const HarvesterTable: React.FC = () => {
                             <h4 className='text-center pb-10'>Click on <strong> Refresh </strong> button to show the data.</h4>
                         )}
 
-                        {/* Loading LinearProgress Bar */}
+                        {/* Loading Linear Progress Bar */}
                         {loading &&
                             <LinearProgress className='mb-4 bg-[#F1F5F9] rounded-full' color="warning" />
                         }
