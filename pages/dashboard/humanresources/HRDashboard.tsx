@@ -1,16 +1,46 @@
+"use client";
+import CardDataStats from '@/components/common/cards/CardDataStats'
 import { Typography } from '@mui/material'
 import React from 'react'
+import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
+import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
 
-const HRDashboard = () => {
+function HRDashboard() {
     return (
         <>
             <Typography className='pb-6 font-bold' variant='h5'>
                 Human Resources Dashboard
             </Typography>
 
-            <Typography variant='body1'>
-                This is a Human Resources Dashboard page. <br /> Kindly please wait for our further development process.
-            </Typography>
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-2 2xl:gap-7.5">
+
+                <CardDataStats
+                    title="Daftar Kehadiran"
+                    subtitle1={`Total kehadiran: 137 Karyawan`}
+                    subtitle2={`Total Ketidakhadiran: 18 Karyawan`}
+                    subtitle3={``}
+                    description={``}
+                    index={2}
+                >
+                    <svg width="30" height="30" fill="none">
+                        <PersonOutlineRoundedIcon />
+                    </svg>
+                </CardDataStats>
+
+                <CardDataStats
+                    title="Status Kehadiran"
+                    subtitle1={`Kehadiran tanggal 24 Januari 2024`}
+                    subtitle2={`Jumlah Kehadiran: 18`}
+                    subtitle3={`Jumlah Ketidakhadiran: 0`}
+                    description={`Absen Terakhir: 24-01-2024 (18:35)`}
+                    index={0}
+                >
+                    <svg width="30" height="30" fill="none">
+                        <WorkHistoryOutlinedIcon />
+                    </svg>
+                </CardDataStats>
+
+            </div>
         </>
     )
 }

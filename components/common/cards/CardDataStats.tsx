@@ -18,11 +18,25 @@ export default function CardDataStats({
     index
 }: CardDataStatProp) {
 
-    // if else color based on index class
-    const subtitle1Color = index % 2 === 0 ? "" : "";
-    const subtitle2Color = index % 2 === 0 ? "rgba(96, 165, 42, 0.2)" : "";
-    const subtitle3Color = index % 2 === 0 ? "rgba(239, 68, 68, 0.2)" : "";
-    const descriptionColor = index % 2 === 0 ? "" : "";
+    // if else color based on index value
+    const subtitle1Color =
+        index === 0 ? "" :
+            index === 1 ? "" :
+                index === 2 ? "rgba(96, 165, 42, 0.2)" :
+                    index === 3 ? "rgba(96, 100, 42, 0.2)" : "";
+
+    const subtitle2Color =
+        index === 0 ? "" :
+            index === 1 ? "rgba(96, 165, 42, 0.2)" :
+                index === 2 ? "rgba(239, 68, 68, 0.2)" : "";
+
+    const subtitle3Color =
+        index === 0 ? "" :
+            index === 1 ? "rgba(239, 68, 68, 0.2)" : "";
+
+    const descriptionColor =
+        index === 0 ? "" :
+            index === 1 ? "" : "";
 
     return (
         <>

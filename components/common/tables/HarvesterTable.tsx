@@ -252,12 +252,12 @@ const HarvesterTable: React.FC = () => {
 
                 const requestData: RequestData = {
                     // Manual request input
-                    // p_date: '22-01-2024',
-                    // p_sectioncode: '01',
+                    p_date: '16-02-2024',
+                    p_sectioncode: '05',
 
                     // Automated request input by now date
-                    p_date: formattedDate,
-                    p_sectioncode: sectionCode,
+                    // p_date: formattedDate,
+                    // p_sectioncode: sectionCode,
                 };
 
                 const jsonResponse = await postData(apiUrl, requestData);
