@@ -28,15 +28,17 @@ export default function CardDataStats({
     const subtitle2Color =
         index === 0 ? "" :
             index === 1 ? "rgba(96, 165, 42, 0.2)" :
-                index === 2 ? "rgba(239, 68, 68, 0.2)" : "";
+                index === 2 ? "rgba(255, 235, 59, 0.2)" : "";
 
     const subtitle3Color =
         index === 0 ? "" :
-            index === 1 ? "rgba(239, 68, 68, 0.2)" : "";
+            index === 1 ? "rgba(239, 68, 68, 0.2)" :
+                index === 2 ? "rgba(33, 150, 243, 0.2)" : "";
 
     const descriptionColor =
         index === 0 ? "" :
-            index === 1 ? "" : "";
+            index === 1 ? "" :
+                index === 2 ? "rgba(239, 68, 68, 0.2)" : "";
 
     return (
         <>

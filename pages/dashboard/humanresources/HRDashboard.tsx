@@ -16,10 +16,10 @@ function HRDashboard() {
 
                 <CardDataStats
                     title="Daftar Kehadiran"
-                    subtitle1={`Total kehadiran: 137 Karyawan`}
-                    subtitle2={`Total Ketidakhadiran: 18 Karyawan`}
-                    subtitle3={``}
-                    description={``}
+                    subtitle1={`Kehadiran: 137 Karyawan`}
+                    subtitle2={`Izin: 18 Karyawan`}
+                    subtitle3={`Sakit: 6 Karyawan`}
+                    description={`Mangkir: 21 Karyawan`}
                     index={2}
                 >
                     <svg width="30" height="30" fill="none">
