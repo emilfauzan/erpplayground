@@ -14,6 +14,7 @@ function HRDashboard() {
 
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-2 2xl:gap-7.5">
 
+                {/* Employee Presence Status */}
                 <CardDataStats
                     title="Daftar Kehadiran"
                     subtitle1={`Kehadiran: 137 Karyawan`}
