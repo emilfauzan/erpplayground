@@ -266,7 +266,7 @@ const HarvesterTable: React.FC = () => {
                 const estateData = jsonResponse.filter(item => item.GROUP_DATA === 'ESTATE');
                 const harvesterData = jsonResponse.filter(item => item.GROUP_DATA !== 'ESTATE');
 
-                // Typescript syntax to set the data on each table
+                // Typescript syntax to set the data onto each table
                 setEstateData(estateData);
                 setHarvesterData(harvesterData);
 
