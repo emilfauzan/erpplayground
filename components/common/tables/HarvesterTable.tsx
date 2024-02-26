@@ -252,12 +252,12 @@ const HarvesterTable: React.FC = () => {
 
                 const requestData: RequestData = {
                     // Manual request input
-                    p_date: '16-02-2024',
-                    p_sectioncode: '05',
+                    // p_date: '16-02-2024',
+                    // p_sectioncode: '05',
 
                     // Automated request input by now date
-                    // p_date: formattedDate,
-                    // p_sectioncode: sectionCode,
+                    p_date: formattedDate,
+                    p_sectioncode: sectionCode,
                 };
 
                 const jsonResponse = await postData(apiUrl, requestData);
@@ -440,7 +440,7 @@ const HarvesterTable: React.FC = () => {
                         {loading && (
                             // Skeleton loading for table header
                             <div className='my-1' style={{ height: 100, width: '100%', animationDuration: "0.4s" }}>
-                                <Skeleton variant="rounded" height={100} animation="wave"  />
+                                <Skeleton variant="rounded" height={100} animation="wave" />
                             </div>
                         )}
                         {loading && (
@@ -481,11 +481,11 @@ const HarvesterTable: React.FC = () => {
                     <div>
 
                         {/* Loading Linear ProgressBar Start */}
-                {loading &&
-                    <LinearProgress className='mb-4 bg-[#F1F5F9] rounded-full' color="warning" />
-                }
+                        {loading &&
+                            <LinearProgress className='mb-4 bg-[#F1F5F9] rounded-full' color="warning" />
+                        }
                         {/* Loading Linear ProgressBar End */}
-                        
+
                         <div className='rounded-md flex-shrink-0 flex justify-between items-center p-4 bg-[#37474f]' id='section-3' style={{ scrollMarginTop: '5em' }}>
                             <Typography
                                 sx={{ flex: '1 1 100%' }}
