@@ -52,8 +52,8 @@ const ProductionDashboard = () => {
         const apiUrl = 'http://103.121.213.173/webapi/dashboard/getCurrentProduction.php';
 
         const requestData: RequestData = {
-            p_date: '14-12-2023',
-            p_sectioncode: '04',
+            p_date: '5-02-2024',
+            p_sectioncode: '01',
         };
 
         try {
