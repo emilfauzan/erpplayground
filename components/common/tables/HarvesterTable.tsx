@@ -252,8 +252,8 @@ const HarvesterTable: React.FC = () => {
 
                 const requestData: RequestData = {
                     // Manual request input
-                    p_date: '05-02-2024',
-                    p_sectioncode: '01',
+                    p_date: '23-03-2024',
+                    p_sectioncode: '05',
 
                     // Automated request input by now date
                     // p_date: formattedDate,
