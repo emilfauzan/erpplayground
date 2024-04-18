@@ -23,10 +23,7 @@ const Topbar = ({ sidebarOpen, setSidebarOpen }: TopbarProp) => {
                         variant='text'
                     >
                         <MenuIcon />
-                        <span
-                            className="relative block 
-              cursor-pointer"
-                        ></span>
+                        <span className="relative block cursor-pointer"></span>
                     </Button>
                     <Link className="block flex-shrink-0 2xl-hidden pl-3 sm:pl-0" href={"/dashboard/home"}>
                         <Image
@@ -37,9 +34,9 @@ const Topbar = ({ sidebarOpen, setSidebarOpen }: TopbarProp) => {
                         />
                     </Link>
                     <div className='flex'>
-                    <Typography className='font-cinzel font-bold hidden 3xsm:block tracking-wide pl-2'>
-                        PT. BANGKITGIAT USAHA MANDIRI
-                    </Typography>
+                        <Typography className='font-cinzel font-bold hidden 3xsm:block tracking-wide pl-2'>
+                            PT. BANGKITGIAT USAHA MANDIRI
+                        </Typography>
 
                     </div>
                 </div>
