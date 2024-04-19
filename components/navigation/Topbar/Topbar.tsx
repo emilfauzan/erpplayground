@@ -41,7 +41,7 @@ const Topbar = ({ sidebarOpen, setSidebarOpen }: TopbarProp) => {
                     </div>
                 </div>
                 <div className='hidden 2xl:block'>
-                    <Typography variant='h6' className='tracking-wider text-black text-center font-cinzel '>
+                    <Typography variant='h6' className='tracking-wider text-black font-cinzel text-center'>
                         PT. BANGKITGIAT USAHA MANDIRI <br />
                         PALM OIL PLANTATION & MILL
                     </Typography>
