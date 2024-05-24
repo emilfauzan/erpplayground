@@ -252,12 +252,12 @@ const HarvesterTable: React.FC = () => {
 
                 const requestData: RequestData = {
                     // Manual request input
-                    p_date: '16-02-2024',
-                    p_sectioncode: '05',
+                    // p_date: '29-03-2024',
+                    // p_sectioncode: '05',
 
                     // Automated request input by now date
-                    // p_date: formattedDate,
-                    // p_sectioncode: sectionCode,
+                    p_date: formattedDate,
+                    p_sectioncode: sectionCode,
                 };
 
                 const jsonResponse = await postData(apiUrl, requestData);
@@ -266,7 +266,7 @@ const HarvesterTable: React.FC = () => {
                 const estateData = jsonResponse.filter(item => item.GROUP_DATA === 'ESTATE');
                 const harvesterData = jsonResponse.filter(item => item.GROUP_DATA !== 'ESTATE');
 
-                // Typescript syntax to set the data on each table
+                // Typescript syntax to set the data onto each table
                 setEstateData(estateData);
                 setHarvesterData(harvesterData);
 
